@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Test of utils functions</title>
+<script type="text/javascript" src="jslib/jquery/jquery.min.1.4.1.js"></script>
+<script type="text/javascript" src="js/utils/utils.js"></script>
+
+<script type="text/javascript">
+	function startTests() {
+		test (testParseJSON, "Testing json Parser");
+	};
+	
+	function test (functionName, message) {
+		document.writeln(message);
+		try {
+			if (functionName()) {
+				document.writeln("Test succeeded");
+			} else {
+				document.writeln("Test failed");
+			}
+		} catch (e) {
+			document.writeln("Test failed: " + e.Message);
+		}
+		document.writeln("\n\n");
+	};
+	
+	function testParseJSON () {
+		var data = '{"wcstiffurl":"http://biovel.iais.fraunhofer.de/geoserver/ows?service=WCS&version=1.0.0&request=GetCoverage&sourcecoverage=admin:rastermask_20120904_142428_904&FORMAT=image/tiff&bbox=-14.285522392806,44.076025077177,17.530883857194,57.883144770573224&crs=EPSG:4326&width=636&height=276",' +
+			'"wcsgridurl":"http://biovel.iais.fraunhofer.de/geoserver/ows?service=WCS&version=1.0.0&request=GetCoverage&sourcecoverage=admin:rastermask_20120904_142428_904&FORMAT=application/arcgrid&bbox=-14.285522392806,44.076025077177,17.530883857194,57.883144770573224&crs=EPSG:4326&width=636&height=276",' +
+			'"pngurl":"http://biovel.iais.fraunhofer.de/geoserver/ows?service=WMS&version=1.1.0&request=GetMap&layers=admin:rastermask_20120904_142428_904&styles=&bbox=-14.285522392806,44.076025077177,17.530883857194,57.883144770573224&crs=EPSG:4326&width=636&height=276&format=image%2Fpng",' +
+			'"wmsurl":"http://biovel.iais.fraunhofer.de/geoserver/ows?service=WMS&version=1.1.0&request=GetMap",' +
+			'"layername":"admin:rastermask_20120904_142428_904",' +
+			'"nativeFormat":"ERDASImg",' +
+			'"srs":"EPSG:4326",' +
+			'"boundingbox":"-14.285522392806,44.076025077177,17.530883857194,57.883144770573224",' +
+			'"resolution":"636,276",' +
+			'"supportedFormats":"GIF,PNG,JPEG,TIFF,GEOTIFF,ARCGRID"}';
+		var record;
+		try {
+			record = parseJSON (data, ['wcsgridurl', 'wmsurl', 'layername']);
+			if ( record.wcsgridurl == "http://biovel.iais.fraunhofer.de/geoserver/ows?service=WCS&version=1.0.0&request=GetCoverage&sourcecoverage=admin:rastermask_20120904_142428_904&FORMAT=application/arcgrid&bbox=-14.285522392806,44.076025077177,17.530883857194,57.883144770573224&crs=EPSG:4326&width=636&height=276" &&
+				 record.wmsurl == "http://biovel.iais.fraunhofer.de/geoserver/ows?service=WMS&version=1.1.0&request=GetMap" &&
+				 record.layername == "admin:rastermask_20120904_142428_904" && record.length == 3) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (e) {
+			throw new Error (e.Message);
+		}
+			
+	}
+</script>
+</head>
+<body onload="startTests()">
+	<h3>Testing utility functions...</h3>
+</body>
+</html>

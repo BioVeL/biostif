@@ -1,0 +1,189 @@
+<?xml-stylesheet type="text/xsl" href="http://data.gbif.org/ws/rest/occurrence/stylesheet"?>
+<gbifResponse xsi:schemaLocation="http://portal.gbif.org/ws/response/gbif http://data.gbif.org/ws/rest/occurrence/schema http://purl.org/dc/elements/1.1/ http://data.gbif.org/schema/dc.xsd http://purl.org/dc/terms/ http://data.gbif.org/schema/dcterms.xsd http://www.w3.org/1999/02/22-rdf-syntax-ns# http://data.gbif.org/schema/rdf.xsd http://www.w3.org/2002/07/owl# http://data.gbif.org/schema/owl.xsd http://rs.tdwg.org/ontology/voc/Common# http://data.gbif.org/schema/tcom.xsd http://rs.tdwg.org/ontology/voc/TaxonOccurrence# http://data.gbif.org/schema/TaxonOccurrence.xsd http://rs.tdwg.org/ontology/voc/TaxonConcept# http://data.gbif.org/schema/TaxonConcept.xsd http://rs.tdwg.org/ontology/voc/TaxonName# http://data.gbif.org/schema/TaxonName.xsd" xmlns="http://portal.gbif.org/ws/response/gbif" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tax="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#" xmlns:tax1="http://rs.tdwg.org/ontology/voc/TaxonConcept#" xmlns:tax2="http://rs.tdwg.org/ontology/voc/TaxonName#">
+  <header>
+    <statements>-
+
+This document contains data shared through the GBIF Network - see http://data.gbif.org/ for more information.
+					
+All usage of these data must be in accordance with the GBIF Data Use Agreement - see http://www.gbif.org/DataProviders/Agreements/DUA
+
+	 -</statements>
+    <help>http://data.gbif.org/ws/rest/occurrence/help</help>
+    <request>list</request>
+    <parameter name="service" value="occurrence"/>
+    <parameter name="mode" value="raw"/>
+    <parameter name="request" value="list"/>
+    <parameter name="format" value="brief"/>
+  </header>
+  <dataProviders>
+	<dataProvider gbifKey="118" rdf:about="118">
+		<name>Museum für Naturkunde Berlin</name>		
+		<dataResource gbifKey="9178" rdf:about="9178">
+			<name>MfN - Fossil vertebrates IV</name>		
+			<occurrenceRecords>		
+			
+				<tax:TaxonOccurrence gbifKey="164924371" rdf:about="http://data.gbif.org/ws/rest/occurrence/get?key=164924371">
+				  <tax:catalogNumber>33658</tax:catalogNumber>
+				  <tax:country>ES</tax:country>
+				  <tax:decimalLatitude>42.48</tax:decimalLatitude>
+				  <tax:decimalLongitude>0.99</tax:decimalLongitude>
+				  <tax:earliestDateCollected></tax:earliestDateCollected>
+				  <tax:identifiedTo>
+				    <tax:Identification>
+				      <tax:taxon>
+				        <tax1:TaxonConcept gbifKey="2437377" rdf:about="2437377">
+				          <tax1:hasName>
+				            <tax2:TaxonName>
+				              <tax2:nameComplete>Marmota marmota</tax2:nameComplete>
+				              <tax2:genusPart>Marmota</tax2:genusPart>
+				              <tax2:specificEpithet>marmota</tax2:specificEpithet>
+				              <tax2:scientific>true</tax2:scientific>
+				            </tax2:TaxonName>
+				          </tax1:hasName>
+				        </tax1:TaxonConcept>
+				      </tax:taxon>
+				      <tax:taxonName>Marmota marmota</tax:taxonName>
+				    </tax:Identification>
+				  </tax:identifiedTo>
+				  <tax:latestDateCollected></tax:latestDateCollected>
+				</tax:TaxonOccurrence>
+			
+				<tax:TaxonOccurrence gbifKey="161081962" rdf:about="http://data.gbif.org/ws/rest/occurrence/get?key=161081962">
+				  <tax:catalogNumber>INPN_21156958</tax:catalogNumber>
+				  <tax:country>FR</tax:country>
+				  <tax:decimalLatitude>42.87184</tax:decimalLatitude>
+				  <tax:decimalLongitude>0.1362863</tax:decimalLongitude>
+				  <tax:earliestDateCollected></tax:earliestDateCollected>
+				  <tax:identifiedTo>
+				    <tax:Identification>
+				      <tax:taxon>
+				        <tax1:TaxonConcept gbifKey="2437377" rdf:about="2437377">
+				          <tax1:hasName>
+				            <tax2:TaxonName>
+				              <tax2:nameComplete>Marmota marmota (Linnaeus, 1758)</tax2:nameComplete>
+				              <tax2:genusPart>Marmota</tax2:genusPart>
+				              <tax2:specificEpithet>marmota</tax2:specificEpithet>
+				              <tax2:scientific>true</tax2:scientific>
+				            </tax2:TaxonName>
+				          </tax1:hasName>
+				        </tax1:TaxonConcept>
+				      </tax:taxon>
+				      <tax:taxonName>Marmota marmota (Linnaeus, 1758)</tax:taxonName>
+				    </tax:Identification>
+				  </tax:identifiedTo>
+				  <tax:latestDateCollected></tax:latestDateCollected>
+				</tax:TaxonOccurrence>
+			
+				<tax:TaxonOccurrence gbifKey="230773630" rdf:about="http://data.gbif.org/ws/rest/occurrence/get?key=230773630">
+				  <tax:catalogNumber>MB.Ma.1586</tax:catalogNumber>
+				  <tax:country>DE</tax:country>
+				  <tax:decimalLatitude></tax:decimalLatitude>
+				  <tax:decimalLongitude></tax:decimalLongitude>
+				  <tax:earliestDateCollected></tax:earliestDateCollected>
+				  <tax:identifiedTo>
+				    <tax:Identification>
+				      <tax:taxon>
+				        <tax1:TaxonConcept gbifKey="2437377" rdf:about="2437377">
+				          <tax1:hasName>
+				            <tax2:TaxonName>
+				              <tax2:nameComplete>Marmota marmota</tax2:nameComplete>
+				              <tax2:genusPart>Marmota</tax2:genusPart>
+				              <tax2:specificEpithet>marmota</tax2:specificEpithet>
+				              <tax2:scientific>true</tax2:scientific>
+				            </tax2:TaxonName>
+				          </tax1:hasName>
+				        </tax1:TaxonConcept>
+				      </tax:taxon>
+				      <tax:taxonName>Marmota marmota</tax:taxonName>
+				    </tax:Identification>
+				  </tax:identifiedTo>
+				  <tax:latestDateCollected></tax:latestDateCollected>
+				</tax:TaxonOccurrence>
+					<tax:TaxonOccurrence gbifKey="230774902" rdf:about="http://data.gbif.org/ws/rest/occurrence/get?key=230774902">
+				  <tax:catalogNumber>MB.Ma.27503</tax:catalogNumber>
+				  <tax:country>DE</tax:country>
+				  <tax:decimalLatitude></tax:decimalLatitude>
+				  <tax:decimalLongitude></tax:decimalLongitude>
+				  <tax:earliestDateCollected></tax:earliestDateCollected>
+				  <tax:identifiedTo>
+				    <tax:Identification>
+				      <tax:taxon>
+				        <tax1:TaxonConcept gbifKey="2437377" rdf:about="2437377">
+				          <tax1:hasName>
+				            <tax2:TaxonName>
+				              <tax2:nameComplete>Marmota marmota</tax2:nameComplete>
+				              <tax2:genusPart>Marmota</tax2:genusPart>
+				              <tax2:specificEpithet>marmota</tax2:specificEpithet>
+				              <tax2:scientific>true</tax2:scientific>
+				            </tax2:TaxonName>
+				          </tax1:hasName>
+				        </tax1:TaxonConcept>
+				      </tax:taxon>
+				      <tax:taxonName>Marmota marmota</tax:taxonName>
+				    </tax:Identification>
+				  </tax:identifiedTo>
+				  <tax:latestDateCollected></tax:latestDateCollected>
+				</tax:TaxonOccurrence>
+					<tax:TaxonOccurrence gbifKey="230775045" rdf:about="http://data.gbif.org/ws/rest/occurrence/get?key=230775045">
+				  <tax:catalogNumber>MB.Ma.27745</tax:catalogNumber>
+				  <tax:country>DE</tax:country>
+				  <tax:decimalLatitude></tax:decimalLatitude>
+				  <tax:decimalLongitude></tax:decimalLongitude>
+				  <tax:earliestDateCollected></tax:earliestDateCollected>
+				  <tax:identifiedTo>
+				    <tax:Identification>
+				      <tax:taxon>
+				        <tax1:TaxonConcept gbifKey="2437377" rdf:about="2437377">
+				          <tax1:hasName>
+				            <tax2:TaxonName>
+				              <tax2:nameComplete>Marmota marmota</tax2:nameComplete>
+				              <tax2:genusPart>Marmota</tax2:genusPart>
+				              <tax2:specificEpithet>marmota</tax2:specificEpithet>
+				              <tax2:scientific>true</tax2:scientific>
+				            </tax2:TaxonName>
+				          </tax1:hasName>
+				        </tax1:TaxonConcept>
+				      </tax:taxon>
+				      <tax:taxonName>Marmota marmota</tax:taxonName>
+				    </tax:Identification>
+				  </tax:identifiedTo>
+				  <tax:latestDateCollected></tax:latestDateCollected>
+				</tax:TaxonOccurrence>
+				</occurrenceRecords>	
+		</dataResource>
+	</dataProvider>
+	<dataProvider gbifKey="220" rdf:about="220">
+		<name>National Museum of Natural History</name>	
+		<dataResource gbifKey="1837" rdf:about="1837">
+			<name>NMNH Vertebrate Zoology Mammals Collections</name>		
+			<occurrenceRecords>			
+				<tax:TaxonOccurrence gbifKey="240133675" rdf:about="http://data.gbif.org/ws/rest/occurrence/get?key=240133675">
+				  <tax:catalogNumber>154008</tax:catalogNumber>
+				  <tax:country>IT</tax:country>
+				  <tax:decimalLatitude></tax:decimalLatitude>
+				  <tax:decimalLongitude></tax:decimalLongitude>
+				  <tax:earliestDateCollected></tax:earliestDateCollected>
+				  <tax:identifiedTo>
+				    <tax:Identification>
+				      <tax:taxon>
+				        <tax1:TaxonConcept gbifKey="2437377" rdf:about="2437377">
+				          <tax1:hasName>
+				            <tax2:TaxonName>
+				              <tax2:nameComplete>Marmota marmota</tax2:nameComplete>
+				              <tax2:genusPart>Marmota</tax2:genusPart>
+				              <tax2:specificEpithet>marmota</tax2:specificEpithet>
+				              <tax2:scientific>true</tax2:scientific>
+				            </tax2:TaxonName>
+				          </tax1:hasName>
+				        </tax1:TaxonConcept>
+				      </tax:taxon>
+				      <tax:taxonName>Marmota marmota</tax:taxonName>
+				    </tax:Identification>
+				  </tax:identifiedTo>
+				  <tax:latestDateCollected></tax:latestDateCollected>
+				</tax:TaxonOccurrence>
+				</occurrenceRecords>	
+		</dataResource>
+	</dataProvider>		
+	</dataProviders>	
+</gbifResponse>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<!-- <script type="text/javascript" src="jslib/jquery/jquery.min.1.4.1.js"></script> -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="jslib/jquery/jquery.i18n.properties-1.0.9.js"></script>
+<script type="text/javascript" src="js/utils/utils.js"></script>
+<script type="text/javascript" src="js/biovel.js"></script>
+
+
+<script type="text/javascript">
+      	// load I18N bundles
+		jQuery(document).ready(function() {
+			loadBundles('en');
+							
+		});
+		function loadBundles(lang) {
+			jQuery.i18n.properties({
+			    name:'messages', 
+			    path:'bundle/', 
+			    mode:'map',
+			    language:lang, 
+			    callback: function() {
+			    	//alert("Als var " + eval('msg_fullscreen_starting'));
+			       alert("Als prop. " + jQuery.i18n.prop('msg_fullscreen_starting'));
+			       alert ("Version: " + getVersion());
+			    }
+			});
+		}
+		
+		
+      </script>
+   </HEAD>
+   
+   <BODY>
+      <h2>jQuery.i18n.properties :: Demo</h2>
+      
+      
+   </BODY>
+</HTML>

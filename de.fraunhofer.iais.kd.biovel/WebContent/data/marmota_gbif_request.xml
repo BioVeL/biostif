@@ -1,0 +1,3908 @@
+<?xml version="1.0" encoding="UTF-8"?><gbif:gbifResponse xmlns:gbif="http://portal.gbif.org/ws/response/gbif" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:tc="http://rs.tdwg.org/ontology/voc/TaxonConcept#" xmlns:tcom="http://rs.tdwg.org/ontology/voc/Common#" xmlns:tn="http://rs.tdwg.org/ontology/voc/TaxonName#" xmlns:to="http://rs.tdwg.org/ontology/voc/TaxonOccurrence#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://portal.gbif.org/ws/response/gbif http://data.gbif.org/ws/rest/occurrence/schema http://purl.org/dc/elements/1.1/ http://data.gbif.org/schema/dc.xsd http://purl.org/dc/terms/ http://data.gbif.org/schema/dcterms.xsd http://www.w3.org/1999/02/22-rdf-syntax-ns# http://data.gbif.org/schema/rdf.xsd http://www.w3.org/2002/07/owl# http://data.gbif.org/schema/owl.xsd http://rs.tdwg.org/ontology/voc/Common# http://data.gbif.org/schema/tcom.xsd http://rs.tdwg.org/ontology/voc/TaxonOccurrence# http://data.gbif.org/schema/TaxonOccurrence.xsd http://rs.tdwg.org/ontology/voc/TaxonConcept# http://data.gbif.org/schema/TaxonConcept.xsd http://rs.tdwg.org/ontology/voc/TaxonName# http://data.gbif.org/schema/TaxonName.xsd">
+ <gbif:header>
+  <gbif:help>http://data.gbif.org/ws/rest/occurrence/help
+</gbif:help>
+  <gbif:request>list</gbif:request>
+  <gbif:statements>-
+
+This document contains data shared through the GBIF Network - see http://data.gbif.org/ for more information.
+					
+All usage of these data must be in accordance with the GBIF Data Use Agreement - see http://www.gbif.org/DataProviders/Agreements/DUA
+
+Please cite these data as follows:
+
+American Museum of Natural History, Mammals (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/8439, 2012-02-08)
+Arctos, Data on the host organisms of parasites in the Museum of Southwestern Biology's Parasite Collection (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/13479, 2012-02-08)
+Arctos, University of Alaska Museum, Earth Science Collection (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/7927, 2012-02-08)
+California Academy of Sciences, Mammal Collection Catalog (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/162, 2012-02-08)
+Cornell University Museum of Vertebrates, Mammal Collection (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/148, 2012-02-08)
+Field Museum, FMNH Mammals Collections (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/177, 2012-02-08)
+Los Angeles County Museum of Natural History, Vertebrate specimens (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/1795, 2012-02-08)
+Marine Science Institute, UCSB, Paleobiology Database (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/563, 2012-02-08)
+Museo Argentino de Ciencias Naturales, Colección Nacional de Mastozoología - Museo Argentino de Ciencias Naturales 'Bernardino Rivadavia' (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/9115, 2012-02-08)
+Museum für Naturkunde Berlin, MfN - Fossil vertebrates IV (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/9178, 2012-02-08)
+Museum of Natural and Cultural History - University of Oregon, condoncollection (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/13467, 2012-02-08)
+Museum of Texas Tech University (TTU), Mammal specimens (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/582, 2012-02-08)
+National Museum of Natural History, NMNH Vertebrate Zoology Mammals Collections (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/1837, 2012-02-08)
+Natural History Museum, University of Oslo, Mammal collection, Natural History Museum, University of Oslo (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/8067, 2012-02-08)
+OZCAM (Online Zoological Collections of Australian Museums) Provider, South Australian Museum Australia provider for OZCAM (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/9111, 2012-02-08)
+PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Ettingen (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/6142, 2012-02-08)
+PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Kesslerloch (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/6078, 2012-02-08)
+PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Lespezi-Lutarie (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/6056, 2012-02-08)
+PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Rislisberghöhle (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/6079, 2012-02-08)
+PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Roter Berg bei Saalfeld (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/6116, 2012-02-08)
+PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Stadel im Hohlenstein (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/6206, 2012-02-08)
+PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Sveduv stul (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/6091, 2012-02-08)
+Royal Ontario Museum, Mammal specimens (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/657, 2012-02-08)
+Senckenberg, Collection Mammalia SMF (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/8313, 2012-02-08)
+The Swedish Museum of Natural History (NRM), Mammals (NRM) (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/1041, 2012-02-08)
+The Swedish Museum of Natural History (NRM), Mammals of the Gothenburg Natural History Museum (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/1047, 2012-02-08)
+UCLA-Dickey Collection (UCLA-Dickey), Bird and Mammal specimens (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/1846, 2012-02-08)
+University of Alaska Museum of the North, Division of Mammals, Museum of Southwestern Biology, Albuquerque, NM. (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/980, 2012-02-08)
+University of Colorado Museum of Natural History, CUMNH Mammal Collection (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/2467, 2012-02-08)
+University of Michigan Museum of Zoology (UMMZ), Mammal specimens (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/801, 2012-02-08)
+University of Washington Burke Museum, Mammal Specimens (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/124, 2012-02-08)
+Yale University Peabody Museum, Peabody Mammalogy DiGIR Service (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/1022, 2012-02-08)
+Yale University Peabody Museum, Peabody Paleoportal DiGIR Service (VP) (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/8177, 2012-02-08)
+Yale University Peabody Museum, Peabody Vertebrate Paleontology DiGIR Service (accessed through GBIF data portal, http://data.gbif.org/datasets/resource/8142, 2012-02-08)
+
+-
+</gbif:statements>
+  <gbif:stylesheet>http://data.gbif.org/ws/rest/occurrence/stylesheet</gbif:stylesheet>
+  <gbif:parameter name="maxresults" value="1000"/>
+  <gbif:parameter name="request" value="list"/>
+  <gbif:parameter name="service" value="occurrence"/>
+  <gbif:parameter name="format" value="brief"/>
+  <gbif:parameter name="scientificname" value="Marmota"/>
+  <gbif:parameter name="mode" value="raw"/>
+<gbif:summary start="0" totalMatched="170" totalReturned="170"/>
+ </gbif:header><gbif:dataProviders>
+ <gbif:dataProvider gbifKey="305" rdf:about="http://data.gbif.org/ws/rest/provider/get/305">
+  <gbif:name>American Museum of Natural History</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="8439" rdf:about="http://data.gbif.org/ws/rest/resource/get/8439">
+     <gbif:name>Mammals</gbif:name>
+     <gbif:rights>The terms and conditions of use of AMNH data are given in the document found at http://research.amnh.org/vertzoo/TandC.pdf.</gbif:rights>
+     <gbif:citation>AMNH Mammal Collection</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="214031548" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031548">
+       <to:catalogNumber>MS-5232</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031644" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031644">
+       <to:catalogNumber>M-125685</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031114" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031114">
+       <to:catalogNumber>M-212480</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031175" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031175">
+       <to:catalogNumber>M-54647</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031140" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031140">
+       <to:catalogNumber>M-146525</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031647" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031647">
+       <to:catalogNumber>M-125686</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031117" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031117">
+       <to:catalogNumber>M-212483</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031207" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031207">
+       <to:catalogNumber>M-117616</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031645" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031645">
+       <to:catalogNumber>M-125682</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031181" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031181">
+       <to:catalogNumber>M-200177</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031206" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031206">
+       <to:catalogNumber>M-117615</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031646" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031646">
+       <to:catalogNumber>M-125683</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031163" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031163">
+       <to:catalogNumber>M-173540</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031164" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031164">
+       <to:catalogNumber>M-173541</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031822" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031822">
+       <to:catalogNumber>M-20791</to:catalogNumber>
+       <to:country>ZOO</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214030836" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214030836">
+       <to:catalogNumber>M-202872</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214030824" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214030824">
+       <to:catalogNumber>M-63977</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214030823" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214030823">
+       <to:catalogNumber>M-202977</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031643" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031643">
+       <to:catalogNumber>M-128711</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031169" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031169">
+       <to:catalogNumber>M-42262</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031180" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031180">
+       <to:catalogNumber>M-200141</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031208" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031208">
+       <to:catalogNumber>M-117618</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214030837" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214030837">
+       <to:catalogNumber>M-54648</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031116" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031116">
+       <to:catalogNumber>M-212482</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="214031115" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/214031115">
+       <to:catalogNumber>M-212481</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56717848" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56717848">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="39" rdf:about="http://data.gbif.org/ws/rest/provider/get/39">
+  <gbif:name>Cornell University Museum of Vertebrates</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="148" rdf:about="http://data.gbif.org/ws/rest/resource/get/148">
+     <gbif:name>Mammal Collection</gbif:name>
+     <gbif:rights>CUMV data records may be used by individual researchers or research groups, but they may not be repackaged, resold, or redistributed in any form without the express written consent of a curatorial staff member of the CUMV. If any of these records are used in an analysis or report, the provenance of the original data must be acknowledged and the CUMV notified. The Cornell University Museum of Vertebrates and its staff are not responsible for damages, injury, or loss due to the use of these data.</gbif:rights>
+     <gbif:citation>CUMV Mammal Collection</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="46719571" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/46719571">
+       <to:catalogNumber>354</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>42.33708</to:decimalLatitude>
+       <to:decimalLongitude>-77.31792</to:decimalLongitude>
+       <to:earliestDateCollected>1879-00-00</to:earliestDateCollected>
+       <to:latestDateCollected>1879-00-00</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50361016" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50361016">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="46720412" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/46720412">
+       <to:catalogNumber>15368</to:catalogNumber>
+       <to:country>NO DATA</to:country>
+       <to:decimalLatitude>0/0/0</to:decimalLatitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50361016" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50361016">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="46720407" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/46720407">
+       <to:catalogNumber>15363</to:catalogNumber>
+       <to:country>NO DATA</to:country>
+       <to:decimalLatitude>0/0/0</to:decimalLatitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50361016" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50361016">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="46719838" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/46719838">
+       <to:catalogNumber>5692</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>19/7/1950</to:decimalLatitude>
+       <to:earliestDateCollected>1950-07-19</to:earliestDateCollected>
+       <to:latestDateCollected>1950-07-19</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50361016" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50361016">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="46719591" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/46719591">
+       <to:catalogNumber>522</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>11/10/1884</to:decimalLatitude>
+       <to:earliestDateCollected>1884-10-11</to:earliestDateCollected>
+       <to:latestDateCollected>1884-10-11</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50361016" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50361016">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="46719741" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/46719741">
+       <to:catalogNumber>3993</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>9/7/1933</to:decimalLatitude>
+       <to:earliestDateCollected>1933-07-09</to:earliestDateCollected>
+       <to:latestDateCollected>1933-07-09</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50361016" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50361016">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="46719572" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/46719572">
+       <to:catalogNumber>355</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>0/0/0</to:decimalLatitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50361016" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50361016">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="149" rdf:about="http://data.gbif.org/ws/rest/provider/get/149">
+  <gbif:name>Royal Ontario Museum</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="657" rdf:about="http://data.gbif.org/ws/rest/resource/get/657">
+     <gbif:name>Mammal specimens</gbif:name>
+     <gbif:rights>Royal Ontario Museum (ROM) data records may be used by individual researchers or research groups for non-commercial purposes, but they cannot be published, sold, reproduced, transferred, distributed, or otherwise exploited without further permission in writing from the Royal Ontario Museum. The use of these records in any document such as an analysis or report requires written permission from the ROM and the ROM reserves all rights to receive acknowledgement regarding the provenance of the original data. These data records are under copyright by the Royal Ontario Museum. All rights reserved. The use of these data records is to be governed in accordance with the laws of the province of Ontario. The ROM disclaims any warranties, expressed or implied, including warranties of non-infringement or appropriateness for a particular purpose.</gbif:rights>
+     <gbif:citation>ROM mammal collection</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="42540625" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/42540625">
+       <to:catalogNumber>3405080031</to:catalogNumber>
+       <to:country>UNKNOWN</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51950524" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51950524">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>MARMOTA SP</tn:nameComplete>
+             <tn:specificEpithet>SP</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>MARMOTA SP</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="42540144" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/42540144">
+       <to:catalogNumber>2811060011</to:catalogNumber>
+       <to:country>CANADA</to:country>
+       <to:decimalLatitude>49.0431000</to:decimalLatitude>
+       <to:decimalLongitude>-118.2083000</to:decimalLongitude>
+       <to:earliestDateCollected>1928-06-28</to:earliestDateCollected>
+       <to:latestDateCollected>1928-06-28</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51950524" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51950524">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>MARMOTA SP</tn:nameComplete>
+             <tn:specificEpithet>SP</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>MARMOTA SP</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="42541125" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/42541125">
+       <to:catalogNumber>3612020003</to:catalogNumber>
+       <to:country>UNKNOWN</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51950524" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51950524">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>MARMOTA SP</tn:nameComplete>
+             <tn:specificEpithet>SP</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>MARMOTA SP</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="114" rdf:about="http://data.gbif.org/ws/rest/provider/get/114">
+  <gbif:name>Museo Argentino de Ciencias Naturales</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="9115" rdf:about="http://data.gbif.org/ws/rest/resource/get/9115">
+     <gbif:name>Colección Nacional de Mastozoología - Museo Argentino de Ciencias Naturales 'Bernardino Rivadavia'</gbif:name>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="223244616" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/223244616">
+       <to:catalogNumber>34-24</to:catalogNumber>
+       <to:decimalLatitude>-27</to:decimalLatitude>
+       <to:decimalLongitude>-55</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="57324044" rdf:about="http://data.gbif.org/ws/rest/taxon/get/57324044">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="223244587" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/223244587">
+       <to:catalogNumber>261-04</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="57324044" rdf:about="http://data.gbif.org/ws/rest/taxon/get/57324044">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="207" rdf:about="http://data.gbif.org/ws/rest/provider/get/207">
+  <gbif:name>Yale University Peabody Museum</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="1022" rdf:about="http://data.gbif.org/ws/rest/resource/get/1022">
+     <gbif:name>Peabody Mammalogy DiGIR Service</gbif:name>
+     <gbif:rights>Peabody Museum data records may be used by individual researchers or research groups, but they may not be repackaged, resold, or redistributed in any form without the express written consent of a curatorial staff member of the museum. If any of these records are used in an analysis or report, the provenance of the original data must be acknowledged and the Peabody notified. Yale University and the Peabody Museum of Natural History and its staff are not responsible for damages, injury or loss due to the use of these data.</gbif:rights>
+     <gbif:citation>Yale Peabody Museum, (c) 2009. Specimen data records available through distributed digital resources.</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="353006302" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/353006302">
+       <to:catalogNumber>YPM MAM 014129</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52570101" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52570101">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:authorship>Blumenbach, 1779</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="353006374" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/353006374">
+       <to:catalogNumber>YPM MAM 013536</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52570101" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52570101">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:authorship>Blumenbach, 1779</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="353006303" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/353006303">
+       <to:catalogNumber>YPM MAM 010839</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>43.9325</to:decimalLatitude>
+       <to:decimalLongitude>-103.5747</to:decimalLongitude>
+       <to:earliestDateCollected>1964-07-02</to:earliestDateCollected>
+       <to:latestDateCollected>1964-07-02</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52570101" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52570101">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:authorship>Blumenbach, 1779</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="202504698" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/202504698">
+       <to:catalogNumber>MAM.013536</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52570101" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52570101">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:authorship>Blumenbach, 1779</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="227249299" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/227249299">
+       <to:catalogNumber>MAM.014129</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52570101" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52570101">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:authorship>Blumenbach, 1779</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="86878718" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/86878718">
+       <to:catalogNumber>MAM.010839</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>43.932</to:decimalLatitude>
+       <to:decimalLongitude>-103.575</to:decimalLongitude>
+       <to:earliestDateCollected>1964-07-02</to:earliestDateCollected>
+       <to:latestDateCollected>1964-07-02</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52570101" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52570101">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:authorship>Blumenbach, 1779</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+    <gbif:dataResource gbifKey="8142" rdf:about="http://data.gbif.org/ws/rest/resource/get/8142">
+     <gbif:name>Peabody Vertebrate Paleontology DiGIR Service</gbif:name>
+     <gbif:rights>Peabody Museum data records may be used by individual researchers or research groups, but they may not be repackaged, resold, or redistributed in any form without the express written consent of a curatorial staff member of the museum. If any of these records are used in an analysis or report, the provenance of the original data must be acknowledged and the Peabody notified. Yale University and the Peabody Museum of Natural History and its staff are not responsible for damages, injury or loss due to the use of these data.</gbif:rights>
+     <gbif:citation>Yale Peabody Museum, (c) 2009. Specimen data records available through distributed digital resources.</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="352475175" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/352475175">
+       <to:catalogNumber>YPM VPPU 025002</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56208134" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56208134">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="202709110" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/202709110">
+       <to:catalogNumber>VPPU.025002</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56208134" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56208134">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+    <gbif:dataResource gbifKey="8177" rdf:about="http://data.gbif.org/ws/rest/resource/get/8177">
+     <gbif:name>Peabody Paleoportal DiGIR Service (VP)</gbif:name>
+     <gbif:rights>Peabody Museum data records may be used by individual researchers or research groups, but they may not be repackaged, resold, or redistributed in any form without the express written consent of a curatorial staff member of the museum. If any of these records are used in an analysis or report, the provenance of the original data must be acknowledged and the Peabody notified. Yale University and the Peabody Museum of Natural History and its staff are not responsible for damages, injury or loss due to the use of these data.</gbif:rights>
+     <gbif:citation>Yale Peabody Museum, (c) 2009. Specimen data records available through distributed digital resources.</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="203440528" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/203440528">
+       <to:catalogNumber>VPPU.025002</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56274613" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56274613">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="352132420" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/352132420">
+       <to:catalogNumber>YPM VPPU 025002</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56274613" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56274613">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="134" rdf:about="http://data.gbif.org/ws/rest/provider/get/134">
+  <gbif:name>Natural History Museum, University of Oslo</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="8067" rdf:about="http://data.gbif.org/ws/rest/resource/get/8067">
+     <gbif:name>Mammal collection, Natural History Museum, University of Oslo</gbif:name>
+     <gbif:rights/>
+     <gbif:citation/>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="190464322" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/190464322">
+       <to:catalogNumber>15951</to:catalogNumber>
+       <to:country>Switzerland</to:country>
+       <to:decimalLatitude>0</to:decimalLatitude>
+       <to:decimalLongitude>0</to:decimalLongitude>
+       <to:earliestDateCollected>0000-00-00</to:earliestDateCollected>
+       <to:latestDateCollected>0000-00-00</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55871736" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55871736">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="190464321" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/190464321">
+       <to:catalogNumber>15949</to:catalogNumber>
+       <to:country>unknown country</to:country>
+       <to:decimalLatitude>0</to:decimalLatitude>
+       <to:decimalLongitude>0</to:decimalLongitude>
+       <to:earliestDateCollected>0000-00-00</to:earliestDateCollected>
+       <to:latestDateCollected>0000-00-00</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55871736" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55871736">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="190464317" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/190464317">
+       <to:catalogNumber>15945</to:catalogNumber>
+       <to:country>U.S.A.</to:country>
+       <to:decimalLatitude>0</to:decimalLatitude>
+       <to:decimalLongitude>0</to:decimalLongitude>
+       <to:earliestDateCollected>0000-00-00</to:earliestDateCollected>
+       <to:latestDateCollected>0000-00-00</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55871736" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55871736">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="190464316" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/190464316">
+       <to:catalogNumber>15944</to:catalogNumber>
+       <to:country>unknown country</to:country>
+       <to:decimalLatitude>0</to:decimalLatitude>
+       <to:decimalLongitude>0</to:decimalLongitude>
+       <to:earliestDateCollected>0000-00-00</to:earliestDateCollected>
+       <to:latestDateCollected>0000-00-00</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55871736" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55871736">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="190464320" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/190464320">
+       <to:catalogNumber>15948</to:catalogNumber>
+       <to:country>unknown country</to:country>
+       <to:decimalLatitude>0</to:decimalLatitude>
+       <to:decimalLongitude>0</to:decimalLongitude>
+       <to:earliestDateCollected>0000-00-00</to:earliestDateCollected>
+       <to:latestDateCollected>0000-00-00</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55871736" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55871736">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="190464319" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/190464319">
+       <to:catalogNumber>15947</to:catalogNumber>
+       <to:country>unknown country</to:country>
+       <to:decimalLatitude>0</to:decimalLatitude>
+       <to:decimalLongitude>0</to:decimalLongitude>
+       <to:earliestDateCollected>0000-00-00</to:earliestDateCollected>
+       <to:latestDateCollected>0000-00-00</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55871736" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55871736">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="190464318" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/190464318">
+       <to:catalogNumber>15946</to:catalogNumber>
+       <to:country>India</to:country>
+       <to:decimalLatitude>0</to:decimalLatitude>
+       <to:decimalLongitude>0</to:decimalLongitude>
+       <to:earliestDateCollected>0000-00-00</to:earliestDateCollected>
+       <to:latestDateCollected>0000-00-00</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55871736" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55871736">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="169" rdf:about="http://data.gbif.org/ws/rest/provider/get/169">
+  <gbif:name>GBIF-Sweden</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="1041" rdf:about="http://data.gbif.org/ws/rest/resource/get/1041">
+     <gbif:name>Mammals (NRM)</gbif:name>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="2587264" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587264">
+       <to:catalogNumber>587884</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:earliestDateCollected>1927-09-20</to:earliestDateCollected>
+       <to:latestDateCollected>1927-09-20</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587411" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587411">
+       <to:catalogNumber>604073</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587409" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587409">
+       <to:catalogNumber>604071</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587265" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587265">
+       <to:catalogNumber>587885</to:catalogNumber>
+       <to:earliestDateCollected>1932-03-25</to:earliestDateCollected>
+       <to:latestDateCollected>1932-03-25</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587401" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587401">
+       <to:catalogNumber>604059</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587418" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587418">
+       <to:catalogNumber>605742</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587405" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587405">
+       <to:catalogNumber>604064</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587404" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587404">
+       <to:catalogNumber>604063</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587407" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587407">
+       <to:catalogNumber>604069</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587419" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587419">
+       <to:catalogNumber>605743</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587417" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587417">
+       <to:catalogNumber>605741</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587410" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587410">
+       <to:catalogNumber>604072</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587403" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587403">
+       <to:catalogNumber>604061</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587406" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587406">
+       <to:catalogNumber>604068</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587460" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587460">
+       <to:catalogNumber>642079</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587178" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587178">
+       <to:catalogNumber>583967</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587416" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587416">
+       <to:catalogNumber>605525</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587402" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587402">
+       <to:catalogNumber>604060</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587408" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587408">
+       <to:catalogNumber>604070</to:catalogNumber>
+       <to:country>China</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2587300" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2587300">
+       <to:catalogNumber>591451</to:catalogNumber>
+       <to:earliestDateCollected>1908-05-21</to:earliestDateCollected>
+       <to:latestDateCollected>1908-05-21</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52671815" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52671815">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+    <gbif:dataResource gbifKey="1047" rdf:about="http://data.gbif.org/ws/rest/resource/get/1047">
+     <gbif:name>Mammals of the Gothenburg Natural History Museum</gbif:name>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="2743433" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2743433">
+       <to:catalogNumber>2285</to:catalogNumber>
+       <to:country>Switzerland</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52811042" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52811042">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2742491" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2742491">
+       <to:catalogNumber>1907-2283</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52811042" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52811042">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="2742373" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/2742373">
+       <to:catalogNumber>1874-2284</to:catalogNumber>
+       <to:country>Switzerland</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52811042" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52811042">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="366" rdf:about="http://data.gbif.org/ws/rest/provider/get/366">
+  <gbif:name>Museum of Natural and Cultural History - University of Oregon</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="13467" rdf:about="http://data.gbif.org/ws/rest/resource/get/13467">
+     <gbif:name>condoncollection</gbif:name>
+     <gbif:rights>All data in this resource are the property of the University of Oregon.</gbif:rights>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="416294281" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/416294281">
+       <to:catalogNumber>25514</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="59481326" rdf:about="http://data.gbif.org/ws/rest/taxon/get/59481326">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:specificEpithet>No data</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="183" rdf:about="http://data.gbif.org/ws/rest/provider/get/183">
+  <gbif:name>University of Michigan Museum of Zoology</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="801" rdf:about="http://data.gbif.org/ws/rest/resource/get/801">
+     <gbif:name>Mammal specimens</gbif:name>
+     <gbif:rights>UMMZ data records may be used by individual researchers or research groups, but they may not be repackaged, resold, or redistributed in any form without the express written consent of a curator or collection manager of the Mammal Division of the University of Michigan Museum of Zoology. If any of these records are used in an analysis or report, the provenance of the original data must be acknowledged and the UMMZ notified. The University of Michigan and its staff are not responsible for damages, injury or loss due to the use of these data.</gbif:rights>
+     <gbif:citation>UMMZ Mammal Collection</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="91547279" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/91547279">
+       <to:catalogNumber>5115</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52248044" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52248044">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>MARMOTA sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>MARMOTA sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="145" rdf:about="http://data.gbif.org/ws/rest/provider/get/145">
+  <gbif:name>PANGAEA - Publishing Network for Geoscientific and Environmental Data</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="6142" rdf:about="http://data.gbif.org/ws/rest/resource/get/6142">
+     <gbif:name>Occurrence of mammalia relicts at site Ettingen</gbif:name>
+     <gbif:rights/>
+     <gbif:citation>Sarasin, F; Stehlin, HG (2001): Occurrence of mammalia relicts at site Ettingen, doi:10.1594/PANGAEA.64233</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="318802738" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/318802738">
+       <to:catalogNumber>2195582_1</to:catalogNumber>
+       <to:decimalLatitude>47.467</to:decimalLatitude>
+       <to:decimalLongitude>7.5833</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55418804" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55418804">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+    <gbif:dataResource gbifKey="6116" rdf:about="http://data.gbif.org/ws/rest/resource/get/6116">
+     <gbif:name>Occurrence of mammalia relicts at site Roter Berg bei Saalfeld</gbif:name>
+     <gbif:rights/>
+     <gbif:citation>Stehlin, HG; Graziosi, P (2001): Occurrence of mammalia relicts at site Roter Berg bei Saalfeld, doi:10.1594/PANGAEA.63894</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="319362000" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/319362000">
+       <to:catalogNumber>2193491_1</to:catalogNumber>
+       <to:decimalLatitude>50.637</to:decimalLatitude>
+       <to:decimalLongitude>11.4238</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55417907" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55417907">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+    <gbif:dataResource gbifKey="6206" rdf:about="http://data.gbif.org/ws/rest/resource/get/6206">
+     <gbif:name>Occurrence of mammalia relicts at site Stadel im Hohlenstein</gbif:name>
+     <gbif:rights/>
+     <gbif:citation>Gamble, C (2001): Occurrence of mammalia relicts at site Stadel im Hohlenstein, doi:10.1594/PANGAEA.64554</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="318195363" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/318195363">
+       <to:catalogNumber>2199775_8</to:catalogNumber>
+       <to:decimalLatitude>48.55</to:decimalLatitude>
+       <to:decimalLongitude>10.183</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55420634" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55420634">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+    <gbif:dataResource gbifKey="6056" rdf:about="http://data.gbif.org/ws/rest/resource/get/6056">
+     <gbif:name>Occurrence of mammalia relicts at site Lespezi-Lutarie</gbif:name>
+     <gbif:rights/>
+     <gbif:citation>Bolomey, A (2001): Occurrence of mammalia relicts at site Lespezi-Lutarie, doi:10.1594/PANGAEA.64610</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="318207723" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/318207723">
+       <to:catalogNumber>4001244_2</to:catalogNumber>
+       <to:decimalLatitude>46.673</to:decimalLatitude>
+       <to:decimalLongitude>26.7517</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55414752" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55414752">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="208561152" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/208561152">
+       <to:catalogNumber>4001244_2_0</to:catalogNumber>
+       <to:decimalLatitude>46.673</to:decimalLatitude>
+       <to:decimalLongitude>26.7517</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55414752" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55414752">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+    <gbif:dataResource gbifKey="6078" rdf:about="http://data.gbif.org/ws/rest/resource/get/6078">
+     <gbif:name>Occurrence of mammalia relicts at site Kesslerloch</gbif:name>
+     <gbif:rights/>
+     <gbif:citation>Schibler, J; Stampfli, HR (2001): Occurrence of mammalia relicts at site Kesslerloch, doi:10.1594/PANGAEA.63597</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="321369380" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/321369380">
+       <to:catalogNumber>2190943_1</to:catalogNumber>
+       <to:decimalLatitude>47.75</to:decimalLatitude>
+       <to:decimalLongitude>8.7</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55415858" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55415858">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+    <gbif:dataResource gbifKey="6091" rdf:about="http://data.gbif.org/ws/rest/resource/get/6091">
+     <gbif:name>Occurrence of mammalia relicts at site Sveduv stul</gbif:name>
+     <gbif:rights/>
+     <gbif:citation>Musil, R (2001): Occurrence of mammalia relicts at site Sveduv stul, doi:10.1594/PANGAEA.63634</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="317913410" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/317913410">
+       <to:catalogNumber>2191870_12</to:catalogNumber>
+       <to:decimalLatitude>49.267</to:decimalLatitude>
+       <to:decimalLongitude>16.7</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55416474" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55416474">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+    <gbif:dataResource gbifKey="6079" rdf:about="http://data.gbif.org/ws/rest/resource/get/6079">
+     <gbif:name>Occurrence of mammalia relicts at site Rislisberghöhle</gbif:name>
+     <gbif:rights/>
+     <gbif:citation>von Königswald, Wighart (2001): Occurrence of mammalia relicts at site Rislisberghöhle, doi:10.1594/PANGAEA.63601</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="321369651" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/321369651">
+       <to:catalogNumber>2190979_3</to:catalogNumber>
+       <to:decimalLatitude>47.3</to:decimalLatitude>
+       <to:decimalLongitude>7.7167</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55415906" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55415906">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="321369626" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/321369626">
+       <to:catalogNumber>2190979_2</to:catalogNumber>
+       <to:decimalLatitude>47.3</to:decimalLatitude>
+       <to:decimalLongitude>7.7167</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55415906" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55415906">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="321369620" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/321369620">
+       <to:catalogNumber>2190979_1</to:catalogNumber>
+       <to:decimalLatitude>47.3</to:decimalLatitude>
+       <to:decimalLongitude>7.7167</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55415906" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55415906">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="123" rdf:about="http://data.gbif.org/ws/rest/provider/get/123">
+  <gbif:name>Museum of Texas Tech University (TTU)</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="582" rdf:about="http://data.gbif.org/ws/rest/resource/get/582">
+     <gbif:name>Mammal specimens</gbif:name>
+     <gbif:rights>TTU data records may be used by individual researchers or research groups, but they may not be repackaged, resold, or redistributed in any form without the express written consent of a curatorial staff member of the Museum of Texas Tech University. If any of these records are used in an analysis or report, the provenance of the original data must be acknowledged and the Museum of Texas Tech University notified. The Museum and its staff are not responsible for damages, injury or loss due to the use of these data.</gbif:rights>
+     <gbif:citation>TTU Mammal Collection</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="49809160" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/49809160">
+       <to:catalogNumber>82351</to:catalogNumber>
+       <to:country>UNITED STATES</to:country>
+       <to:decimalLatitude>43.00028</to:decimalLatitude>
+       <to:decimalLongitude>-75.50028</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51564650" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51564650">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>MARMOTA</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>MARMOTA</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="108" rdf:about="http://data.gbif.org/ws/rest/provider/get/108">
+  <gbif:name>Marine Science Institute, UCSB</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="563" rdf:about="http://data.gbif.org/ws/rest/resource/get/563">
+     <gbif:name>Paleobiology Database</gbif:name>
+     <gbif:citation>Varied sources. Individual references may be obtained from website (paleodb.org)</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="38013323" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013323">
+       <to:catalogNumber>416662</to:catalogNumber>
+       <to:country>Georgia</to:country>
+       <to:decimalLatitude>41.97</to:decimalLatitude>
+       <to:decimalLongitude>44.12</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013471" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013471">
+       <to:catalogNumber>442654</to:catalogNumber>
+       <to:country>France</to:country>
+       <to:decimalLatitude>45.65</to:decimalLatitude>
+       <to:decimalLongitude>0.15</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013238" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013238">
+       <to:catalogNumber>356141</to:catalogNumber>
+       <to:country>Romania</to:country>
+       <to:decimalLatitude>46.9667</to:decimalLatitude>
+       <to:decimalLongitude>22.0333</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="92074874" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/92074874">
+       <to:catalogNumber>662203</to:catalogNumber>
+       <to:country>Mexico</to:country>
+       <to:decimalLatitude>24.0994</to:decimalLatitude>
+       <to:decimalLongitude>-99.8153</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013102" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013102">
+       <to:catalogNumber>196993</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>39.3</to:decimalLatitude>
+       <to:decimalLongitude>-105.7</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013278" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013278">
+       <to:catalogNumber>369122</to:catalogNumber>
+       <to:country>Spain</to:country>
+       <to:decimalLatitude>42.3525</to:decimalLatitude>
+       <to:decimalLongitude>-3.5189</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013950" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013950">
+       <to:catalogNumber>599269</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>37.62</to:decimalLatitude>
+       <to:decimalLongitude>-91.83</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="92074867" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/92074867">
+       <to:catalogNumber>658982</to:catalogNumber>
+       <to:country>Mongolia</to:country>
+       <to:decimalLatitude>47.77</to:decimalLatitude>
+       <to:decimalLongitude>107.28</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013089" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013089">
+       <to:catalogNumber>192933</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>34.5</to:decimalLatitude>
+       <to:decimalLongitude>-112.5</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013948" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013948">
+       <to:catalogNumber>599251</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>37.62</to:decimalLatitude>
+       <to:decimalLongitude>-91.83</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013952" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013952">
+       <to:catalogNumber>599294</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>37.62</to:decimalLatitude>
+       <to:decimalLongitude>-91.83</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013280" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013280">
+       <to:catalogNumber>369162</to:catalogNumber>
+       <to:country>Spain</to:country>
+       <to:decimalLatitude>42.3525</to:decimalLatitude>
+       <to:decimalLongitude>-3.5189</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013100" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013100">
+       <to:catalogNumber>196674</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>66.6</to:decimalLatitude>
+       <to:decimalLongitude>-161.9</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013957" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013957">
+       <to:catalogNumber>599375</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>37.62</to:decimalLatitude>
+       <to:decimalLongitude>-91.83</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013324" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013324">
+       <to:catalogNumber>416699</to:catalogNumber>
+       <to:country>Georgia</to:country>
+       <to:decimalLatitude>41.97</to:decimalLatitude>
+       <to:decimalLongitude>44.12</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013111" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013111">
+       <to:catalogNumber>199384</to:catalogNumber>
+       <to:country>Canada</to:country>
+       <to:decimalLatitude>43.8</to:decimalLatitude>
+       <to:decimalLongitude>-79.3</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="146616589" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/146616589">
+       <to:catalogNumber>740015</to:catalogNumber>
+       <to:country>Russian Federation</to:country>
+       <to:decimalLatitude>50.95</to:decimalLatitude>
+       <to:decimalLongitude>84.75</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013955" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013955">
+       <to:catalogNumber>599332</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>37.62</to:decimalLatitude>
+       <to:decimalLongitude>-91.83</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013275" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013275">
+       <to:catalogNumber>368546</to:catalogNumber>
+       <to:country>Spain</to:country>
+       <to:decimalLatitude>42.3525</to:decimalLatitude>
+       <to:decimalLongitude>-3.5189</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="127101198" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/127101198">
+       <to:catalogNumber>699339</to:catalogNumber>
+       <to:country>Georgia</to:country>
+       <to:decimalLatitude>41.3292</to:decimalLatitude>
+       <to:decimalLongitude>44.195</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013953" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013953">
+       <to:catalogNumber>599313</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>37.62</to:decimalLatitude>
+       <to:decimalLongitude>-91.83</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013084" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013084">
+       <to:catalogNumber>186430</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>36.7</to:decimalLatitude>
+       <to:decimalLongitude>-101.4</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="38013240" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/38013240">
+       <to:catalogNumber>356191</to:catalogNumber>
+       <to:country>Romania</to:country>
+       <to:decimalLatitude>46.9667</to:decimalLatitude>
+       <to:decimalLongitude>22.0333</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="51290651" rdf:about="http://data.gbif.org/ws/rest/taxon/get/51290651">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:authorship>Frisch 1775</tn:authorship>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="27" rdf:about="http://data.gbif.org/ws/rest/provider/get/27">
+  <gbif:name>California Academy of Sciences</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="162" rdf:about="http://data.gbif.org/ws/rest/resource/get/162">
+     <gbif:name>Mammal Collection Catalog</gbif:name>
+     <gbif:rights>These data are under copyright of the California Academy of Sciences. All rights reserved.</gbif:rights>
+     <gbif:citation>DiGIR Service, Mammal Collection Catalog, California Academy of Sciences, Date</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="42081377" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/42081377">
+       <to:catalogNumber>7194</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50396992" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50396992">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="179" rdf:about="http://data.gbif.org/ws/rest/provider/get/179">
+  <gbif:name>University of Colorado Museum of Natural History</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="2467" rdf:about="http://data.gbif.org/ws/rest/resource/get/2467">
+     <gbif:name>CUMNH Mammal Collection</gbif:name>
+     <gbif:rights>University of Colorado Museum of Natural History data records may be used by individual researchers or research groups for non-commercial purposes. These data may not be repackaged, resold, or redistributed in any form without the express written consent of the Curators or Director of the University of Colorado Museum of Natural History. If any of these records are used in an analysis, report or publication, the provenance of the original data must be acknowledged and the University of Colorado Museum of Natural History notified. UCM or its staff are not responsible for damages, injury or loss due to the use of these data.</gbif:rights>
+     <gbif:citation>University of Colorado Museum of Natural History</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="145671601" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671601">
+       <to:catalogNumber>4975</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145671652" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671652">
+       <to:catalogNumber>7364</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>45.047756</to:decimalLatitude>
+       <to:decimalLongitude>-109.611781</to:decimalLongitude>
+       <to:earliestDateCollected>1961-06-21</to:earliestDateCollected>
+       <to:latestDateCollected>1961-06-21</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145671799" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671799">
+       <to:catalogNumber>8255</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145671801" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671801">
+       <to:catalogNumber>8257</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145671802" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671802">
+       <to:catalogNumber>8258</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145671566" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671566">
+       <to:catalogNumber>4109</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>40.468061</to:decimalLatitude>
+       <to:decimalLongitude>-108.895661</to:decimalLongitude>
+       <to:earliestDateCollected>1941-05-31</to:earliestDateCollected>
+       <to:latestDateCollected>1941-05-31</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145671532" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671532">
+       <to:catalogNumber>3295</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:earliestDateCollected>1935-03-07</to:earliestDateCollected>
+       <to:latestDateCollected>1935-03-07</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145671803" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671803">
+       <to:catalogNumber>8259</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145671804" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671804">
+       <to:catalogNumber>8260</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145670788" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145670788">
+       <to:catalogNumber>1235</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>38.154468</to:decimalLatitude>
+       <to:decimalLongitude>-107.288589</to:decimalLongitude>
+       <to:earliestDateCollected>1918-08-20</to:earliestDateCollected>
+       <to:latestDateCollected>1918-08-20</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145671625" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671625">
+       <to:catalogNumber>5372</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>42.788036</to:decimalLatitude>
+       <to:decimalLongitude>-105.670729</to:decimalLongitude>
+       <to:earliestDateCollected>1952-07-12</to:earliestDateCollected>
+       <to:latestDateCollected>1952-07-12</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145671800" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671800">
+       <to:catalogNumber>8256</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="145671561" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/145671561">
+       <to:catalogNumber>3836</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54862154" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54862154">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="177" rdf:about="http://data.gbif.org/ws/rest/provider/get/177">
+  <gbif:name>Arctos</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="7927" rdf:about="http://data.gbif.org/ws/rest/resource/get/7927">
+     <gbif:name>University of Alaska Museum, Earth Science Collection</gbif:name>
+     <gbif:rights>none</gbif:rights>
+     <gbif:citation>University of Alaska Museum, Earth Science Collection</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="200967442" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/200967442">
+       <to:catalogNumber>726</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>66.0907557</to:decimalLatitude>
+       <to:decimalLongitude>-162.7531814</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="55641511" rdf:about="http://data.gbif.org/ws/rest/taxon/get/55641511">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+    <gbif:dataResource gbifKey="13479" rdf:about="http://data.gbif.org/ws/rest/resource/get/13479">
+     <gbif:name>Data on the host organisms of parasites in the Museum of Southwestern Biology's Parasite Collection</gbif:name>
+     <gbif:rights>none</gbif:rights>
+     <gbif:citation>Data on the host organisms of parasites in the Museum of Southwestern Biology's Parasite Collection</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="412581413" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/412581413">
+       <to:catalogNumber>241</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="59571389" rdf:about="http://data.gbif.org/ws/rest/taxon/get/59571389">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+    <gbif:dataResource gbifKey="980" rdf:about="http://data.gbif.org/ws/rest/resource/get/980">
+     <gbif:name>Division of Mammals, Museum of Southwestern Biology, Albuquerque, NM.</gbif:name>
+     <gbif:rights>none</gbif:rights>
+     <gbif:citation>Division of Mammals, Museum of Southwestern Biology, Albuquerque, NM.</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="147534394" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534394">
+       <to:catalogNumber>137653</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:earliestDateCollected>1966-06-07</to:earliestDateCollected>
+       <to:latestDateCollected>1966-06-07</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="241099303" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/241099303">
+       <to:catalogNumber>215456</to:catalogNumber>
+       <to:country>Mongolia</to:country>
+       <to:decimalLatitude>44.9805166667</to:decimalLatitude>
+       <to:decimalLongitude>100.4407333333</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534353" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534353">
+       <to:catalogNumber>137448</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534395" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534395">
+       <to:catalogNumber>137654</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:earliestDateCollected>1966-06-07</to:earliestDateCollected>
+       <to:latestDateCollected>1966-06-07</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534415" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534415">
+       <to:catalogNumber>138418</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534310" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534310">
+       <to:catalogNumber>92555</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534414" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534414">
+       <to:catalogNumber>138417</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534416" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534416">
+       <to:catalogNumber>138420</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534404" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534404">
+       <to:catalogNumber>138142</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="412575254" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/412575254">
+       <to:catalogNumber>230738</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147535619" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147535619">
+       <to:catalogNumber>151728</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534384" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534384">
+       <to:catalogNumber>137531</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534403" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534403">
+       <to:catalogNumber>138105</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534381" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534381">
+       <to:catalogNumber>137480</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534396" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534396">
+       <to:catalogNumber>137655</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534355" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534355">
+       <to:catalogNumber>137452</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534386" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534386">
+       <to:catalogNumber>137544</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534354" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534354">
+       <to:catalogNumber>137451</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534412" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534412">
+       <to:catalogNumber>138415</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534411" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534411">
+       <to:catalogNumber>138414</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="147534351" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/147534351">
+       <to:catalogNumber>137439</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="52429175" rdf:about="http://data.gbif.org/ws/rest/taxon/get/52429175">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="104" rdf:about="http://data.gbif.org/ws/rest/provider/get/104">
+  <gbif:name>Los Angeles County Museum of Natural History</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="1795" rdf:about="http://data.gbif.org/ws/rest/resource/get/1795">
+     <gbif:name>Vertebrate specimens</gbif:name>
+     <gbif:rights>LACM data records may be used by individual researchers or research groups, but they may not be repackaged, resold, or redistributed in any form without the express written consent of a curatorial staff member of the LACM. If any of these records are used in an analysis or report, the provenance of the original data must be acknowledged and the LACM notified. The Natural History Museum of Los Angeles County or its staff is not responsible for damages, injury or loss due to the use of these data.</gbif:rights>
+     <gbif:citation>LACM Vertebrate Collection</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="79763555" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/79763555">
+       <to:catalogNumber>030079</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="53721484" rdf:about="http://data.gbif.org/ws/rest/taxon/get/53721484">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="79820412" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/79820412">
+       <to:catalogNumber>087568</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="53721484" rdf:about="http://data.gbif.org/ws/rest/taxon/get/53721484">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="79755417" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/79755417">
+       <to:catalogNumber>021830</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>39.05</to:decimalLatitude>
+       <to:decimalLongitude>-84.15</to:decimalLongitude>
+       <to:earliestDateCollected>1941-06-19</to:earliestDateCollected>
+       <to:latestDateCollected>1941-06-19</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="53721484" rdf:about="http://data.gbif.org/ws/rest/taxon/get/53721484">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="79755416" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/79755416">
+       <to:catalogNumber>021829</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:decimalLatitude>39.1833</to:decimalLatitude>
+       <to:decimalLongitude>-84.5333</to:decimalLongitude>
+       <to:earliestDateCollected>1940-08-30</to:earliestDateCollected>
+       <to:latestDateCollected>1940-08-30</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="53721484" rdf:about="http://data.gbif.org/ws/rest/taxon/get/53721484">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="220" rdf:about="http://data.gbif.org/ws/rest/provider/get/220">
+  <gbif:name>National Museum of Natural History</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="1837" rdf:about="http://data.gbif.org/ws/rest/resource/get/1837">
+     <gbif:name>NMNH Vertebrate Zoology Mammals Collections</gbif:name>
+     <gbif:rights>See: http://www.mnh.si.edu/rc/db/2data_access_policy.html</gbif:rights>
+     <gbif:citation>Division of Mammals, Research and Collections Information System, NMNH, Smithsonian Institution. See: http://www.mnh.si.edu/rc/db/collection_db_policy1.html</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="240135493" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/240135493">
+       <to:catalogNumber>267567</to:catalogNumber>
+       <to:country>Locality Unknown</to:country>
+       <to:earliestDateCollected>1938-02-11</to:earliestDateCollected>
+       <to:latestDateCollected>1938-02-11</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54057511" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54057511">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="152047206" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/152047206">
+       <to:catalogNumber>267567.7592333</to:catalogNumber>
+       <to:country>Locality Unknown</to:country>
+       <to:earliestDateCollected>1938-02-11</to:earliestDateCollected>
+       <to:latestDateCollected>1938-02-11</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54057511" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54057511">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="152046224" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/152046224">
+       <to:catalogNumber>4326.7581244</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:earliestDateCollected>1860-06-22</to:earliestDateCollected>
+       <to:latestDateCollected>1860-06-22</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54057511" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54057511">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="240135580" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/240135580">
+       <to:catalogNumber>4326</to:catalogNumber>
+       <to:country>United States</to:country>
+       <to:earliestDateCollected>1860-06-22</to:earliestDateCollected>
+       <to:latestDateCollected>1860-06-22</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54057511" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54057511">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="49" rdf:about="http://data.gbif.org/ws/rest/provider/get/49">
+  <gbif:name>Field Museum</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="177" rdf:about="http://data.gbif.org/ws/rest/resource/get/177">
+     <gbif:name>FMNH Mammals Collections</gbif:name>
+     <gbif:rights>See: http://www.fieldmuseum.org/linking_policy.htm</gbif:rights>
+     <gbif:citation>Mammal collection, Department of Zoology, FMNH</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="61896725" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/61896725">
+       <to:catalogNumber>43781</to:catalogNumber>
+       <to:country>USA</to:country>
+       <to:decimalLatitude>40.3847014</to:decimalLatitude>
+       <to:decimalLongitude>-106.6111155</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50444135" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50444135">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="61896849" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/61896849">
+       <to:catalogNumber>67377</to:catalogNumber>
+       <to:country>Canada</to:country>
+       <to:decimalLatitude>53.01</to:decimalLatitude>
+       <to:decimalLongitude>-81.3</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50444135" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50444135">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="225" rdf:about="http://data.gbif.org/ws/rest/provider/get/225">
+  <gbif:name>UCLA-Dickey Collection (UCLA-Dickey)</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="1846" rdf:about="http://data.gbif.org/ws/rest/resource/get/1846">
+     <gbif:name>Bird and Mammal specimens</gbif:name>
+     <gbif:rights>UCLA-Dickey data records may be used by individual researchers or research groups, but they may not be repackaged, resold, or redistributed in any form without the express written consent of a curatorial staff member of the UCLA-Dickey Collections. If any of these records are used in an analysis or report, the provenance of the original data must be acknowledged and the UCLA-Dickey Collections notified. The UCLA-Dickey Collections or its staff is not responsible for damages, injury or loss due to the use of these data.</gbif:rights>
+     <gbif:citation>UCLA-Dickey</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="177136090" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/177136090">
+       <to:catalogNumber>17878</to:catalogNumber>
+       <to:country>Canada</to:country>
+       <to:decimalLatitude>50.05</to:decimalLatitude>
+       <to:decimalLongitude>-119.35</to:decimalLongitude>
+       <to:earliestDateCollected>1919-04-27</to:earliestDateCollected>
+       <to:latestDateCollected>1919-04-27</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="54104376" rdf:about="http://data.gbif.org/ws/rest/taxon/get/54104376">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp ssp</tn:nameComplete>
+             <tn:specificEpithet>sp</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp ssp</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="155" rdf:about="http://data.gbif.org/ws/rest/provider/get/155">
+  <gbif:name>Senckenberg</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="8313" rdf:about="http://data.gbif.org/ws/rest/resource/get/8313">
+     <gbif:name>Collection Mammalia SMF</gbif:name>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="207879917" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/207879917">
+       <to:catalogNumber>6159</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56394253" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56394253">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="207879933" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/207879933">
+       <to:catalogNumber>47953</to:catalogNumber>
+       <to:country>Canada</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="56394253" rdf:about="http://data.gbif.org/ws/rest/taxon/get/56394253">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="143" rdf:about="http://data.gbif.org/ws/rest/provider/get/143">
+  <gbif:name>OZCAM (Online Zoological Collections of Australian Museums) Provider</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="9111" rdf:about="http://data.gbif.org/ws/rest/resource/get/9111">
+     <gbif:name>South Australian Museum Australia provider for OZCAM</gbif:name>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="363314852" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/363314852">
+       <to:catalogNumber>821</to:catalogNumber>
+       <to:country>U</to:country>
+       <to:decimalLatitude>0</to:decimalLatitude>
+       <to:decimalLongitude>0</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="57301861" rdf:about="http://data.gbif.org/ws/rest/taxon/get/57301861">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="332677339" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/332677339">
+       <to:catalogNumber>M821</to:catalogNumber>
+       <to:country>U</to:country>
+       <to:decimalLatitude>0</to:decimalLatitude>
+       <to:decimalLongitude>0</to:decimalLongitude>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="57301861" rdf:about="http://data.gbif.org/ws/rest/taxon/get/57301861">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="224309855" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/224309855">
+       <to:catalogNumber>M00821</to:catalogNumber>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="57301861" rdf:about="http://data.gbif.org/ws/rest/taxon/get/57301861">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="118" rdf:about="http://data.gbif.org/ws/rest/provider/get/118">
+  <gbif:name>Museum für Naturkunde Berlin</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="9178" rdf:about="http://data.gbif.org/ws/rest/resource/get/9178">
+     <gbif:name>MfN - Fossil vertebrates IV</gbif:name>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="230776721" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/230776721">
+       <to:catalogNumber>MB.Ma.34058</to:catalogNumber>
+       <to:country>Germany</to:country>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="57549521" rdf:about="http://data.gbif.org/ws/rest/taxon/get/57549521">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota</tn:nameComplete>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ <gbif:dataProvider gbifKey="25" rdf:about="http://data.gbif.org/ws/rest/provider/get/25">
+  <gbif:name>University of Washington Burke Museum</gbif:name>
+   <gbif:dataResources>
+    <gbif:dataResource gbifKey="124" rdf:about="http://data.gbif.org/ws/rest/resource/get/124">
+     <gbif:name>Mammal Specimens</gbif:name>
+     <gbif:rights>UWBM data records may be used by individual researchers or research groups, but they may not be repackaged, resold, or redistributed in any form without the express written consent of a curatorial staff member of the UWBM. If any of these records are used in an analysis or report, the provenance of the original data must be acknowledged and the UWBM notified. The Burke Museum and its staff are not responsible for damages, injury or loss due to the use of these data.</gbif:rights>
+     <gbif:citation>University of Washington Burke Museum. Mammal Collection. Seattle, Washington.</gbif:citation>
+     <gbif:occurrenceRecords>
+      <to:TaxonOccurrence gbifKey="70145482" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/70145482">
+       <to:catalogNumber>78747</to:catalogNumber>
+       <to:country>CHN</to:country>
+       <to:decimalLatitude>0.0000000000</to:decimalLatitude>
+       <to:decimalLongitude>0.0000000000</to:decimalLongitude>
+       <to:earliestDateCollected>2000-07-14</to:earliestDateCollected>
+       <to:latestDateCollected>2000-07-14</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50311581" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50311581">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="70145481" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/70145481">
+       <to:catalogNumber>78746</to:catalogNumber>
+       <to:country>CHN</to:country>
+       <to:decimalLatitude>0.0000000000</to:decimalLatitude>
+       <to:decimalLongitude>0.0000000000</to:decimalLongitude>
+       <to:earliestDateCollected>2000-07-13</to:earliestDateCollected>
+       <to:latestDateCollected>2000-07-13</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50311581" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50311581">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+      <to:TaxonOccurrence gbifKey="70145480" rdf:about="http://data.gbif.org/ws/rest/occurrence/get/70145480">
+       <to:catalogNumber>78745</to:catalogNumber>
+       <to:country>CHN</to:country>
+       <to:decimalLatitude>0.0000000000</to:decimalLatitude>
+       <to:decimalLongitude>0.0000000000</to:decimalLongitude>
+       <to:earliestDateCollected>2000-07-13</to:earliestDateCollected>
+       <to:latestDateCollected>2000-07-13</to:latestDateCollected>
+       <to:identifiedTo>
+        <to:Identification>
+         <to:taxon>
+          <tc:TaxonConcept gbifKey="50311581" rdf:about="http://data.gbif.org/ws/rest/taxon/get/50311581">
+           <tc:hasName>
+            <tn:TaxonName>
+             <tn:nameComplete>Marmota sp.</tn:nameComplete>
+             <tn:specificEpithet>sp.</tn:specificEpithet>
+             <tn:scientific>true</tn:scientific>
+            </tn:TaxonName>
+           </tc:hasName>
+          </tc:TaxonConcept>         
+         </to:taxon>
+         <to:taxonName>Marmota sp.</to:taxonName>
+        </to:Identification>
+       </to:identifiedTo>
+      </to:TaxonOccurrence>
+     </gbif:occurrenceRecords>
+    </gbif:dataResource>
+   </gbif:dataResources>
+  </gbif:dataProvider>
+ </gbif:dataProviders>
+</gbif:gbifResponse>

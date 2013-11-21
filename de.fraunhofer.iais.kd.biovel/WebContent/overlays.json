@@ -1,0 +1,61 @@
+[
+    {
+        "name": "World Countries",
+        "url": "<WMSSERVER>",
+        "layer": "biovel:WorldCountries2002",
+        "transparency": true
+    },
+    {
+        "name": "ETOPO1 Global Relief Model",
+        "url": "<WMSSERVER>",
+        "layer": "biovel:ETOPO1"
+    },
+    {
+        "name": "TDWG Plant distrib. Level 1",
+        "url": "<WMSSERVER>",
+        "layer": "biovel:TDWG_level1",
+        "transparency": true
+    },
+        {
+        "name": "TDWG Plant distrib. Level 2",
+        "url": "<WMSSERVER>",
+        "layer": "biovel:TDWG_level2",
+        "transparency": true
+    },
+        {
+        "name": "TDWG Plant distrib. Level 3",
+        "url": "<WMSSERVER>",
+        "layer": "biovel:TDWG_level3",
+        "transparency": true
+    },
+        {
+        "name": "TDWG Plant distrib. Level 4",
+        "url": "<WMSSERVER>",
+        "layer": "biovel:TDWG_level4",
+        "transparency": true
+    },
+    {
+        "name": "World Seas (IHO)",
+        "url": "<WMSSERVER>",
+        "layer": "biovel:World_Seas",
+        "transparency": true
+    },
+    {
+        "name": "Marine Ecoregions World",
+        "url": "<WMSSERVER>",
+        "layer": "biovel:meow_ecos",
+        "transparency": true
+    },
+    {
+        "name": "Large Marine Ecosystems",
+        "url": "<WMSSERVER>",
+        "layer": "biovel:lmes_64",
+        "transparency": true
+    },
+    {
+        "name": "Continental Margins (140-3500)m",
+        "url": "<WMSSERVER>",
+        "layer": "biovel:ContinentalMargins",
+        "transparency": true
+    }
+]

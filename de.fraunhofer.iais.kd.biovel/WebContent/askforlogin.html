@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Test results</title>
+
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.io/ext-4.0.7-gpl/examples/shared/example.css" />
+
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/bootstrap.js"></script>
+
+    <script type="text/javascript">
+Ext.require([
+    'Ext.window.MessageBox',
+]);
+    </script>
+
+    <!-- It is necessary to use a local copy of pmrpc to get this working with MSIE! -->
+    <script type="text/javascript" src="jslib/pmrpc/pmrpc.js"></script>
+
+    <script type="text/javascript">
+    
+    var workflowRunId = "";
+    
+    var date = new Date();//.getTime();
+    var h = date.getHours();
+    	if(h< 10){h = "0"+h;};
+    var min = date.getMinutes();
+    	if(min<10){min = "0"+min;};
+    var sec = date.getSeconds();
+    	if(sec<10){sec = "0"+sec;};
+    var d = date.getDate();
+    	if(d<10){d = "0"+d;};
+    var m = date.getMonth() + 1;
+    	if(m<10){m = "0"+m;};
+    var y = date.getFullYear();
+    var stamp = y+m+d+"_"+h+min+sec;
+
+function readInputValues() {
+  pmrpc.call({
+     destination: 'publish',
+     publicProcedureName: 'setTitle',
+     params: ['Login?']
+ });
+          
+  pmrpc.call( {
+     destination : "publish",
+     publicProcedureName : "getWorkflowRunId",
+     params : [],
+     onSuccess : function(retVal) {
+         	workflowRunId = retVal.returnValue;
+     },
+     onFailure: function() {
+     }
+  });
+          
+  pmrpc.call({
+    destination : "publish",
+    publicProcedureName : "getInputData",
+    params : [],
+    onSuccess : function(retVal) {
+    	
+        var formPanel = Ext.create('Ext.form.Panel', {
+            height: 50,
+            width: 600,
+            autoscroll: true,
+            items: [{
+            	   xtype: 'textfield',
+                   width: 500,
+                   name: 'label',
+                   fieldLabel: 'storagefolder name/ID',
+                   value: workflowRunId,
+                   allowBlank: true
+               }],
+            layout: {
+               type: 'hbox',
+               align: 'stretch',
+               padding: 5
+            },
+       });
+
+       //var overallPanel = 
+   	Ext.create('Ext.panel.Panel', {
+         title: 'Do you want login as a registered user?',
+         height: 120,
+         width: 620,
+         layout: {
+          type: 'hbox',
+          align: 'stretch',
+          padding: 5
+         },
+         items: [{items:[formPanel]}],
+         renderTo: Ext.getBody(),
+         dockedItems: [{
+                dock : 'bottom',
+                xtype: 'toolbar',
+                items: [{
+                    text: 'Yes',
+                    handler: function(){
+	                    	var label = stamp+"_"+formPanel.getForm().getValues()['label'].replace(' ', '_');
+ 
+	                    	pmrpc.call({
+                                destination : "publish",
+                                publicProcedureName : "reply",
+                                params : ["OK",
+                                          {'answer' : 'yes',
+                                          'workflowRunId' : label}],
+                                onSuccess : function() {
+                                	document.getElementsByTagName('body')[0].innerHTML='<h1>Data submitted</h1>';},
+                                onFailure: function() {
+                                	document.getElementsByTagName('body')[0].innerHTML='<h1>Data submission failed</h1>';}
+                                });
+                        }
+                    },
+                    {
+                    text: 'No',
+                    handler: function(){
+	                    	var label = stamp+"_"+formPanel.getForm().getValues()['label'].replace(' ', '_');
+
+	                    	pmrpc.call({
+                                destination : "publish",
+                                publicProcedureName : "reply",
+                                params : ["OK",
+                                          {'answer' : 'no',
+                                    	   'workflowRunId' : label}],
+                                onSuccess : function() {document.getElementsByTagName('body')[0].innerHTML='<h1>Data submitted</h1>';},
+                                onFailure: function() {document.getElementsByTagName('body')[0].innerHTML='<h1>Data submission failed</h1>';}
+                                });
+                        }
+                    }]
+            }]});
+    },
+   	onFailure : function() {
+     alert('Reading of input data failed');
+   }	
+});
+};
+
+Ext.onReady(function() {
+  readInputValues();
+});
+
+</script>
+
+</head>
+<body>
+</body>
+</html>

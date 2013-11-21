@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-app_2_4.xsd" version="2.4">
+  <javaee:display-name>biostif</javaee:display-name>
+  <servlet>
+    <javaee:description></javaee:description>
+    <javaee:display-name>BioSTIFServlet</javaee:display-name>
+    <servlet-name>BioSTIFServlet</servlet-name>
+    <servlet-class>de.fraunhofer.iais.kd.biovel.server.BioSTIFServlet</servlet-class><init-param>
+      <description>
+                General configuration information for the BioSTIF client.
+                to be accessed by a service and deliver a json 
+            </description>
+      <param-name>biostif.client.conf</param-name>
+      <param-value>/home/biovel/conf/biostif.client.conf</param-value>
+    </init-param>
+    
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+   <servlet>
+    <javaee:description></javaee:description>
+    <javaee:display-name>Dwc2Csv</javaee:display-name>
+    <servlet-name>Dwc2Csv</servlet-name>
+    <servlet-class>de.fraunhofer.iais.kd.biovel.server.Dwc2Csv</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+     <servlet>
+    <javaee:description></javaee:description>
+    <javaee:display-name>Imageupload</javaee:display-name>
+    <servlet-name>Imageupload</servlet-name>
+    <servlet-class>de.fraunhofer.iais.kd.biovel.server.Imageupload</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+   <servlet>
+    <javaee:description></javaee:description>
+    <javaee:display-name>Proxy</javaee:display-name>
+    <servlet-name>Proxy</servlet-name>
+    <servlet-class>de.fraunhofer.iais.kd.biovel.server.Proxy</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+    
+  <servlet>
+    <javaee:description></javaee:description>
+    <javaee:display-name>Dwc2Json</javaee:display-name>
+    <servlet-name>Dwc2Json</servlet-name>
+    <servlet-class>de.fraunhofer.iais.kd.biovel.server.Dwc2Json</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>  
+    
+  <servlet>
+    <javaee:description></javaee:description>
+    <javaee:display-name>Csv2Json</javaee:display-name>
+    <servlet-name>Csv2Json</servlet-name>
+    <servlet-class>de.fraunhofer.iais.kd.biovel.server.Csv2Json</servlet-class>
+    <init-param>
+      <description>
+                The configuration file for CSV Header Ressource..
+                On startup this file must exist with proper content. 
+            </description>
+      <param-name>biostif.server.conf</param-name>
+      <param-value>/home/biovel/conf/biostif.server.conf</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+    <servlet>
+    <javaee:description></javaee:description>
+    <javaee:display-name>FilterDwC</javaee:display-name>
+    <servlet-name>FilterDwC</servlet-name>
+    <servlet-class>de.fraunhofer.iais.kd.biovel.server.FilterDwC</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+   <servlet>
+    <javaee:description></javaee:description>
+    <javaee:display-name>FilterCsv</javaee:display-name>
+    <servlet-name>FilterCsv</servlet-name>
+    <servlet-class>de.fraunhofer.iais.kd.biovel.server.FilterCsv</servlet-class>
+    <init-param>
+      <description>
+                The configuration file for CSV Header Ressource.
+                On startup this file must exist with proper content. 
+            </description>
+      <param-name>biostif.server.conf</param-name>
+      <param-value>/home/biovel/conf/biostif.server.conf</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  
+    <servlet-mapping>
+    <servlet-name>Imageupload</servlet-name>
+    <url-pattern>/Imageupload</url-pattern>
+  </servlet-mapping>
+    
+  <servlet-mapping>
+    <servlet-name>BioSTIFServlet</servlet-name>
+    <url-pattern>/BioSTIFServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>FilterDwC</servlet-name>
+    <url-pattern>/FilterDwC</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>FilterCsv</servlet-name>
+    <url-pattern>/FilterCsv</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>Proxy</servlet-name>
+    <url-pattern>/proxy</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>Dwc2Csv</servlet-name>
+    <url-pattern>/Dwc2Csv</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Dwc2Json</servlet-name>
+    <url-pattern>/Dwc2Json</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Csv2Json</servlet-name>
+    <url-pattern>/Csv2Json</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>main.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

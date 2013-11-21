@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="cache-control" content="no-cache, no-store, max-age=0, must-revalidate" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="Fri, 01 Jan 1990 00:00:00 GMT" />
+    <title>Select environmental layers</title>
+
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.io/ext-4.0.7-gpl/examples/shared/example.css" />
+
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/bootstrap.js"></script>
+
+    <script type="text/javascript">
+Ext.require([
+    'Ext.tree.*',
+    'Ext.data.*',
+    'Ext.selection.CellModel',
+    'Ext.grid.*',
+    'Ext.util.*',
+    'Ext.state.*',
+    'Ext.form.*',
+    'Ext.data.NodeInterface',
+    'Ext.window.MessageBox',
+    'Ext.DomQuery'
+]);
+    </script>
+
+    <!-- It is necessary to use a local copy of pmrpc to get this working with MSIE! -->
+    <script type="text/javascript" src="jslib/pmrpc/pmrpc.js"></script>
+
+    <script type="text/javascript">
+
+var parseXml;
+
+if (typeof window.DOMParser != "undefined") {
+    parseXml = function(xmlStr) {
+        return ( new window.DOMParser() ).parseFromString(xmlStr,
+    "text/xml");
+    };
+} else if (typeof window.ActiveXObject != "undefined" &&
+       new window.ActiveXObject("Microsoft.XMLDOM")) {
+    parseXml = function(xmlStr) {
+        var xmlDoc = new window.ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.async = "false";
+        xmlDoc.loadXML(xmlStr);
+        return xmlDoc;
+    };
+} else {
+    throw new Error("No XML parser found");
+}
+
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+function processElement(xmlElement, path, layer_map) {
+  var labelElement = Ext.DomQuery.selectNode('Label', xmlElement);
+  var textNode = labelElement.childNodes[0];
+  var label = textNode.textContent;
+  var layerId = '';
+  if (xmlElement.tagName == 'Layer') {
+    layerId = Ext.DomQuery.selectNode('@Id', xmlElement).firstChild.nodeValue;
+    layer_map[layerId] = [label, path.join(' / ')];
+  }
+  else if (xmlElement.tagName == 'LayersGroup') {
+    path.push(label);
+    var children = xmlElement.childNodes;
+    for (var i = 0; i < children.length; i++) {
+      child = children[i];
+      var tagName = child.tagName;
+      if (tagName == 'LayersGroup' || tagName == 'Layer') {
+        processElement(child, path, layer_map);
+      }
+    }
+    path.pop();
+  }
+  else {
+    // process first element child
+    var numNodes = xmlElement.childNodes.length;
+    if ( numNodes > 0) {
+      for (var x = 0; x < numNodes; x++) {
+        if (xmlElement.childNodes[x].nodeType == 1) { // element
+          processElement(xmlElement.childNodes[x], path, layer_map);
+          break;
+        }
+      }
+    }
+    return;
+  }
+}
+
+function readInputValues() {
+          pmrpc.call({
+            destination: 'publish',
+            publicProcedureName: 'setTitle',
+            params: ['Projection settings']
+          });
+  pmrpc.call({
+    destination : "publish",
+    publicProcedureName : "getInputData",
+    params : [],
+    onSuccess : function(retVal) {
+                          
+                          var name1 = retVal.returnValue.file1_name.split("|");
+                          var name2 = retVal.returnValue.file2_name.split("|");
+                          
+                          var file_map = {};
+                          file_map[name1[0]] = [retVal.returnValue.file1_url];
+                          file_map[name2[0]] = [retVal.returnValue.file2_url];
+                          
+                          var layer_map = {};
+                          layer_map[name1[0]] = [name1[0]];
+                          layer_map[name2[0]] = [name2[0]];
+                          
+                          var full_name_map = {};
+                          full_name_map[name1[0]] = [retVal.returnValue.file1_name];
+                          full_name_map[name2[0]] = [retVal.returnValue.file2_name];
+
+                          // Load combo data with all possible values
+                          var comboEntries = [];
+
+                          var ix = 1;
+                          for (var key in layer_map) {
+                              var disp_label = layer_map[key];
+                          	var fileNr = "File "+ix;          	
+                              comboEntries.push({'p_count' : fileNr,
+                          	  				 'p_id': key, 
+                                               'p_label': disp_label} );
+                            
+                              ix++;
+                          }
+                          
+                          var comboStore = Ext.create('Ext.data.Store', {
+                                                    fields: ['p_count', 'p_id', 'p_label'],
+                                                    data: comboEntries});
+
+                          var cellEditing = Ext.create('Ext.grid.plugin.CellEditing', {
+                                               clicksToEdit: 1
+                                            });
+                          
+
+                          var results_name = {};
+                          var results_url = {};
+
+        var gridPanel = Ext.create('Ext.grid.Panel', {
+            title: 'Order of the input files (difference = File 1 (e.g. current) - File 2 (e.g. prediction))',
+                store: comboStore,
+                listeners: {
+
+                    select: function(model, record, index, eOpts) {
+                        var selected_id = record.get('p_label');
+
+                        results_name[index] = [full_name_map[selected_id]];
+                 	      results_url[index] = [file_map[selected_id]];
+                    }
+                	
+                },
+                columns: [
+                    { text: 'File', 
+                      dataIndex: 'p_count', 
+                      sortable: false, 
+                      width: 300
+                    },
+                    { text: 'Click to choose the layers', 
+                      dataIndex: 'p_label', 
+                      sortable: false,
+                      width: 600,
+                      renderer: function(value){
+                         return value;
+                      },
+                      editor: {
+                          xtype: 'combobox',
+                          store: [
+  			                    [name1[0],name1[0]],
+  			                    [name2[0],name2[0]],
+                             ],
+                          editable: false,
+                          autoSelect: true,
+                          forceSelection: true,
+                          typeAhead: false,
+                          selectOnTab: true,
+                          triggerAction: 'all',
+                          lastQuery: '' // needed to get the first combo filter working
+                      }
+                    }
+                ],
+                height: 350,
+                width: 900,
+                autoscroll : true,
+                selModel: {
+                     selType: 'cellmodel'
+                },
+                plugins: [cellEditing],
+        });
+
+	//var cnt = retVal.returnValue.list.length + 1;
+
+        var formPanel = Ext.create('Ext.form.Panel', {
+             height: 50,
+             width: 900,
+             autoscroll: true,
+             items: [{
+                    xtype: 'textfield',
+                    width: 500,
+                    name: 'label',
+                    fieldLabel: 'Label',
+                    value: retVal.returnValue.default_label,
+                    allowBlank: false
+                }],
+             layout: {
+                type: 'hbox',
+                align: 'stretch',
+                padding: 5
+             },
+        });
+
+        Ext.create('Ext.panel.Panel', {
+            title: 'Creating difference file',
+            height: 350,
+            width: 900,
+            items: [{items:[formPanel]}, {items:[gridPanel]}],
+            renderTo: Ext.getBody(),
+            autoscroll : true,
+            dockedItems: [{
+                dock : 'bottom',
+                xtype: 'toolbar',
+                items: {
+                text: 'Submit data',
+                handler: function(){
+			    
+              	  var label = ""+formPanel.getForm().getValues()['label'].replace(/ /g, '_');
+              	  
+                  var regex = new RegExp("^[a-zA-Z0-9\-_]*$");
+                  if (!(regex.test(label))){
+                  	alert("Please use only letters, numbers, hyphen, spaces or underlines on labels!");
+                  	label = "";
+                  	return;
+                  };
+            	  
+            	  var filename_1 = "";
+                  if(typeof results_name[0] == "undefined"){      
+            	  	  filename_1 = full_name_map[name1[0]];
+                  } else {
+                	  filename_1 = results_name[0];
+                  }
+                  
+            	  var filename_2 = "";
+                  if(typeof results_name[1] == "undefined"){      
+            	  	 filename_2 = full_name_map[name2[0]];
+                  } else {
+                	  filename_2 = results_name[1];
+                  }
+                  
+            	  var fileurl_1 = "";
+                  if(typeof results_url[0] == "undefined"){      
+                	  fileurl_1 = file_map[name1[0]];
+                  } else {
+                	  fileurl_1 = results_url[0];
+                  }
+                  
+            	  var fileurl_2 = "";
+                  if(typeof results_url[1] == "undefined"){      
+                	  fileurl_2 = file_map[name2[0]];
+                  } else {
+                	  fileurl_2 = results_url[1];
+                  }
+
+                        
+                        pmrpc.call({
+                        destination : "publish",
+                        publicProcedureName : "reply",
+                        params : ["OK",
+                                  {"label" : label,
+                                   "layer1" : filename_1.join(","),
+                                   "layer2" : filename_2.join(","),
+                                   "url1" : fileurl_1.join(","),
+                                   "url2" : fileurl_2.join(",")
+                                   }],
+                	
+                            onSuccess : function() {document.getElementsByTagName('body')[0].innerHTML='<h1>Data submitted</h1>';},
+                            onFailure: function() {document.getElementsByTagName('body')[0].innerHTML='<h1>Data submission failed</h1>';}
+                            });
+                        }
+                    }
+            }]
+        });
+    },
+   onFailure : function() {
+     alert('Reading of input data failed');
+   }
+})};
+
+Ext.onReady(function() {
+  readInputValues();
+});
+
+</script>
+
+</head>
+<body>
+</body>
+</html>

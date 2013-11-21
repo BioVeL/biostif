@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+            <title>BioSTIF - User manual</title>
+ 
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '';
+</script>
+
+<!-- include system css resources -->
+
+
+    <link type="text/css" rel="stylesheet" href="BioSTIF_manual-Dateien/batch_002.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/de_DE/3388/9acf9d4587944743d0223df28e632431d99e8a2b.1/21/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/de_DE/3388/9acf9d4587944743d0223df28e632431d99e8a2b.1/21/_/download/superbatch/css/batch.css?conditionalComment=IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/de_DE/3388/9acf9d4587944743d0223df28e632431d99e8a2b.1/21/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="BioSTIF_manual-Dateien/batch_003.css" media="print">
+<link type="text/css" rel="stylesheet" href="BioSTIF_manual-Dateien/batch_004.css" media="all">
+<link type="text/css" rel="stylesheet" href="BioSTIF_manual-Dateien/batch.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/de_DE/3388/9acf9d4587944743d0223df28e632431d99e8a2b.1/a9b4c62dac4109fc7c79fcdc71b2fd24/_/download/contextbatch/css/viewcontent,main/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="BioSTIF_manual-Dateien/batch_005.css" media="all">
+<link type="text/css" rel="stylesheet" href="BioSTIF_manual-Dateien/com.css" media="all">
+<link type="text/css" rel="stylesheet" href="BioSTIF_manual-Dateien/colors.css" media="all">
+<link type="text/css" rel="stylesheet" href="BioSTIF_manual-Dateien/default-theme.css" media="all">
+
+<!-- end system css resources -->
+    
+    <link rel="shortcut icon" href="img/favicon_small.ico">
+    <link rel="icon" type="image/x-icon" href="img/favicon_small.ico">        
+	
+    </head>
+    
+<body>
+      
+            
+            <h1 id="title-heading" class="pagetitle">                               
+                <span id="title-text">Biodiversity Spatio-Temporal Interface (BioSTIF) User Manual</span>
+            </h1>        
+                                
+        <div id="main-content" class="wiki-content">
+		<p>BioSTIF is a web map application designed for the interactive visualisation of spatio-temporal data. 
+		It allows the comparison of different data sources having at least one spatial attribute with a geographic coordinate (Point). 
+		Data can be manipulated using geospatial, temporal or table-based filters.</p>
+		<p> BioSTIF can be started from a web browser as stand alone application, passing the data to be visualised as URL parameters or within a Taverna workflow as an interaction service. Below you will find the configuration and installation prerequisites for both options.
+                           
+<h1 id="AboutBioSTIF-Web-interface">1. Web Interface</h1>
+
+<h2 id="AboutBioSTIF-Systemcomposition">1.2 System composition / Overview</h2>
+<p>The image below shows how the current system is composed. The interactive components are also called <i>"widgets"</i>.</p> 
+<p>The Map Widget and the Table Widget are the geographical and tabular 
+representation of the data loaded. A Time line Widget appears if the 
+data contain enough temporal data. A Split line allows the user to 
+resize the widgets on demand.</p></p>
+<p><img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/composition.png" data-image-src="/download/attachments/4063257/composition.png?version=2&amp;modificationDate=1333060148797"></p>
+<h2 id="AboutBioSTIF-Taverna-toolbar">1.2.1 Taverna toolbar</h2>
+<p>When Starting BioSTIF from Taverna at the top of the application there are two buttons for the interaction with taverna. On OK the 
+result of selection/filtering or the same urls with which BioSTIF was 
+called are returned to Taverna through the interaction service as output
+ ports. Pressing abort, caused the stop the running workflow.</p>
+
+<h2 id="AboutBioSTIF-MapWidget">1.2.2 Map Widget</h2>
+<p>The
+ central component of BioSTIF is the map. Generally, it works like 
+better-known map services on the web, such as Google Maps. It supports 
+zooming as well as drag and drop for navigation.</p><p>The map widget 
+consists of a geographical map, which is overlaid with bubble glyphs. 
+The glyphs are circles, with each of the glyphs represents one or more 
+items of the dataset. We chose a circle representation on the map to 
+display data densities instead of, for instance, a heat map, in order to
+ allow multiple query results to be shown together, and to make every 
+data item individually accessible through its graphical representation.</p><p><img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/mapWidget.png" data-image-src="/download/attachments/4063257/mapWidget.png?version=1&amp;modificationDate=1333060552948"></p><p>In
+ addition, to avoid visual clutter, we require that the glyphs not 
+overlap each other. To achieve this goal, we merge circles based on 
+their size, distances, and the current zoom level in an iterative 
+process.</p><p>The navigation through the map is similar to known tools 
+like Google Maps. With the navigation tools the user can zoom in and 
+out, panning can be achieved by dragging the mouse over the map. At the 
+bottom of the map a scale informs the user about the current resolution.
+ Clicking on the button <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/ResetMap.png" data-image-src="/download/attachments/4063257/ResetMap.png?version=1&amp;modificationDate=1333097246039"> restore original view (the map section the user saw at the start). Clicking on the button <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/GeoLocation2.png" data-image-src="/download/attachments/4063257/GeoLocation2.png?version=1&amp;modificationDate=1333097320504"> a marker with the current user location will be visualized.</p><p>For
+ the background map the user can switch among different base maps. In 
+dependence of the usage agreements maps from providers like google and 
+bing can be selected. The overlays or selection layers are a compilation
+ of wms layers that can be loaded upon the base map and below the bubble
+ glyphs. If one overlay was selected, the user can perform a spatial 
+selection of the bubble glyphs by selecting (clicking) on one or more 
+features of the overlay layer, after switching on the spatial selection 
+tool. <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/country-activated.png" data-image-src="/download/attachments/4063257/country-activated.png?version=1&amp;modificationDate=1333061001299"></p><p>The
+ number of features on the right side of the map toolbar shows how many 
+objects containing valis spatial references where loaded. This number is
+ differernt from the number of glyphs, if the Aggregation modus is on 
+(default). The aggregation modus can be changed by clicking on the icon 
+in the toolbar. Note: at the moment a new aggregation is computed each 
+time the aggregation button is pressed. This mey result in a processing 
+step (on the client) which can keep the browser bussy, in dependence how
+ many objects are loaded. This is a performance issue we are working on.</p><p>&nbsp;</p>
+ 
+ <h3 id="AboutBioSTIF-Data_Viz">1.2.2.1 Visualization of Spatial Data</h2>
+ <h4 id="AboutBioSTIF-Dynamicaggregationofdata">Dynamic aggregation of data</h4><p>To
+ avoid a confusingly large number of dots for large results or datasets 
+and to reduce the amount of feature to be handled by OpenLayers, the 
+interface automatically aggregates points depending on the zoom level. 
+To ensure non-overlapping circles, we perform a variant of the 
+agglomerative clustering algorithm. The user can change the aggregation 
+modus by switching the button Aggregation on the map toolbar <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/aggregation.png" data-image-src="/download/attachments/4063257/aggregation.png?version=1&amp;modificationDate=1333059325899">.</p><p><img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/aggregation.jpg" data-image-src="/download/attachments/4063257/aggregation.jpg?version=1&amp;modificationDate=1333059263390"></p><p>The
+ image shows species occurrences for the specie Marmota marmota (data 
+from GBIF) in Europe. (a) 112 occurrences are merged to 16 
+non-overlapping circles. The composition of circles reflects that there 
+were a lot of observations between France and Spain (bigger circle). (b)
+ Each circle with minimum radius rmin represents one incident. The high 
+degree of overplotting makes it hard to access each circle individually.</p>
+
+<h4 id="AboutBioSTIF-Placenametagcloud(tobeaddedtoBioSTIF)">Placename tag cloud (to be added to BioSTIF)</h4><p>Each
+ of the map’s circles is associated with a tag cloud of the most 
+frequent place names, including their quantity and whether they were 
+provided by the given data. The size of the literals of a place name is 
+proportional to its quantity in the corresponding circle.</p><p><a class="external-link" href="http://wp1187670.wp212.webpack.hosteurope.de/e4d/wp-content/uploads/2011/07/cloud.png" rel="nofollow"><img class="confluence-embedded-image alignnone size-full wp-image-130 confluence-external-resource" src="BioSTIF_manual-Dateien/cloud.png" data-image-src="http://wp1187670.wp212.webpack.hosteurope.de/e4d/wp-content/uploads/2011/07/cloud.png" height="189" width="476"></a></p><p>This
+ feature enables on-demand labelling of points and also provides a 
+preview of how a glyph arising from agglomeration would split if zoomed 
+in. If the data offers different levels of detail for a place, we choose
+ the label dependent on the current zoom level. We distinguish four 
+semantic levels: country, region (which can be, for instance, a state or
+ a countryside), city, and borough (which can be a district, specific 
+place or an address of the given city).</p>
+
+<h2 id="AboutBioSTIF-Selectionmechanisms">Selection mechanisms</h2><p>Several
+ selection tools on the map and on the timeline allow drill-down in time
+ and space. The map features selectors for polygons, circles, and 
+features comming from a selected overlay layer. They are wms layer 
+reflecting data as political boundaries, world seas, etc..</p><p><a class="external-link" href="http://wp1187670.wp212.webpack.hosteurope.de/e4d/wp-content/uploads/2011/07/celection.png" rel="nofollow"><img class="confluence-embedded-image alignnone size-full wp-image-119 confluence-external-resource" src="BioSTIF_manual-Dateien/celection.png" data-image-src="http://wp1187670.wp212.webpack.hosteurope.de/e4d/wp-content/uploads/2011/07/celection.png" height="136" width="410"></a></p><p>The
+ timeline allows selections of points in time and durations. Durations 
+can be fuzzy. It’s also possible to drag a selection on the timeline, 
+during which the dots on the map change in real time.</p><h5 id="AboutBioSTIF-ObjectdescriptionasPopUpwindow.">Object description as PopUp window.</h5><p>When
+ the user clicks with the mouse over a glyph a Pop-Box opens. The number
+ of results is shown next to the name of the location (found in the data
+ as place names). If more than one location is displayed, click at the 
+icon <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/zoom.png" data-image-src="/download/attachments/4063257/zoom.png?version=1&amp;modificationDate=1333095985939">beneath
+ the desired location to show only the objects with reference to this 
+place. At the top of the Box two arrows allow to navigate back and 
+forward through the list of objects. If the user clicks on another glyph
+ the popup will be automatically closed and a new popup showing the 
+information of the recently clicked object will be shown.</p><h5 id="AboutBioSTIF-Objectselection">Object selection</h5><p>If
+ the user clicks on another glyoh holding the "Strg" key pressed, both 
+objects will be selected. If a user wants to deselect a glyph it must 
+click again on it holding the "Strg" key pressed.</p><p>Another form of multiselection is provided by the Selection tools. The user can click one of the following buttons:</p><ul><li>Click <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/square-deactivated.png" data-image-src="/download/attachments/4063257/square-deactivated.png?version=1&amp;modificationDate=1333096617465">&nbsp;to draw a square around desired locations.<br><img class="confluence-embedded-image confluence-thumbnail" src="BioSTIF_manual-Dateien/STIF_DataCleaning_NiederlandeEnglandViewSquareSelection.png" data-image-src="/download/attachments/4063257/STIF_DataCleaning_NiederlandeEnglandViewSquareSelection.jpg?version=1&amp;modificationDate=1333096912521" width="300"></li><li>Click &nbsp;<img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/circle-deactivated.png" data-image-src="/download/attachments/4063257/circle-deactivated.png?version=1&amp;modificationDate=1333096635318">to draw a circle around desired locations.<br><img class="confluence-embedded-image confluence-thumbnail" src="BioSTIF_manual-Dateien/STIF_DataCleaning_NiederlandeEnglandViewCircleSelection.png" data-image-src="/download/attachments/4063257/STIF_DataCleaning_NiederlandeEnglandViewCircleSelection.jpg?version=1&amp;modificationDate=1333096974462" width="300"></li><li>Click <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/polygon-deactivated.png" data-image-src="/download/attachments/4063257/polygon-deactivated.png?version=1&amp;modificationDate=1333096664353">&nbsp;to
+ draw a random area around desired locations. Click a place on the card 
+to begin drawing the area. Then drag the mouse to the next corner of the
+ area and click again. When you have completed the area, double-click 
+the card<br><img class="confluence-embedded-image confluence-thumbnail" src="BioSTIF_manual-Dateien/STIF_DataCleaning_NiederlandeEnglandViewPolygoneSelection.png" data-image-src="/download/attachments/4063257/STIF_DataCleaning_NiederlandeEnglandViewPolygoneSelection.jpg?version=1&amp;modificationDate=1333097004431" width="300"><br>Notes:
+ Selection areas can be changed by clicking on the area holding the 
+mouse left key pressed and dragging the selection through the map. If 
+the user keeps the "Strg" key pressed another selection can be done. The
+ selection tool must be clicked again.</li><li>Click <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/country-deactivated.png" data-image-src="/download/attachments/4063257/country-deactivated.png?version=1&amp;modificationDate=1333096746297">&nbsp;to
+ select all locations within a WMS border. (You need to select an 
+overlay first, else the button is deactivated). All objects within the 
+geographc polygon will be selected.<br><img class="confluence-embedded-image confluence-thumbnail" src="BioSTIF_manual-Dateien/STIF_DataCleaning_BalticSeeWMSSelection.png" data-image-src="/download/attachments/4063257/STIF_DataCleaning_BalticSeeWMSSelection.jpg?version=1&amp;modificationDate=1333097032633" width="300"></li></ul><h5 id="AboutBioSTIF-Filtering">Filtering</h5><p>When
+ objects are selected a filter toolbar appears on the right side of the 
+map widget. The user can choose the following buttons:</p><ul><li>Click on <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/filter.png" data-image-src="/download/attachments/4063257/filter.png?version=1&amp;modificationDate=1333097558090">:
+ All selected objects are filtered, that means all views will show only 
+the objects within the selection. The selection forms are deleted and 
+all the objects appear as not selected.</li><li>Click on <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/filter-inverse.png" data-image-src="/download/attachments/4063257/filter-inverse.png?version=1&amp;modificationDate=1333097710503">
+ produces an inverse filtering, that means all the objects that were not
+ selected are kept. The selected objects will not be shown in any view.</li><li>Click on <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/filter-undo.png" data-image-src="/download/attachments/4063257/filter-undo.png?version=1&amp;modificationDate=1333097790715">
+ to undo the last filtering or inverse filtering. All the objects are 
+restored in all views. Note at the moment only 1-step undo is 
+implemented.</li><li>Click on <img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/cancel.png" data-image-src="/download/attachments/4063257/cancel.png?version=1&amp;modificationDate=1333097871869">to cancel all selections.</li></ul><h2 id="AboutBioSTIF-Concurrentdatasets">Concurrent datasets</h2><p>An
+ advanced feature of this site is concurrent searching. Using this mode 
+allows combining up to four (limited for clearness) searches. The user 
+has the full possibilities given for a single search. This includes 
+selection editing and display of result sets.</p><p>&nbsp;</p><p><a class="external-link" href="http://wp1187670.wp212.webpack.hosteurope.de/e4d/wp-content/uploads/2011/07/watermarks-e.png" rel="nofollow"><img class="confluence-embedded-image alignnone size-full wp-image-90 confluence-external-resource" src="BioSTIF_manual-Dateien/watermarks-e.png" data-image-src="http://wp1187670.wp212.webpack.hosteurope.de/e4d/wp-content/uploads/2011/07/watermarks-e.png" height="358" width="478"></a></p><p>&nbsp;</p><h2 id="AboutBioSTIF-TableWidget">Table Widget</h2><p>The third method for displaying the result set is a table.</p><p><img class="confluence-embedded-image" src="BioSTIF_manual-Dateien/tableWidget.png" data-image-src="/download/attachments/4063257/tableWidget.png?version=1&amp;modificationDate=1333061069265"></p><p>The table also interacts with the timeline (if visiblie). If a duration is selected, the items will be highlighted.</p><p>A
+ temporary or spatial selection causes highlighting of a rows’s border 
+and the row selection check box is activated. Additionally, the table 
+can be used for the selection and the de-selection of single elements. 
+Via this feature, the user is able to adapt a selection by adding or 
+deleting specific elements. Finally, the user can switch the display 
+mode of the table, so that only selected items are shown, which 
+simplifies the browsing through the final selection.</p><h2 id="AboutBioSTIF-TimelineWidget(tobeaddedtoBioSTIF)">Time line Widget (to be added to BioSTIF)</h2><p>Since
+ the timeline is a rarely used control in web applications, it wasn’t 
+possible to reuse existing GUI concepts. The timeline is primarily used 
+for drill-downs in time. Another functionality is the display of 
+individual datasets for a given point in time. This is done via a simple
+ mouse over.</p><p>&nbsp;</p><p><a class="external-link" href="http://wp1187670.wp212.webpack.hosteurope.de/e4d/wp-content/uploads/2011/07/armed-conflicts.png" rel="nofollow"><img class="confluence-embedded-image size-full wp-image-100 alignnone confluence-external-resource" src="BioSTIF_manual-Dateien/armed-conflicts.png" data-image-src="http://wp1187670.wp212.webpack.hosteurope.de/e4d/wp-content/uploads/2011/07/armed-conflicts.png" height="358" width="477"></a></p><p>&nbsp;</p><h4 id="AboutBioSTIF-Fixedtimeselection">Fixed time selection</h4><p>The
+ time widget allows both the clicking on one bin and the selection of a 
+time range using a mouse drag gesture. A toolbar is then shown that 
+offers the possibility of modifying the left or right border of the 
+selected time era and adjusting a feather range beyond the selection 
+borders to smooth the transitions between selected and non-selected 
+elements.<br> <a class="external-link" href="http://wp1187670.wp212.webpack.hosteurope.de/e4d/wp-content/uploads/2011/07/timeline.png" rel="nofollow"><img class="confluence-embedded-image alignnone size-full wp-image-115 confluence-external-resource" src="BioSTIF_manual-Dateien/timeline.png" data-image-src="http://wp1187670.wp212.webpack.hosteurope.de/e4d/wp-content/uploads/2011/07/timeline.png" height="135" width="487"></a><br>
+ This triggers a weighted colouring of the non-selected circles inside 
+the map. Additionally, a user can display time-dependent connections 
+between data items. For each bin within the selection a minimum spanning
+ tree between the corresponding circles’ centres is displayed on the 
+map. This helps to detect geo-spatial dependencies in short time 
+periods. Finally, the user can drag the selected time era manually or by
+ animation. We then update the circles on-demand to reflect how 
+locations change over time. A play button starts the animation and the 
+selected time span moves smoothly over the entire time range. The 
+advantage of this feature is that the user can direct his attention to 
+the changes inside the map. Finally, a fixed selection can be turned 
+into a refined query.</p><h2 id="AboutBioSTIF-DataFilteringtotheWorkflow">Data Filtering to the Workflow</h2><p>One
+ of the major features of the detail widget is the ability to export 
+elements of a fixed selection from a dataset as a new individual input 
+set via the interaction mechanism of Taverna. At the moment it is 
+implemented by selecting or filtering data and pressing the button OK, 
+which will filter the original data source according to the selected 
+ID's and returns a url containing the filtered file</p><h4 id="AboutBioSTIF-AvailabeData">Availabe Data</h4><h5 id="AboutBioSTIF-BaseMaps/BackgroundLayer">Base Maps / Background Layer</h5><p>Currently
+ we display Open Street Map Tiles. Google and bing maps could also be 
+shown after applying for a key for ussage within BioVeL</p><h5 id="AboutBioSTIF-Overlay/SelectionLayers">Overlay / Selection Layers</h5><p>The Overlay are for the moment fixed layers providing by the BioSTIF GeoServer instance (<a href="https://biovel.iais.fraunhofer.de/geoserver/biovel/ows" class="external-link" rel="nofollow">https://biovel.iais.fraunhofer.de/geoserver/biovel/ows</a>). It can be extended to load data from any specific WMS/WFS/WCS server</p><ul><li>"World Countries" , layer biovel:WorldCountries2002</li><li>"World Seas (IHO)",layer: "biovel:IHO_World_Seas"</li><li>"TDWG Plant distrib. Level 3",layer: "biovel:TDWG_level3"</li><li>"Marine Ecoregions World",layer: "<a href="http://biovelmeow_ecos/" class="external-link" rel="nofollow">biovel:meow_ecos</a>"</li><li>"TDWG Plant distrib. Level 2",layer: "biovel:TDWG_level2",</li><li>"Large Marine Ecosystems","<a href="http://biovellmes_64/" class="external-link" rel="nofollow">biovel:lmes_64</a>"</li><li>"Continental Margins (140-3500)m",layer: "biovel:ContinentalMargins",</li></ul><h5 id="AboutBioSTIF-PointData">Point Data</h5><p>Currently
+ occurrences (format DarwinCore and csv can be loaded). Also KML data 
+can be loaded or other data in the BioSTIF JSON format (see below)</p>
+
+<h1 id="AboutBioSTIF-Usage">Usage</h1>
+<h2 id="AboutBioSTIF-GeneralRemarks">General Remarks</h2><p>Note:
+ BioSTIF was tested on a Windows 7 OS platform with Firefox 11.0, Google
+ Crome 18.0, Apple Safari 5.1.5. Opera 11.62 and Internet Explorer 9. 
+There is a problem with Internet Explorer for the interaction service 
+running modus, but it works as standalone application.</p><p>BioSTIF 
+makes complex data accessible in an easy way. It uses aggregation as a 
+mean of reduction of complexity. BioSTIF relies on the quality of the 
+datasets underneath – the data may have errors, missing location or time
+ data, or no or poor described places. The results tables in the lower 
+part of the interface give an idea of the underlying data.</p>
+
+<h1 id="AboutBioSTIF-TecnologicalFramework">Tecnology</h1>
+
+<p>Installation details are described at the&nbsp;<span class="confluence-link"><a href="https://wiki.biovel.eu/display/biovelfriends/BioSTIF+installation+instructions">BioSTIF installation instructions</a></span> page.</p><p>BioSTIF is based on the following frameworks</p><ul><li><a href="http://openlayers.org/" class="external-link" rel="nofollow">OpenLayers</a></li><li><a href="http://jquery.com/" class="external-link" rel="nofollow">jQuery</a></li><li><a href="http://www.simile-widgets.org/" class="external-link" rel="nofollow">Simile Timeline/Timeplot</a></li><li><a href="http://geoserver.org/display/GEOS/Welcome" class="external-link" rel="nofollow">GeoServer</a> (OpenStreetmap, Google Maps)</li><li><a href="http://code.google.com/apis/kml/documentation/" class="external-link" rel="nofollow">KML</a> (XML)</li><li><a href="http://www.json.org/" class="external-link" rel="nofollow">JSON</a></li></ul><p>BioSTIF is based on a client-server architecture but the client provides the main functionality of the system.</p><p>The
+ client is based on a pure JavaScript because it is supported by every 
+browser without any additional package. Another reason for choosing 
+JavaScript for our main application is the rapidly growing browser 
+support in terms of performance. All interactions, including data 
+refinement, are performed on the client side. The great advantage of 
+this system structure is that each modification of a dataset within the 
+client browser just triggers some functions on the client side. This 
+benefits the response time of modifications, since the browser doesn’t 
+have to wait for the server.</p><p>For the widgets on the client side we
+ make use of two OpenSource JavaScript libraries. A modified Simile 
+Widgets Timeplot instance organizes the segmented area graphs and 
+OpenLayers visualises the circles and arranges the different map layers.
+ We use a Webserver instance of the GeoServer that provides the Overlay 
+Layer Data as WMS with getFeatureInfo (for popups on the overlay) and 
+getFeature (WFS) functionality for selection purposes.</p><p>The webserver is mainly used for data processing. Depending on the requested data source (at the moment <a href="https://wiki.biovel.eu/www.tdwg.org/activities/darwincore/" rel="nofollow">Darwin Core</a> formated data and <a href="http://en.wikipedia.org/wiki/Comma-separated_values" class="external-link" rel="nofollow">CSV</a> files containing Occurrence Data according to the&nbsp;<a href="https://jira.biovel.eu/secure/attachment/10102/InputDataFormat.pdf" class="external-link" rel="nofollow">GBIF DwC Occurrence extension</a>)
+ , the server retrieves the requested data and constructs a JSON-file 
+with a specific format. BioSTIF can also load data in KML format or 
+WMS/WFS data without converting it to JSON.</p><h4 id="AboutBioSTIF-BioSTIFObjectModel&nbsp;">BioSTIF Object Model&nbsp;</h4><p>For
+ feature data, e.g. occurrence data, each received data element is 
+converted into a BioSTIF javaScript object, which has to have an 
+identification (id), a place name (that can be used for aggregation on 
+the map (name tag cloud), a location (latitude and longitude) and 
+optional a valid time stamp or time span. Optionally the object can have
+ a description, which will be shown as popup on clicking on a bubble and
+ a table content which is plotted as a table row. ,</p><h4 id="AboutBioSTIF-Design">Design</h4><p>BioSTIF
+ is based on the Model View Control approach. Each widget (view) work 
+with an own data model and controlers gethering the user interactions. 
+Events released on user interactions like highlight and selection are 
+triggered through a publish/subscribe mechanism. This way each widget is
+ independent of the others and the system can be reconfigured easily.</p><h2 id="AboutBioSTIF-CurrentVersion/Changes">Current Version / Changes</h2><div class="table-wrap"><table class="confluenceTable tablesorter"><thead><tr class="sortableHeader"><th data-column="0" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Version</div></th><th data-column="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Changes / Comments</div></th><th data-column="2" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">available at</div></th></tr></thead><tbody><tr><td class="confluenceTd">&nbsp;</td><td class="confluenceTd">Only Map and Table visible</td><td class="confluenceTd">&nbsp;</td></tr></tbody></table></div><p>&nbsp;</p><h2 id="AboutBioSTIF-WorkflowsusingBioSTIF">Workflows using BioSTIF</h2><p>Workflows using BioSTIF are described at the <a class="createlink" href="https://wiki.biovel.eu/pages/createpage.action?spaceKey=biovelfriends&amp;title=Workflows+using+BioSTIF&amp;linkCreation=true&amp;fromPageId=4063257">Workflows using BioSTIF</a><a class="createlink" href="https://wiki.biovel.eu/pages/createpage.action?spaceKey=biovelfriends&amp;title=BioSTIF+installation+instuctions&amp;linkCreation=true&amp;fromPageId=4063257">BioSTIF installation instuctions</a> page.</p><h2 id="AboutBioSTIF-KnownBugs/Workarounds">Known Bugs / Workarounds</h2><p>Status: N: new, I: In Progress, P: Planned, F. Fixed</p><div class="table-wrap"><table class="confluenceTable tablesorter"><thead><tr class="sortableHeader"><th data-column="0" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Nr.</div></th><th data-column="1" colspan="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Name</div></th><th data-column="2" colspan="1" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Description</div></th><th data-column="3" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Creation Date</div></th><th data-column="4" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Status</div></th><th data-column="5" class="confluenceTh sortableHeader"><div class="tablesorter-header-inner">Status Date</div></th></tr></thead><tbody><tr><td colspan="1" class="confluenceTd">1</td><td colspan="1" class="confluenceTd">Browser compatibility</td><td colspan="1" class="confluenceTd">The BioSTIF interface has not yet been optimised for Internet Explorer. Please use Firefox, Chrome, or Safari instead. <br>IE support is on its way, however. We face some problems with the new Safari 5.1 (OSX Lion only), too.</td><td colspan="1" class="confluenceTd">29.03.2012</td><td colspan="1" class="confluenceTd">N</td><td colspan="1" class="confluenceTd">29.03.2012</td></tr><tr><td colspan="1" class="confluenceTd">2</td><td colspan="1" class="confluenceTd">Performance on raster data loading (images)</td><td colspan="1" class="confluenceTd">The
+ performance of the interface depends on two aspects: the map-rendering 
+server for the background layers (e.g. Open Street Map Mapnik Tile 
+Server) or other GeoServer layers of the BioSTIF server at Fraunhofer 
+IAIS and the JavaScript performance of your browser.&nbsp; A tip is to 
+update your browser software to the newest release: JavaScript 
+performance has been hugely improved over the last couple of months for 
+Safari, Chrome, and Firefox.</td><td colspan="1" class="confluenceTd">29.03.2012</td><td colspan="1" class="confluenceTd">N</td><td colspan="1" class="confluenceTd">29.03.2012</td></tr><tr><td colspan="1" class="confluenceTd">3</td><td colspan="1" class="confluenceTd">Performance on features loading</td><td colspan="1" class="confluenceTd"><p>Datasets
+ with less than 1,000 single points should render immediately. Sets with
+ 10,000 items may take some time, depending on your machine and browser.
+ If the browser sends a timeout message, simplyignore it: up to 40 
+seconds for 10,000 items sounds reasonable.</p><p>The Clustering 
+algorithm must be optimized. There will be different clustering options,
+ some of them will be faster on the computation.</p></td><td colspan="1" class="confluenceTd">29.03.2012</td><td colspan="1" class="confluenceTd">N</td><td colspan="1" class="confluenceTd">29.03.2012</td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">Performance on clustering</td><td colspan="1" class="confluenceTd">The cluster processing results must be stored to avoid recomputing clusters for objects which have already been clustered</td><td colspan="1" class="confluenceTd">29.03.2012</td><td colspan="1" class="confluenceTd">N</td><td colspan="1" class="confluenceTd">29.03.2012</td></tr></tbody></table></div><p>&nbsp;</p><h2 id="AboutBioSTIF-References">References</h2><h5 id="AboutBioSTIF-Projects">Projects</h5><ul><li>BioSTIF is based on the europeana 4D interface (e4D) developed for the <a href="http://wp1187670.wp212.webpack.hosteurope.de/e4d/" class="external-link" rel="nofollow">Europeana project</a></li><li>e4D was used in the project<a href="http://www.iais.fraunhofer.de/index.php?id=5151&amp;L=1" class="external-link" rel="nofollow"> Deutsche Digitale Bibliothek</a><br><br></li></ul><h5 id="AboutBioSTIF-Publications">Publications</h5><p>S.
+ Jänicke, R. Stockmann, C. Mahnke, C. Heine, G. Scheuermann (2011): 
+Comparative Visual Exploration of Geo-Temporal Data, In Eurographics/ 
+IEEE-VGTC Symposium on Visualization 2011, Volume 30 (2011), Number 3 (<a href="https://wiki.biovel.eu/download/attachments/4063257/europeana4D.pdf?version=1&amp;modificationDate=1333095623664">PDF</a>)</p>
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://wiki.biovel.eu/display/biovelfriends/About+BioSTIF"
+    dc:identifier="https://wiki.biovel.eu/display/biovelfriends/About+BioSTIF"
+    dc:title="About BioSTIF"
+    trackback:ping="https://wiki.biovel.eu/rpc/trackback/4063257"/>
+</rdf:RDF>
+-->
+    
+        
+    <div id="footer">
+                                            
+    <ul id="poweredby">
+        <li class="noprint"><a href="http://iais.fraunhofer.de" class="hover-footer-link">Fraunhofer Institute IAIS, BioSTIF Manual V.</a> <span id="footer-build-information">0.2</span></li>
+        <li class="print-only">Gedruckt von BioSTIF Manual.</li>        
+    </ul>
+
+            
+    </div>
+    
+
+  </body></html>  
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+       

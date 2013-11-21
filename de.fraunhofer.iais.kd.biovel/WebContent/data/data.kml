@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document xmlns="http://earth.google.com/kml/2.1">
+ <name>GBIF Data Portal Occurrence Search</name>
+ <open>true</open>
+ <description><![CDATA[-
+
+This document contains data shared through the GBIF Network - see http://data.gbif.org/ for more information.
+					
+All usage of these data must be in accordance with the GBIF Data Use Agreement - see http://www.gbif.org/DataProviders/Agreements/DUA
+<br/><br/><b>Please cite these data as follows:</b><br/><br/>Botanic Garden and Botanical Museum Berlin-Dahlem, BoBO - Botanic Garden Berlin BDI Observations (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/2402">http://data.gbif.org/datasets/resource/2402</a>, 2011-12-12)<br/><br/>Field Museum, FMNH Mammals Collections (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/177">http://data.gbif.org/datasets/resource/177</a>, 2011-12-12)<br/><br/>GBIF-Spain, Ministerio de Medio Ambiente, y Medio Rural y Marino. Dirección General de Medio Natural y Política Forestal. Inventario Nacional de Biodiversidad 2007, Mamíferos (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/3369">http://data.gbif.org/datasets/resource/3369</a>, 2011-12-12)<br/><br/>Marine Science Institute, UCSB, Paleobiology Database (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/563">http://data.gbif.org/datasets/resource/563</a>, 2011-12-12)<br/><br/>Museum für Naturkunde Berlin, Animal Sound Archive Berlin (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/11698">http://data.gbif.org/datasets/resource/11698</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Herdengelhoehle taxa and datings (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6232">http://data.gbif.org/datasets/resource/6232</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Biedermann (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6243">http://data.gbif.org/datasets/resource/6243</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Bocksteinschmiede (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6068">http://data.gbif.org/datasets/resource/6068</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Conturines Höhle (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6272">http://data.gbif.org/datasets/resource/6272</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Gamssulzenhöhle (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6233">http://data.gbif.org/datasets/resource/6233</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Gare de Couze-Serie 2 (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6277">http://data.gbif.org/datasets/resource/6277</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Hunas (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6212">http://data.gbif.org/datasets/resource/6212</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Kogelstein (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6238">http://data.gbif.org/datasets/resource/6238</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Krapina (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6085">http://data.gbif.org/datasets/resource/6085</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Kugelsteinhöhle II (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6189">http://data.gbif.org/datasets/resource/6189</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Sandalja II (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6100">http://data.gbif.org/datasets/resource/6100</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Sernesul Rece Cave (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6251">http://data.gbif.org/datasets/resource/6251</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Teufelsbrücke (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6226">http://data.gbif.org/datasets/resource/6226</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Trebacki krs (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6215">http://data.gbif.org/datasets/resource/6215</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Trou Jadot (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6237">http://data.gbif.org/datasets/resource/6237</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Velika Pecina (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6097">http://data.gbif.org/datasets/resource/6097</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site Villa Seckendorff (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6084">http://data.gbif.org/datasets/resource/6084</a>, 2011-12-12)<br/><br/>PANGAEA - Publishing Network for Geoscientific and Environmental Data, Occurrence of mammalia relicts at site l´Abri de Campalou (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/6156">http://data.gbif.org/datasets/resource/6156</a>, 2011-12-12)<br/><br/>University of Kansas Biodiversity Research Center, Mammal Collection (accessed through GBIF data portal, <a href="http://data.gbif.org/datasets/resource/984">http://data.gbif.org/datasets/resource/984</a>, 2011-12-12)<br/><br/>
+-
+]]></description>
+ <Style id="gbifIcon1">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GE1.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon2">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GE2.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon3">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GE3.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon4">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GE4.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon5">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GE5.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon6">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEcube1.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon7">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEcube2.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon8">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEcube3.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon9">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEcube4.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon10">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEcube5.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon11">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GErc1.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon12">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GErc2.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon13">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GErc3.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon14">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEfl1.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon15">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEcil1.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon16">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEcil2.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon17">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEcil3.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon18">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEcil4.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon19">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEcil5.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon20">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEslp1.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon21">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEslp2.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon22">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEslp3.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon23">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEslp4.png</href>
+   </Icon>
+  </IconStyle>
+ </Style>
+ <Style id="gbifIcon24">
+  <IconStyle>
+   <Icon>
+    <href>http://data.gbif.org/images/GEslp5.png</href>
+   </Icon>
+  </IconStyle>
+ </Style> 
+ <Folder>
+  <name>Marmota marmota</name>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Marine Science Institute, UCSB</td><td>PBDB</td><td>43692</td><td>443616</td><td></td><td><a href="http://data.gbif.org/occurrences/38013479">http://data.gbif.org/occurrences/38013479</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>11.57,45.4333,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Marine Science Institute, UCSB</td><td>PBDB</td><td>36439</td><td>382930</td><td></td><td><a href="http://data.gbif.org/occurrences/38013290">http://data.gbif.org/occurrences/38013290</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.52,45.08,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33662</td><td></td><td><a href="http://data.gbif.org/occurrences/164924375">http://data.gbif.org/occurrences/164924375</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.11,42.66,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33637</td><td></td><td><a href="http://data.gbif.org/occurrences/164924350">http://data.gbif.org/occurrences/164924350</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.37,42.74,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33661</td><td></td><td><a href="http://data.gbif.org/occurrences/164924374">http://data.gbif.org/occurrences/164924374</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.11,42.57,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33660</td><td></td><td><a href="http://data.gbif.org/occurrences/164924373">http://data.gbif.org/occurrences/164924373</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.99,42.66,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33619</td><td></td><td><a href="http://data.gbif.org/occurrences/164924332">http://data.gbif.org/occurrences/164924332</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>2.33,42.41,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33642</td><td></td><td><a href="http://data.gbif.org/occurrences/164924355">http://data.gbif.org/occurrences/164924355</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.49,42.83,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33657</td><td></td><td><a href="http://data.gbif.org/occurrences/164924370">http://data.gbif.org/occurrences/164924370</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.98,42.75,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33632</td><td></td><td><a href="http://data.gbif.org/occurrences/164924345">http://data.gbif.org/occurrences/164924345</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.25,42.73,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33638</td><td></td><td><a href="http://data.gbif.org/occurrences/164924351">http://data.gbif.org/occurrences/164924351</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.37,42.74,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64710</td><td>4002173_1</td><td></td><td><a href="http://data.gbif.org/occurrences/318634308">http://data.gbif.org/occurrences/318634308</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>11.817,46.75,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota (2 records)]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64585</td><td>4000551_1</td><td></td><td><a href="http://data.gbif.org/occurrences/318132676">http://data.gbif.org/occurrences/318132676</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64585</td><td>4000551_2</td><td></td><td><a href="http://data.gbif.org/occurrences/318132680">http://data.gbif.org/occurrences/318132680</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>14.292,47.676,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33664</td><td></td><td><a href="http://data.gbif.org/occurrences/164924377">http://data.gbif.org/occurrences/164924377</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.23,42.66,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33645</td><td></td><td><a href="http://data.gbif.org/occurrences/164924358">http://data.gbif.org/occurrences/164924358</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.5,42.74,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota (2 records)]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.63878</td><td>2192797_3</td><td></td><td><a href="http://data.gbif.org/occurrences/319095198">http://data.gbif.org/occurrences/319095198</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.63878</td><td>2192797_2</td><td></td><td><a href="http://data.gbif.org/occurrences/319095196">http://data.gbif.org/occurrences/319095196</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>13.891,44.8762,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33659</td><td></td><td><a href="http://data.gbif.org/occurrences/164924372">http://data.gbif.org/occurrences/164924372</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.99,42.57,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33665</td><td></td><td><a href="http://data.gbif.org/occurrences/164924378">http://data.gbif.org/occurrences/164924378</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.23,42.75,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33620</td><td></td><td><a href="http://data.gbif.org/occurrences/164924333">http://data.gbif.org/occurrences/164924333</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>2.45,42.41,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33653</td><td></td><td><a href="http://data.gbif.org/occurrences/164924366">http://data.gbif.org/occurrences/164924366</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.86,42.66,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33639</td><td></td><td><a href="http://data.gbif.org/occurrences/164924352">http://data.gbif.org/occurrences/164924352</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.37,42.83,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33634</td><td></td><td><a href="http://data.gbif.org/occurrences/164924347">http://data.gbif.org/occurrences/164924347</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.26,42.64,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Marine Science Institute, UCSB</td><td>PBDB</td><td>43701</td><td>443709</td><td></td><td><a href="http://data.gbif.org/occurrences/38013481">http://data.gbif.org/occurrences/38013481</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>13.7486,45.7364,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33629</td><td></td><td><a href="http://data.gbif.org/occurrences/164924342">http://data.gbif.org/occurrences/164924342</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.13,42.73,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.63622</td><td>2191501_1</td><td></td><td><a href="http://data.gbif.org/occurrences/318810857">http://data.gbif.org/occurrences/318810857</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>9.22417,48.8048,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33623</td><td></td><td><a href="http://data.gbif.org/occurrences/164924336">http://data.gbif.org/occurrences/164924336</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.01,42.64,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33605</td><td></td><td><a href="http://data.gbif.org/occurrences/164924318">http://data.gbif.org/occurrences/164924318</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.73,42.93,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Museum für Naturkunde Berlin</td><td>TSA</td><td>MfN - Animal Sound Archive</td><td>TSA:Marmota_marmota_DIG_116_19_1</td><td>2010-07-20</td><td><a href="http://data.gbif.org/occurrences/245370245">http://data.gbif.org/occurrences/245370245</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>9.6953,47.0772,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33627</td><td></td><td><a href="http://data.gbif.org/occurrences/164924340">http://data.gbif.org/occurrences/164924340</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.13,42.73,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33663</td><td></td><td><a href="http://data.gbif.org/occurrences/164924376">http://data.gbif.org/occurrences/164924376</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.11,42.75,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33656</td><td></td><td><a href="http://data.gbif.org/occurrences/164924369">http://data.gbif.org/occurrences/164924369</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.87,42.57,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota (2 records)]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64563</td><td>4000073_2_0</td><td></td><td><a href="http://data.gbif.org/occurrences/208719999">http://data.gbif.org/occurrences/208719999</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64563</td><td>4000073_2</td><td></td><td><a href="http://data.gbif.org/occurrences/318228195">http://data.gbif.org/occurrences/318228195</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>19.833,42.767,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33651</td><td></td><td><a href="http://data.gbif.org/occurrences/164924364">http://data.gbif.org/occurrences/164924364</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.74,42.75,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota (2 records)]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.63875</td><td>2192674_3</td><td></td><td><a href="http://data.gbif.org/occurrences/318874357">http://data.gbif.org/occurrences/318874357</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.63875</td><td>2192674_4</td><td></td><td><a href="http://data.gbif.org/occurrences/318874359">http://data.gbif.org/occurrences/318874359</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>16.037,46.285,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33641</td><td></td><td><a href="http://data.gbif.org/occurrences/164924354">http://data.gbif.org/occurrences/164924354</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.38,42.65,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33667</td><td></td><td><a href="http://data.gbif.org/occurrences/164924380">http://data.gbif.org/occurrences/164924380</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.6,42.4,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Marine Science Institute, UCSB</td><td>PBDB</td><td>43704</td><td>443757</td><td></td><td><a href="http://data.gbif.org/occurrences/38013483">http://data.gbif.org/occurrences/38013483</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>13.6469,45.7758,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33650</td><td></td><td><a href="http://data.gbif.org/occurrences/164924363">http://data.gbif.org/occurrences/164924363</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.74,42.84,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33652</td><td></td><td><a href="http://data.gbif.org/occurrences/164924365">http://data.gbif.org/occurrences/164924365</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.74,42.84,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33613</td><td></td><td><a href="http://data.gbif.org/occurrences/164924326">http://data.gbif.org/occurrences/164924326</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>2.09,42.31,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33608</td><td></td><td><a href="http://data.gbif.org/occurrences/164924321">http://data.gbif.org/occurrences/164924321</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.86,42.93,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.63626</td><td>2191634_9</td><td></td><td><a href="http://data.gbif.org/occurrences/318810767">http://data.gbif.org/occurrences/318810767</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>15.9217,46.1717,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33647</td><td></td><td><a href="http://data.gbif.org/occurrences/164924360">http://data.gbif.org/occurrences/164924360</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.62,42.56,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33631</td><td></td><td><a href="http://data.gbif.org/occurrences/164924344">http://data.gbif.org/occurrences/164924344</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.25,42.73,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Museum für Naturkunde Berlin</td><td>TSA</td><td>MfN - Animal Sound Archive</td><td>TSA:Marmota_marmota_DIG_116_13_1</td><td>2010-07-20</td><td><a href="http://data.gbif.org/occurrences/245370242">http://data.gbif.org/occurrences/245370242</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>9.7114,47.0958,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33607</td><td></td><td><a href="http://data.gbif.org/occurrences/164924320">http://data.gbif.org/occurrences/164924320</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.75,42.57,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33618</td><td></td><td><a href="http://data.gbif.org/occurrences/164924331">http://data.gbif.org/occurrences/164924331</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>2.33,42.32,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33654</td><td></td><td><a href="http://data.gbif.org/occurrences/164924367">http://data.gbif.org/occurrences/164924367</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.86,42.75,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33643</td><td></td><td><a href="http://data.gbif.org/occurrences/164924356">http://data.gbif.org/occurrences/164924356</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.5,42.56,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33648</td><td></td><td><a href="http://data.gbif.org/occurrences/164924361">http://data.gbif.org/occurrences/164924361</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.62,42.74,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64589</td><td>4000692_6</td><td></td><td><a href="http://data.gbif.org/occurrences/318114303">http://data.gbif.org/occurrences/318114303</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>5.5667,52.533,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33621</td><td></td><td><a href="http://data.gbif.org/occurrences/164924334">http://data.gbif.org/occurrences/164924334</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.01,42.64,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33616</td><td></td><td><a href="http://data.gbif.org/occurrences/164924329">http://data.gbif.org/occurrences/164924329</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>2.09,42.4,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33649</td><td></td><td><a href="http://data.gbif.org/occurrences/164924362">http://data.gbif.org/occurrences/164924362</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.74,42.75,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33625</td><td></td><td><a href="http://data.gbif.org/occurrences/164924338">http://data.gbif.org/occurrences/164924338</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.02,42.55,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33635</td><td></td><td><a href="http://data.gbif.org/occurrences/164924348">http://data.gbif.org/occurrences/164924348</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.26,42.55,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota (3 records)]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64407</td><td>2198909_3</td><td></td><td><a href="http://data.gbif.org/occurrences/318687062">http://data.gbif.org/occurrences/318687062</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64407</td><td>2198909_4</td><td></td><td><a href="http://data.gbif.org/occurrences/318687063">http://data.gbif.org/occurrences/318687063</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64407</td><td>2198909_1</td><td></td><td><a href="http://data.gbif.org/occurrences/318687061">http://data.gbif.org/occurrences/318687061</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>15.3362,47.2215,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33630</td><td></td><td><a href="http://data.gbif.org/occurrences/164924343">http://data.gbif.org/occurrences/164924343</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.13,42.82,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Marine Science Institute, UCSB</td><td>PBDB</td><td>43656</td><td>443304</td><td></td><td><a href="http://data.gbif.org/occurrences/38013472">http://data.gbif.org/occurrences/38013472</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>11.03,45.62,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Botanic Garden and Botanical Museum Berlin-Dahlem</td><td>BGBM</td><td>BoBO - Botanic Garden Berlin BDI Observations</td><td>2</td><td>2003-09-16</td><td><a href="http://data.gbif.org/occurrences/144028364">http://data.gbif.org/occurrences/144028364</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>10.2,47.4,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33612</td><td></td><td><a href="http://data.gbif.org/occurrences/164924325">http://data.gbif.org/occurrences/164924325</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.97,42.31,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33615</td><td></td><td><a href="http://data.gbif.org/occurrences/164924328">http://data.gbif.org/occurrences/164924328</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.97,42.49,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33624</td><td></td><td><a href="http://data.gbif.org/occurrences/164924337">http://data.gbif.org/occurrences/164924337</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.01,42.73,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33626</td><td></td><td><a href="http://data.gbif.org/occurrences/164924339">http://data.gbif.org/occurrences/164924339</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.13,42.64,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33609</td><td></td><td><a href="http://data.gbif.org/occurrences/164924322">http://data.gbif.org/occurrences/164924322</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.72,42.4,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33622</td><td></td><td><a href="http://data.gbif.org/occurrences/164924335">http://data.gbif.org/occurrences/164924335</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.01,42.73,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33603</td><td></td><td><a href="http://data.gbif.org/occurrences/164924316">http://data.gbif.org/occurrences/164924316</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.62,42.65,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota (2 records)]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Museum für Naturkunde Berlin</td><td>TSA</td><td>MfN - Animal Sound Archive</td><td>TSA:Marmota_marmota_DIG_116_14_1</td><td>2010-07-20</td><td><a href="http://data.gbif.org/occurrences/245370243">http://data.gbif.org/occurrences/245370243</a></td></tr><tr><td>Museum für Naturkunde Berlin</td><td>TSA</td><td>MfN - Animal Sound Archive</td><td>TSA:Marmota_marmota_DIG_116_15_1</td><td>2010-07-20</td><td><a href="http://data.gbif.org/occurrences/245370244">http://data.gbif.org/occurrences/245370244</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>9.7047,47.0872,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Marine Science Institute, UCSB</td><td>PBDB</td><td>34010</td><td>357200</td><td></td><td><a href="http://data.gbif.org/occurrences/38013250">http://data.gbif.org/occurrences/38013250</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>22.0333,46.9667,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33668</td><td></td><td><a href="http://data.gbif.org/occurrences/164924381">http://data.gbif.org/occurrences/164924381</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.6,42.49,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33617</td><td></td><td><a href="http://data.gbif.org/occurrences/164924330">http://data.gbif.org/occurrences/164924330</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>2.21,42.4,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64590</td><td>4000714_1</td><td></td><td><a href="http://data.gbif.org/occurrences/321368461">http://data.gbif.org/occurrences/321368461</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>9.7167,48.367,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33655</td><td></td><td><a href="http://data.gbif.org/occurrences/164924368">http://data.gbif.org/occurrences/164924368</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.87,42.48,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33611</td><td></td><td><a href="http://data.gbif.org/occurrences/164924324">http://data.gbif.org/occurrences/164924324</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.85,42.4,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota (4 records)]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64273</td><td>2196074_3</td><td></td><td><a href="http://data.gbif.org/occurrences/233230431">http://data.gbif.org/occurrences/233230431</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64273</td><td>2196074_2</td><td></td><td><a href="http://data.gbif.org/occurrences/233230430">http://data.gbif.org/occurrences/233230430</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64273</td><td>2196074_4</td><td></td><td><a href="http://data.gbif.org/occurrences/233230432">http://data.gbif.org/occurrences/233230432</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64273</td><td>2196074_5</td><td></td><td><a href="http://data.gbif.org/occurrences/318580055">http://data.gbif.org/occurrences/318580055</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>5.2333,45.0667,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Field Museum</td><td>FMNH</td><td>Mammals</td><td>66237</td><td>1949-09-08</td><td><a href="http://data.gbif.org/occurrences/61896845">http://data.gbif.org/occurrences/61896845</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>10.466666,47.833332,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33644</td><td></td><td><a href="http://data.gbif.org/occurrences/164924357">http://data.gbif.org/occurrences/164924357</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.5,42.65,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33666</td><td></td><td><a href="http://data.gbif.org/occurrences/164924379">http://data.gbif.org/occurrences/164924379</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.35,42.76,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64604</td><td>4001165_1</td><td></td><td><a href="http://data.gbif.org/occurrences/318334735">http://data.gbif.org/occurrences/318334735</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>23.35,46.733,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33640</td><td></td><td><a href="http://data.gbif.org/occurrences/164924353">http://data.gbif.org/occurrences/164924353</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.38,42.56,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>University of Kansas Biodiversity Research Center</td><td>KU</td><td>KUM</td><td>35435</td><td></td><td><a href="http://data.gbif.org/occurrences/175820936">http://data.gbif.org/occurrences/175820936</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>6.35,45.28,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64913</td><td>4004176_9</td><td></td><td><a href="http://data.gbif.org/occurrences/321371003">http://data.gbif.org/occurrences/321371003</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.7025,44.838,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33604</td><td></td><td><a href="http://data.gbif.org/occurrences/164924317">http://data.gbif.org/occurrences/164924317</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.62,42.74,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33606</td><td></td><td><a href="http://data.gbif.org/occurrences/164924319">http://data.gbif.org/occurrences/164924319</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.74,42.66,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33628</td><td></td><td><a href="http://data.gbif.org/occurrences/164924341">http://data.gbif.org/occurrences/164924341</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.13,42.64,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33610</td><td></td><td><a href="http://data.gbif.org/occurrences/164924323">http://data.gbif.org/occurrences/164924323</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.72,42.49,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota (4 records)]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64560</td><td>4000019_3_0</td><td></td><td><a href="http://data.gbif.org/occurrences/208719754">http://data.gbif.org/occurrences/208719754</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64560</td><td>4000019_2</td><td></td><td><a href="http://data.gbif.org/occurrences/318260535">http://data.gbif.org/occurrences/318260535</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64560</td><td>4000019_3</td><td></td><td><a href="http://data.gbif.org/occurrences/318260536">http://data.gbif.org/occurrences/318260536</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64560</td><td>4000019_2_0</td><td></td><td><a href="http://data.gbif.org/occurrences/208719753">http://data.gbif.org/occurrences/208719753</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>11.55,49.5,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota (2 records)]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.63572</td><td>2190583_16</td><td></td><td><a href="http://data.gbif.org/occurrences/318206052">http://data.gbif.org/occurrences/318206052</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.63572</td><td>2190583_14</td><td></td><td><a href="http://data.gbif.org/occurrences/318206051">http://data.gbif.org/occurrences/318206051</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>10.1538,48.553,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64584</td><td>4000528_3</td><td></td><td><a href="http://data.gbif.org/occurrences/318127862">http://data.gbif.org/occurrences/318127862</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>14.973,48.8388,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33658</td><td></td><td><a href="http://data.gbif.org/occurrences/164924371">http://data.gbif.org/occurrences/164924371</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>0.99,42.48,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota (2 records)]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64596</td><td>4000887_5_0</td><td></td><td><a href="http://data.gbif.org/occurrences/208560700">http://data.gbif.org/occurrences/208560700</a></td></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64596</td><td>4000887_5</td><td></td><td><a href="http://data.gbif.org/occurrences/321357925">http://data.gbif.org/occurrences/321357925</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>4.3333,48.75,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33633</td><td></td><td><a href="http://data.gbif.org/occurrences/164924346">http://data.gbif.org/occurrences/164924346</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.25,42.82,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>Marine Science Institute, UCSB</td><td>PBDB</td><td>43689</td><td>443574</td><td></td><td><a href="http://data.gbif.org/occurrences/38013476">http://data.gbif.org/occurrences/38013476</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>11.55,45.55,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33636</td><td></td><td><a href="http://data.gbif.org/occurrences/164924349">http://data.gbif.org/occurrences/164924349</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.26,42.64,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33646</td><td></td><td><a href="http://data.gbif.org/occurrences/164924359">http://data.gbif.org/occurrences/164924359</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>-0.61,42.83,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>PANGAEA - Publishing Network for Geoscientific and Environmental Data</td><td>Pangaea</td><td>doi:10.1594/PANGAEA.64578</td><td>4000369_8</td><td></td><td><a href="http://data.gbif.org/occurrences/317922714">http://data.gbif.org/occurrences/317922714</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>11.4,50.617,0</coordinates>
+   </Point>
+  </Placemark>
+  <Placemark>
+   <name><![CDATA[Marmota marmota]]></name>
+   <description><![CDATA[<p><img src="http://data.gbif.org/images/gbifSmall.gif"/></p><p><b>Data retrieved from <a href="http://data.gbif.org">GBIF Data Portal</a></b><p><table><tr><th>Data Provider</th><th>Institution Code</th><th>Collection Code</th><th>Catalogue Number</th><th>Date</th><th>Portal URL</th></tr><tr><td>GBIF-Spain</td><td>ARM</td><td>ARM-INB-2007-Mamiferos</td><td>33614</td><td></td><td><a href="http://data.gbif.org/occurrences/164924327">http://data.gbif.org/occurrences/164924327</a></td></tr></table></p>]]></description>
+   <styleUrl>#gbifIcon10</styleUrl>
+   <Point>
+    <coordinates>1.84,42.49,0</coordinates>
+   </Point>
+  </Placemark>
+ </Folder>
+</Document>
+</kml>

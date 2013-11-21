@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.fraunhofer.iais.kd.common
+Bundle-SymbolicName: de.fraunhofer.iais.kd.biovel.common
+Bundle-Version: 1.0.0.qualifier
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: de.fraunhofer.iais.kd.biovel.common,
+ de.fraunhofer.iais.kd.biovel.common.annotations,
+ de.fraunhofer.iais.kd.biovel.common.contract,
+ de.fraunhofer.iais.kd.biovel.common.org.json.util,
+ org.json
+Import-Package: org.apache.commons.codec.binary;version="1.3.0"

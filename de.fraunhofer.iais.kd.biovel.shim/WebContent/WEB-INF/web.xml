@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>de.fraunhofer.iais.kd.biovel.shim</display-name>
+  <servlet>
+    <servlet-name>ShimResources</servlet-name>
+    <servlet-class>de.fraunhofer.iais.kd.biovel.shim.ShimServletContainer</servlet-class>
+    <init-param>
+      <param-name>com.sun.jersey.config.property.packages</param-name>
+      <param-value>de.fraunhofer.iais.kd.biovel.shim</param-value>
+    </init-param>
+    <init-param>
+      <description>
+                The configuration file for shim server resources.
+                On startup this file must exist with proper content. 
+            </description>
+      <param-name>biostif.server.conf</param-name>
+      <param-value>/home/biovel/conf/biostif.server.conf</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShimResources</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+</web-app>

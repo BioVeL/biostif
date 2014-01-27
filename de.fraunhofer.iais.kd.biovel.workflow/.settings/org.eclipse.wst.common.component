@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="de.fraunhofer.iais.kd.biovel.workflow">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="rome-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/lib/rome-1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mail-1.4.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/lib/mail-1.4.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mimepull-1.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/lib/mimepull-1.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jdom-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/lib/jdom-1.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="activation-1.1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/lib/activation-1.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="de.fraunhofer.iais.kd.biovel.common.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/de.fraunhofer.iais.kd.biovel.common/de.fraunhofer.iais.kd.biovel.common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-jaxrs-1.9.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/jackson-jaxrs-1.9.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oauth-server-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/contribs/oauth-server-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-xc-1.9.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/jackson-xc-1.9.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-core-asl-1.9.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/jackson-core-asl-1.9.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="asm-3.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/asm-3.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oauth-signature-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/contribs/oauth-signature-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jettison-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/jettison-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-guice-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/contribs/jersey-guice-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-servlet-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/jersey-servlet-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-atom-abdera-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/contribs/jersey-atom-abdera-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-client-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/jersey-client-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsr311-api-1.1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/jsr311-api-1.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-server-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/jersey-server-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-apache-client-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/contribs/jersey-apache-client-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jackson-mapper-asl-1.9.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/jackson-mapper-asl-1.9.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-simple-server-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/contribs/jersey-simple-server-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oauth-client-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/contribs/oauth-client-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-multipart-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/contribs/jersey-multipart-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-json-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/jersey-json-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-core-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/lib/jersey-core-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-bundle-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/lib/jersey-bundle-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jersey-spring-1.17.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/de.fraunhofer.iais.kd.y.jersey.lib/jersey-archive-1.17/contribs/jersey-spring-1.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/de.fraunhofer.iais.kd.biovel.workflow/build/classes"/>
+        <property name="context-root" value="workflow"/>
+    </wb-module>
+</project-modules>

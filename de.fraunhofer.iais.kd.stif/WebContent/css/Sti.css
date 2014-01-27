@@ -1,0 +1,641 @@
+body {
+	font-family: sans serif;
+}
+
+/*
+  settings for slider object
+*/
+.dynamic-slider-control {
+	width: 20px;
+	position: relative;
+}
+
+.vertical {
+	height:	80px;
+}
+
+.horizontal {
+	width:	60px;
+}
+
+.dynamic-slider-control input {
+	display:	none;
+}
+
+.dynamic-slider-control .handle {
+	position:			absolute;
+	font-size:			1px;
+	overflow:			hidden;
+}
+
+.dynamic-slider-control.vertical .handle {
+	width:				20px;
+	height:				30px;
+	background-image:	url("../images/sliderDot.png");
+}
+
+.dynamic-slider-control.horizontal .handle {
+	width:				30px;
+	height:				20px;
+	background-image:	url("../images/sliderDot-horizontal.png");
+}
+
+.dynamic-slider-control .line {
+	position:			absolute;
+	font-size:			0.01mm;
+	overflow:			hidden;
+	border:				1px solid rgb(90,97,90);
+	background:			rgb(189,190,189);
+}
+
+.dynamic-slider-control.vertical .line {
+	width:				3px;
+}
+
+.dynamic-slider-control .line div {
+	width:		1px;
+	height:		1px;
+	
+	border:		1px solid;
+	border-color:	rgb(230,230,230) rgb(189,190,189)
+			rgb(189,190,189) rgb(230,230,230);
+}
+
+/*
+  settings for timeplot widget (some are overwritten timeplot css classes)
+*/
+#plotWindow {
+	position: relative;
+	border-bottom: 1px solid #ADADAD;
+	z-index: 1;
+}
+
+#plotContainer {
+	position: absolute;
+	padding: 0px;
+	border: none;
+	top: 12px;
+	left: 0px;
+	z-index: 1;
+	overflow: hidden;
+}
+
+#timeplotToolbar dt, dl{
+  	padding: 2px 0px;
+	display: block;
+  	cursor: pointer;
+}
+
+.plotCanvas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -2;
+}
+
+.timeplot-background {
+    display: none;
+    z-index: -2;
+}
+
+.timeplot-container {
+	position: absolute;
+	left: 16px;
+	padding: 0px;
+	border: none;
+	z-index: 1;
+	top: 0px;
+	overflow: visible;
+}
+
+.timeplot-copyright {
+    visibility: hidden;
+}
+
+.timeplot-timeflag {
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+.timeplot-valueflag {
+    font-size: 0.8em;
+}
+
+.timeplot-dayflag-pole {
+    display: none;
+    z-index: 999;
+}
+
+.timeplot-dayflag {
+    display: none;
+    border: 1px solid #FF0000;
+    padding: 1px;
+    text-align: center;
+    background-color: #FFCCCC;
+    z-index: 1000;    
+}
+
+.range-box {
+    display: none;
+    background-repeat: repeat;
+    opacity: 0.6;
+filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    z-index: -1;
+}
+
+.popup-click-div {
+    display: none;
+    z-index: 1010;
+    cursor: pointer;    
+}
+
+.left-feather {
+    display: none;
+    z-index: -1;
+}
+
+.right-feather {
+    display: none;
+    z-index: -1;
+}
+
+.plotHandle {
+	position: absolute;
+	visibility: hidden;
+	cursor: pointer;
+    z-index: 1002;
+}
+
+.plotHandleLabel {
+    padding: 2px 5px;
+    font-size: 0.8em;
+}
+
+.plotHandleIcon {
+    height: 43px;
+    width: 14px;
+}
+
+.plotToolbar {
+	position: absolute;
+	visibility: hidden;
+	z-index: 1;
+}
+
+.absoluteToolbar {
+	position: relative;
+}
+
+.featherSlider {
+    position: absolute;
+    top: 9px;
+    right: 64px;		
+}
+
+.timeOverview {
+	position: absolute;
+	top: 0px;
+	height: 12px;
+	z-index: 0;
+	visibility: hidden;
+	opacity: 0.5;
+filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	overflow: hidden; 
+	border-bottom: 1px solid rgb(100,100,100);
+}
+
+.plotLabels {
+	position: absolute;
+	overflow: hidden; 
+	top: 0px;
+	left: 0px;
+	height: 12px;
+	z-index: 0;
+}
+
+.plotLabel {
+	position: absolute;
+	font-size: 9px;
+	height: 10px;
+	padding: 1px 2px;
+	border-left: solid 1px rgb(214,214,214);	
+}
+
+.overviewRange {
+	position: absolute;
+	top: 0px;
+	height: 12px;
+	background: white;
+}
+
+.overviewLabel {
+	position: absolute;
+	font-size: 9px;
+	height: 10px;
+	padding: 1px 2px;
+	border-left: solid 1px black;	
+}
+
+.shiftLeft {
+	position: absolute;
+	left: 4px;
+	top: 0px;
+	height: 12px;
+	width: 12px;
+filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	opacity: 0.8;
+	background-image: url(../images/shiftLeft.png);
+	visibility: hidden;
+}	
+
+.shiftLeft:hover {
+	cursor: pointer;
+	background-image: url(../images/shiftLeftOver.png);
+}	
+
+.shiftRight {
+	position: absolute;
+	right: 4px;
+	top: 0px;
+	height: 12px;
+	width: 12px;
+	opacity: 0.8;
+filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    background-image: url(../images/shiftRight.png);
+	visibility: hidden;
+}
+
+.shiftRight:hover {
+	cursor: pointer;
+	background-image: url(../images/shiftRightOver.png);
+}
+
+/*
+  settings for map widget
+*/
+#mapWindow {
+	position: absolute;
+	z-index: 2;
+}
+
+.mapCanvas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -2;
+}
+
+.mapsMenu {
+	position: absolute;
+	z-index: 1000;
+}
+
+.mapsMenu dl {
+	margin: 0px;
+	display: block;
+}
+
+.mapsMenu dt {
+  	padding: 2px;
+	display: block;
+  	cursor: pointer;
+}
+
+#mapToolbar dt, dl{
+  	padding: 2px 0px;
+	display: block;
+  	cursor: pointer;
+}
+
+.mapsMenu dt:hover {
+	background: #C9C9CB;
+}
+
+.selectedMapEntry {
+	color: white;
+	background: #C9C9CB;
+}
+
+.pointClickDiv {
+	position: absolute;
+	visibility: hidden;
+	z-index: 4;
+}
+
+.pointClickDivBackground {
+	width: 100%;
+	height: 100%;
+	z-index: 4;
+	filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+.mapInfo {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	padding: 3px;
+}
+
+.tagCloudDiv {
+    position: absolute;
+    visibility: hidden;
+}
+
+.mapToolbar {
+	position: absolute;
+	visibility: hidden;
+	z-index: 1009;
+	opacity: 0.8;
+filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+
+.tagCloudItem {
+	z-index: 1009;
+	cursor: pointer;
+}
+
+.controlLock {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1008;
+	visibility: hidden; 	
+}
+
+/*
+  sti toolbar settings
+*/
+.toolbarTop {
+	top: 0px;	
+}
+
+.toolbarBottom {
+	bottom: 0px;	
+}
+
+.toolbarLeft {
+	left: 0px;	
+}
+
+.toolbarRight {
+	right: 0px;	
+}
+
+.toolbarLeftLight {
+	background-image: url(../images/bg-left.png);
+	background-repeat: repeat-y;
+	border-right: 1px solid white;
+}
+
+.toolbarRightLight {
+	background-image: url(../images/bg-right.png);
+	background-repeat: repeat-y;
+	border-left: 1px solid white;
+}
+
+/*
+  settings for zoom slider
+*/
+.sliderStyle {
+	position: relative;
+	width: 20px;
+	height: 100px;
+	border:	1px solid rgb(68,68,68);
+	margin: 3px;
+}
+
+.zoomSliderContainer {
+	position: absolute;
+	top: 10px;
+	left: 0px;	
+}
+
+.zoomSliderIn {
+	position: absolute;
+	top: 0px;
+	left: 2px;	
+}
+
+.zoomSliderOut {
+	position: absolute;
+	top: 84px;
+	left: 2px;	
+}
+
+/*
+  settings for widgets integrated toolbars
+*/
+.dragTimeRange {
+	position: absolute;
+	height: 11px;
+    width: 17px;
+    top: 4px;
+    right: 47px;
+    background-image: url(../images/dragger.png);
+    background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.dragTimeRangeAlt {
+	position: relative;
+	height: 14px;
+    width: 45px;
+	cursor: pointer;
+}
+
+.dragTimeRangeClick {
+	position: absolute;
+	height: 11px;
+    width: 17px;
+    top: 4px;
+    right: 47px;
+    background-image: url(../images/dragger-click.png);
+    background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.zoomRange {
+    display: inline-block;
+	height: 20px;
+    width: 20px;
+    background-image: url(../images/zoom.png);
+    background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.zoomRangeAlt {
+    position: absolute;
+	height: 20px;
+    width: 20px;
+    background-image: url(../images/zoom.png);
+	cursor: pointer;
+	visibility: hidden;
+}
+
+.cancelRange {
+	height: 16px;
+    width: 16px;
+    background-image: url(../images/cancel.png);
+    background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.cancelRangeAlt {
+    position: absolute;
+	height: 16px;
+    width: 16px;
+    background-image: url(../images/cancel.png);
+	cursor: pointer;
+	visibility: hidden;
+}
+
+.widgetHeadline {
+	position: absolute;
+	top: 3px;
+	font-size: 18px;
+	padding: 3px;		
+}
+
+/*
+  settings for widgets popup window
+*/
+.popupDiv {
+	position: absolute;
+	background-color: white;
+	border: 2px solid #666666;
+	padding: 25px;
+	visibility: hidden;
+}
+
+.back {
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    top: 2px;
+    left: 5px;
+    background-image: url(../images/back.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+	display: none;
+}
+
+.next {
+    position: absolute;
+	height: 16px;
+    width: 16px;
+    bottom: 5px;
+    right: 5px;
+    background-image: url(../images/next.png);
+    background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.previous {
+    position: absolute;
+	height: 16px;
+    width: 16px;
+    bottom: 5px;
+    left: 5px;
+    background-image: url(../images/prev.png);
+    background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.popupTriangleDown {
+	position: absolute;
+	height: 18px;
+    width: 31px;
+    background-image: url(../images/popupTriangleDown.png);
+    background-repeat: no-repeat;
+    z-index: 1000;
+}
+
+.popupTriangleUp {
+	position: absolute;
+	height: 18px;
+    width: 31px;
+    background-image: url(../images/popupTriangleUp.png);
+    background-repeat: no-repeat;
+    z-index: 1000;
+}
+
+.popupTriangleLeft {
+	position: absolute;
+	height: 31px;
+    width: 18px;
+    background-image: url(../images/popupTriangleLeft.png);
+    background-repeat: no-repeat;
+    z-index: 1000;
+}
+
+.popupTriangleRight {
+	position: absolute;
+	height: 31px;
+    width: 18px;
+    background-image: url(../images/popupTriangleRight.png);
+    background-repeat: no-repeat;
+    z-index: 1000;
+}
+
+.popupResultsLabel {
+	position: absolute;
+	bottom: 5px;
+	font-size: 60%;
+	color:#999999;
+}
+
+.popupDescription {
+	font-size: 60%;
+}
+
+.popupDiv ul {
+	list-style-type: none;
+	margin:0;
+	padding:0;
+}
+
+.popupDiv ol li:hover {
+	text-decoration:underline;
+}
+
+.popupDiv li {
+	padding: 5px;
+	cursor: pointer;
+}
+
+.popupContent {
+	font-size: 60%;
+	font-weight: bold;
+}
+
+.animation {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+    cursor: pointer;
+	visibility: hidden;
+}
+
+.osmLink {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	font-size: 11px;
+	color: blue;
+	visibility: hidden;
+	z-index: 1100;
+}
+
+.osmLink a {
+	color: blue;
+}
+
+.osmLink a:visited {
+	color: blue;
+}

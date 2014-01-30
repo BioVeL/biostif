@@ -171,6 +171,7 @@ function FilterBar(core, data, parentDiv){
 		
 		if(this.data !=null){
 			if (this.selectedObjects.length == 0) {
+                this.selectedObjects = this.data;  // XXX KHS AP
 				this.filtering();
 				return;
 			}
@@ -180,7 +181,7 @@ function FilterBar(core, data, parentDiv){
     		var new_datasource_selectedObjects = [];    		
     		if (this.selectedObjects[i].length == 0) {
     			logg("inverseFiltering new selectedobjects length NULL");
-    			new_selectedObjects.push(this.data[i]);
+    			new_selectedObjects[i] = this.data[i];
     		} else {
     			logg("inverseFiltering this.data[i].length: " + this.data[i].length);
     			
@@ -197,8 +198,7 @@ function FilterBar(core, data, parentDiv){
 	    		}
 	    		logg("elemente gesamt: " + elg + " sortiert: " + elsor);
 //	    		logg("after add: new_datasource_selectedObjects: " + new_datasource_selectedObjects.length);
-	    		new_selectedObjects.push(new_datasource_selectedObjects);
-	    		
+	    		new_selectedObjects[i] = new_datasource_selectedObjects;
     		}
     	}
     	this.selectedObjects = new_selectedObjects;

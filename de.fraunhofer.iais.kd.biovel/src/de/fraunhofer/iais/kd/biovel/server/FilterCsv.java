@@ -77,9 +77,9 @@ public class FilterCsv extends HttpServlet {
         }
 
         File confFile = new File(confFileName);
-        if (!confFile.isAbsolute()) {
-            confFile = new File(config.getServletContext().getRealPath("/"), confFileName);
-        }
+//        if (!confFile.isAbsolute()) {
+//            confFile = new File(config.getServletContext().getRealPath("/"), confFileName);
+//        }
         if (!confFile.canRead()) {
             throw new ServletException("--- FilterCsv cannot read file: \"" + confFileName + "\"");
         }

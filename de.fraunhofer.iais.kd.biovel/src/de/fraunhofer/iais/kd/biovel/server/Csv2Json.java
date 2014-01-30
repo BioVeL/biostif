@@ -91,11 +91,12 @@ public class Csv2Json extends HttpServlet {
         }
 
         File confFile = new File(confFileName);
-        if (!confFile.isAbsolute()) {
-            confFile = new File(config.getServletContext().getRealPath("/"), confFileName);
-        }
+//        if (!confFile.isAbsolute()) {
+//            confFile = new File(config.getServletContext().getRealPath("/"), confFileName);
+//        }
         if (!confFile.canRead()) {
-            throw new ServletException("--- Csv2Json cannot read file: \"" + confFileName + "\"");
+        	logger.info("XXX");
+            throw new ServletException("--- Csv2Json cannot read file: \"" + confFile.getAbsolutePath() + "\"");
         }
 
         Properties props = new Properties();

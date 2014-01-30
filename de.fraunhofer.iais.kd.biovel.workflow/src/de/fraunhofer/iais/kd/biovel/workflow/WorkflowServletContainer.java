@@ -47,9 +47,9 @@ public class WorkflowServletContainer extends ServletContainer {
 
             String workingDirPath = config.getServletContext().getRealPath("/");
             File confFile = new File(confFileName);
-            if (!confFile.isAbsolute()) {
-                confFile = new File(workingDirPath, confFileName);
-            }
+//            if (!confFile.isAbsolute()) {
+//                confFile = new File(workingDirPath, confFileName);
+//            }
 
             Properties props = readConfProperties(confFile);
 

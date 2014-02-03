@@ -1,6 +1,6 @@
 /**
  * @class FilterBar
- * Impelentation for FilterBar Object
+ * Implementation for FilterBar Object
  * @author Stefan Jänicke (stjaenicke@informatik.uni-leipzig.de)
  * @version 0.9
  */
@@ -40,8 +40,7 @@ function FilterBar(core, data, parentDiv){
 	this.filterInverse.style.display = 'none';
 	
 	this.filterInverse.onclick = function(){
-		//XXX RK disable filterinverse button
-//		bar.inverseFiltering();
+		bar.inverseFiltering(); //XXX RK disable filterinverse by uncommenting this line
 	};
 	if( !STIStatic.inverseFilter ){
 		this.filterInverse.style.display = 'none';
@@ -171,7 +170,7 @@ function FilterBar(core, data, parentDiv){
 		
 		if(this.data !=null){
 			if (this.selectedObjects.length == 0) {
-                this.selectedObjects = this.data;  // XXX KHS AP
+                this.selectedObjects = this.data;
 				this.filtering();
 				return;
 			}
@@ -190,7 +189,7 @@ function FilterBar(core, data, parentDiv){
     			
 	    		for( var j=0; j < this.data[i].length; j++ ){
 	    			elg++;
-	    			var element = data[i][j];
+	    			var element = this.data[i][j];
 	    			if ($.inArray(element, this.selectedObjects[i]) <0) {
 	    				elsor++;
 	    				new_datasource_selectedObjects.push(element);

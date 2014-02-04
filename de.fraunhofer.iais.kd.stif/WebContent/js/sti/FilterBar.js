@@ -91,11 +91,32 @@ function FilterBar(core, data, parentDiv){
 		
 		// das sind die selektierten objekte
 		
-//		logg("FBar publisher selection");
+  		logg("FBar subscribed selection -- by id == " + id);
 		
         if( typeof bar != 'undefined' ){
         	if (data && data.length > 0) {
-        		bar.selectedObjects = data[0].objects;
+                if (id === 'map') {
+                    bar.selectedObjects = data[0].objects;
+                } else if (id === 'plot') {
+                    var nbDatasets = data[0].objects.length;
+                    var selectedSets = [];
+                    for (var i=0; i<nbDatasets; i++) {
+                        selectedSets.push([]);
+                    }
+                    for (var t=0; t<data.length; t++) {
+                        var tsets = data[t].objects;
+                        for (var d=0; d<nbDatasets; d++) {
+                            var more = tsets[d];
+                            var sset = selectedSets[d];
+                            selectedSets[d] = sset.concat(more);
+                        }
+                    }
+                    bar.selectedObjects = selectedSets;
+                } else if (id === 'table') {
+                    bar.selectedObjects = data[0].objects;
+                } else {
+                    logg("error: origin of selection, unknown id: " + id);
+                }
         	}
            //  bar.selectedObjects = data;
              bar.showFilterBar(true);

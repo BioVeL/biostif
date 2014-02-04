@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml>
+<Placemark><address>Frankfurt am Main</address><description></description>
+    <name>Oxforder Oktavheft 6</name>
+    <Point><coordinates>8.983333,50.116665,0</coordinates></Point>
+    <TimeStamp><when>2011</when></TimeStamp>
+</Placemark>
+<Placemark><address>Frankfurt am Main</address><description></description>
+    <name>Oxforder Oktavheft 5</name>
+    <Point><coordinates>8.883333,50.116665,0</coordinates></Point>
+    <TimeStamp><when>2010</when></TimeStamp>
+</Placemark>
+<Placemark><address>Weilerswist</address><description></description>
+    <name>Der Prozess</name>
+    <Point><coordinates>8.7833335,50.136666,0</coordinates></Point>
+    <TimeStamp><when>2009</when></TimeStamp>
+</Placemark>
+<Placemark><address>Frankfurt am Main</address><description></description>
+    <name>Franz-Kafka-Heft 7. [die Oxforder Oktavhefte 5 und 6 ; zur Einführung]</name>
+    <Point><coordinates>8.783333,50.116665,0</coordinates></Point>
+    <TimeStamp><when>2009</when></TimeStamp>
+</Placemark>
+<Placemark><address>Frankfurt am Main</address><description></description>
+    <name>Franz-Kafka-Heft 6. [Die Oxforder Oktavhefte 3 und 4 ; zur Einführung]</name>
+    <Point><coordinates>8.683333,50.116665,0</coordinates></Point>
+    <TimeStamp><when>2008</when></TimeStamp>
+</Placemark>
+</kml>

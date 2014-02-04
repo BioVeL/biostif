@@ -93,6 +93,7 @@ function FilterBar(core, data, parentDiv){
 		
   		logg("FBar subscribed selection -- by id == " + id);
 		
+        bar.selectedObjects = [];
         if( typeof bar != 'undefined' ){
         	if (data && data.length > 0) {
                 if (id === 'map') {
@@ -119,23 +120,33 @@ function FilterBar(core, data, parentDiv){
                 }
         	}
            //  bar.selectedObjects = data;
-             bar.showFilterBar(true);
              
 //             bar.setData(data);
+
+             var nbSelected = bar.selectedObjects.map(function(el) {return el.length;}).reduce(function(a,b) { return a+b; });
              
-             if(data.length > 0){
-            	 for(var i=0; i<data.length; i++ ){
-//            		logg("FBar selection subscr data[i]: " + i);
-//            		logg("FBar selection subscr data.len: " + data[i].objects.length);
-            		for(var j=0; j<data[i].objects.length; j++ ){
-            			logg("FBar selected objects: " + data[i].objects[j].length);
-            			if(data[i].objects[j].length > 0){
-            				Publisher.Publish("points_selected");
-            				
-            			}
-            		}
-            	 }
-             } 
+             if (nbSelected > 0) {
+                bar.showFilterBar(true);  // XXX KHS
+                Publisher.Publish("points_selected");
+             } else {
+                bar.showFilterBar(false);  // XXX KHS
+                Publisher.Publish("deselected");
+             }
+                 
+// XXX KHS entkommentiert
+//             if(data.length > 0){
+//            	 for(var i=0; i<data.length; i++ ){
+////            		logg("FBar selection subscr data[i]: " + i);
+////            		logg("FBar selection subscr data.len: " + data[i].objects.length);
+//            		for(var j=0; j<data[i].objects.length; j++ ){
+//            			logg("FBar selected objects: " + data[i].objects[j].length);
+//            			if(data[i].objects[j].length > 0){
+//            				Publisher.Publish("points_selected");
+//            				
+//            			}
+//            		}
+//            	 }
+//             } 
         }	
         
     });
@@ -200,7 +211,7 @@ function FilterBar(core, data, parentDiv){
 //    		logg("data i: " + i);
     		var new_datasource_selectedObjects = [];    		
     		if (this.selectedObjects[i].length == 0) {
-    			logg("inverseFiltering new selectedobjects length NULL");
+    			logg("inverseFiltering new selectedObjects length NULL");
     			new_selectedObjects[i] = this.data[i];
     		} else {
     			logg("inverseFiltering this.data[i].length: " + this.data[i].length);

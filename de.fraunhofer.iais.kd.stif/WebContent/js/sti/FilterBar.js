@@ -80,6 +80,7 @@ function FilterBar(core, data, parentDiv){
     		this.toolbar.style.left = parentDiv.offsetWidth+"px";
 //    		this.toolbar.style.right = "0px";
     		this.toolbar.style.top = Math.floor(parentDiv.offsetHeight/2-this.toolbar.offsetHeight/2)+"px";
+            document.getElementById("smallButton mask").style.display = displayStyle;
     	}
     };
 
@@ -123,7 +124,7 @@ function FilterBar(core, data, parentDiv){
              
 //             bar.setData(data);
 
-             var nbSelected = bar.selectedObjects.map(function(el) {return el.length;}).reduce(function(a,b) { return a+b; });
+             var nbSelected = bar.selectedObjects.map(function(el) {return el.length;}).reduce(function(a,b) { return a+b; },0);
              
              if (nbSelected > 0) {
                 bar.showFilterBar(true);  // XXX KHS

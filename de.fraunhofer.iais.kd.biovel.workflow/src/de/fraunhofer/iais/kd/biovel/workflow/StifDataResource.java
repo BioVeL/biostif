@@ -209,7 +209,7 @@ public class StifDataResource {
     }
 
     public static String[] makeLayerNameAndSuffix(final String sourceUrl, final String userSuffix, final String userLayerName) {
-        LOG.info("begin storage url: " + sourceUrl);
+        LOG.info("layer sourceUrl: " + sourceUrl + " userSuffix: '" + userSuffix + "' userLayerName: '" + userLayerName + "'");
 
         String resultBaseName = (userLayerName == null)?"":userLayerName;
         String resultSuffix = "";
@@ -249,6 +249,7 @@ public class StifDataResource {
         String[] resourceName = new String[2];
         resourceName[X_LAYER] = (resultBaseName.replace(" ","_") + "_");
         resourceName[X_SUFFIX] = resultSuffix.replace(" ","_");
+        LOG.info("layer: '" + resourceName[X_LAYER] + "' suffix: '" + resourceName[X_SUFFIX] + "'");
         return resourceName;
     }
 

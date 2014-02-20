@@ -49,6 +49,9 @@ public class StifDataResource {
     private Client client;
     
     private static StifDataManager manager = null;    
+    
+    protected static final int X_LAYER = 0;
+    protected static final int X_SUFFIX = 1;
 
     public static void putManager(StifDataManager aStifDataManager) {
         manager = aStifDataManager;
@@ -92,21 +95,25 @@ public class StifDataResource {
 
     @POST
     @Path("/data")
-    public Response storeDwcSource(@Context ServletConfig config,
+    public Response postDataUpload(@Context ServletConfig config,
                                    @Context UriInfo uriInfo, //
                                    @QueryParam("source") String sourceUrl, //
                                    @QueryParam("suffix") String suffix, //
                                    @QueryParam("layername") String userLayerName, //
                                    @QueryParam("username") String username,
                                    @QueryParam("workflowid") String workflowRunId,
-                                   @HeaderParam("Content-Type") String haederCT,
+                                   @HeaderParam("Content-Type") String headerContentType,
+                                   @HeaderParam("Content-Length") int headerContentLength,
                                    @Context HttpServletRequest httpServletRequest,
                                    @HeaderParam("X-Auth-Service-Provider") String authServiceProvider,
-                                   @HeaderParam("X-Verify-Credentials-Authorization") String credentialsAuthorizationToken
-//                                   String entity
+                                   @HeaderParam("X-Verify-Credentials-Authorization") String credentialsAuthorizationToken,
+                                   String entity
                                    ) {
         
-//        System.out.println("suffix store: " + suffix + " - " + suffix.length());
+        // compensate a call (in main.jsp?), that provides "null" for null
+        if (suffix != null && suffix.equals("null")) {
+            suffix = null;
+        }
         
         if(authServiceProvider != null && credentialsAuthorizationToken != null
                 && authServiceProvider.length() > 0 && credentialsAuthorizationToken.length() > 0){
@@ -140,50 +147,17 @@ public class StifDataResource {
             username = manager.getProperties().getProperty("PUBLIC_WORKSPACE");
         }
         
-        if(sourceUrl != null){
-            LOG.info("begin storage url: " + sourceUrl);
-//            LOG.info("datastorage userLayerName: " + userLayerName + " uln is null??: " + (userLayerName == null));
-            if( suffix.equalsIgnoreCase("null") || suffix == null){
-                
-//                System.out.println(sourceUrl.lastIndexOf('.') + " : " + sourceUrl.length());
-                if((sourceUrl.lastIndexOf('.') > -1) && (sourceUrl.lastIndexOf('.') < sourceUrl.length())){
-                    suffix = sourceUrl.substring( sourceUrl.lastIndexOf('.'), sourceUrl.length());
-                }
-            }
-            System.out.println("file suffix: " + suffix);
-            if(userLayerName == null){
-                if((sourceUrl.lastIndexOf('.') > -1) && (sourceUrl.lastIndexOf('.') < sourceUrl.length()) ){
-                    userLayerName = sourceUrl.substring( sourceUrl.lastIndexOf('/')+1, sourceUrl.lastIndexOf('.'))+"_";
-                } else {
-                    userLayerName = "streaminput_";
-                }  
-                
-            } else{
-                userLayerName = userLayerName.replace(" ", "_")+"_";
-            }
-            
-        } else {
-//            LOG.info("begin storage entity: " + userLayerName);
-            if(userLayerName != null){
-                userLayerName = userLayerName.replace(" ", "_")+"_";
-            } else {
-                userLayerName = "streaminput_";
-            } 
-        }
-        
-        if(suffix != null && !suffix.startsWith(".")){
-            suffix = "." + suffix;
-        }
-        
-//        String resource =
-//            manager.makeNewDataResourceUri("XXX-not-a-user-name-XXX", "all_runs", userLayerName, (suffix == null) ? "" : suffix);
-        
         if(workflowRunId == null || workflowRunId.length() == 0){
             workflowRunId = "all_runs";
         }
         
+        String[] resourceName = makeLayerNameAndSuffix(sourceUrl, suffix, userLayerName);
+        
+//        String resource =
+//            manager.makeNewDataResourceUri("XXX-not-a-user-name-XXX", "all_runs", userLayerName, (suffix == null) ? "" : suffix);
+        
         String resource =
-                manager.makeNewDataResourceUri(username, workflowRunId, userLayerName, (suffix == null) ? "" : suffix);        
+                manager.makeNewDataResourceUri(username, workflowRunId, resourceName[X_LAYER], resourceName[X_SUFFIX]);        
         
 //        System.out.println("storeData  resource Name: " + resource);
         URI location = uriInfo.getBaseUriBuilder().path("/data/" + resource).build();
@@ -210,15 +184,10 @@ public class StifDataResource {
                return Response.status(500).entity(ex.getMessage()).build(); 
             }
 //        } else if (entity != null) {
+//            // store the entity of the request
         } else {
             
             try (InputStream is = httpServletRequest.getInputStream()) {
-                
-//                StringWriter is_c = new StringWriter();
-//                IOUtils.copy(is, is_c);                    
-//                vectorFeature = is_c.toString();
-                
-//                System.out.println("is len: " + is.available());
                 
                 manager.putResource(resource, is);
                 
@@ -237,6 +206,50 @@ public class StifDataResource {
 
         LOG.info("stored source into URI: " + location.getPath());
         return Response.created(location).entity(location.toString()).build();
+    }
+
+    public static String[] makeLayerNameAndSuffix(final String sourceUrl, final String userSuffix, final String userLayerName) {
+        LOG.info("begin storage url: " + sourceUrl);
+
+        String resultBaseName = (userLayerName == null)?"":userLayerName;
+        String resultSuffix = "";
+        String userSuffixRequest = (userSuffix == null)?"":(userSuffix.isEmpty())?"":((userSuffix.startsWith(".")?"":".")+userSuffix);
+
+        final int urlDirPathEnd = sourceUrl.lastIndexOf('/');
+        final String urlFilename = sourceUrl.substring((urlDirPathEnd < 0)?0:urlDirPathEnd+1);
+        
+        // if userLayerName is not specified use filename of sourceUrl
+        final String filename = (userLayerName == null || userLayerName.isEmpty())?urlFilename:userLayerName;
+        
+        final int dotSeparatorX = filename.lastIndexOf('.');
+        final String basename = (dotSeparatorX <= 0)?filename:filename.substring(0,dotSeparatorX);
+        final String suffix = (dotSeparatorX < 0)?"":filename.substring((dotSeparatorX <= 0)?0:dotSeparatorX);
+        
+        resultBaseName = basename;
+        resultSuffix = suffix;
+        
+        if (suffix.isEmpty()) {
+            if (userSuffix != null) { // a suffix is requested by user
+                if (!suffix.equals(userSuffixRequest)) {
+                    resultBaseName = filename;
+                    resultSuffix = userSuffixRequest;
+                }
+            }
+        } else {
+            if (userSuffix != null) { // a suffix is requested by user
+                if (suffix.equals(userSuffixRequest)) {
+                    resultSuffix = suffix;
+                } else {
+                    resultBaseName = filename;
+                    resultSuffix = userSuffixRequest;
+                }
+            }
+        }
+
+        String[] resourceName = new String[2];
+        resourceName[X_LAYER] = (resultBaseName.replace(" ","_") + "_");
+        resourceName[X_SUFFIX] = resultSuffix.replace(" ","_");
+        return resourceName;
     }
 
     @PUT

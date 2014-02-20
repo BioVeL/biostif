@@ -60,8 +60,10 @@ public class StifDataManager {
      * 
      * @param username not <code>null</code>, the user name
      * @param workflowRunId not <code>null</code>, the run id of the workflow
-     * @param suffix to be used as suffix of the URI, suffix must be composed
-     *            only of alphanumeric or "_-." characters.
+     * @param suffix to be used as suffix of the URI. suffix maybe null of
+     *            empty, otherwise it must be composed only of alphanumeric or
+     *            "_-." characters. if suffix == null then it is handled as
+     *            being empty.
      * @return a (relative) data URI, not <code>null</code>.
      */
     public String makeNewDataResourceUri(String username, String workflowRunId, String userLayerName, String suffix) {
@@ -70,7 +72,6 @@ public class StifDataManager {
         
         File workflowPath = new File(username, workflowRunId);
         final File runDir = new File(this.stifDataRoot, workflowPath.getPath());
-        checkResourceSuffix(suffix);
         if (!runDir.exists()) {
             if (!runDir.mkdirs()) {
                 throw new WorkflowException("cannot create run directory: " + runDir.getAbsolutePath());
@@ -79,6 +80,10 @@ public class StifDataManager {
         if (!(runDir.canRead() && runDir.canWrite())) {
             throw new WorkflowException("cannot read and write run directory: " + runDir.getAbsolutePath());
         }
+        if (suffix == null) {
+            suffix = "";
+        }
+        checkResourceSuffix(suffix);
 
         File resultResource = null;
         synchronized (StifDataManager.syncMakeReservedFile) {

@@ -18567,6 +18567,8 @@ var STIStatic = {
 	tableHeight:		false,		// false or desired height of the table
 	incompleteData:		true,		// show/hide data with either temporal or spatial metadata
 	inverseFilter:		false,		// if inverse filtering is offered
+	filterDisplayStyle: 'block',
+	filterBarDisplayOnce: false,
 
 	// general settings
 	maxDatasets:		4,		// maximum number of parallel datasets
@@ -18574,7 +18576,7 @@ var STIStatic = {
 	popups:			true,		// enabled popups will show popup windows for selected data (instead of placename cloud on the map)
 
 	// configuration of map settings
-	historicMaps:		false,		// enable/disable custom maps, which can be defined in layers.xml
+	historicMaps:	false,		// enable/disable custom maps, which can be defined in layers.xml
 	googleMaps:		false,		// enable/disable Google maps (if enabled, a valid Google Maps API key must be included in the DOM)	
 	bingMaps:		false,		// enable/disable Bing maps
 	bingApiKey:		'none',		// bing maps api key, see informations at http://bingmapsportal.com/
@@ -18593,6 +18595,7 @@ var STIStatic = {
 	olLayerSwitcher:	false,		// show/hide OpenLayers layer switcher
 	olMapOverview:		true,		// show/hide OpenLayers map overview
 	olKeyboardDefaults:	false,		// (de)activate Openlayers keyboard defaults
+	olMousePosition:	false,		//vhz (de) activate the OpenLayers mouse position info
 	geoLocation:		true,		// show/hide GeoLocation feature
 	connections:		false,		// show/hide connection control
 	boundaries: 		{		// initial map boundaries
@@ -18620,10 +18623,11 @@ var STIStatic = {
 	showDescriptions:	true,           // true to show descriptions of data items (must be provided by kml/json), false if not
 	
 	showBBox:			false,				//vhz if true shows a bbox given as parameter as a layer and offers a toolbar button for activate/deactivate it
-	overlayVisibility:	true,				//vhz sets the default visibility of overlays on the map
+	overlayVisibility:	false,				//vhz sets the default visibility of overlays on the map
 	showOverlaySelector:	false,			//vhz shows the dropdown for overlays	
 	showInverseFilter: false,
 	proxyHost:			'',//vhz proxy for selectCountry
+	showMapTypeSelector: true, //vaue to show or hide the map type selection box
 
 	// configuration of timeplot settings
 	timeZoom:			false,              // show/hide timeplot zoom
@@ -18673,7 +18677,6 @@ var STIStatic = {
     customUnselectedPlace: "",
 	language: "en", //vhz language of the application. can be change on init
 	defaultZoomPanel: true,
-	geoLocationOn: true,
 	
 	//colors for several datasets; rgb1 will be used for selected objects, rgb0 for unselected
 
@@ -18940,9 +18943,9 @@ STIStatic.loadSpatialJSONData = function(JSON){
 			var name = item.name || "";
 			var description = item.description || "";
 			var place = item.place || "unknown";
-			var lon = item.lon || "";
-			var lat = item.lat || "";
-        	if( lon == "" || lat == "" || isNaN(lon) || isNaN(lat) ){
+			var lon = parseFloat(item.lon); //vhz parseFloat
+			var lat = parseFloat(item.lat); //vhz parseFloat
+        	if( (isNaN(lon) || isNaN(lat)) && !STIStatic.incompleteData ){
         		throw "e";
         	}
         	var tableContent = item.tableContent || [];
@@ -18997,7 +19000,7 @@ STIStatic.loadTemporalJSONData = function(JSON){
 		}
 	}
 	return timeObjects;
-}
+};
 
 /**
  * converts a JSON array into an array of map time objects
@@ -19007,23 +19010,47 @@ STIStatic.loadTemporalJSONData = function(JSON){
 STIStatic.loadSpatioTemporalJSONData = function(JSON){
 	var mapTimeObjects = [];
 	var runningIndex = 0;
+	
+	var indexprop = "";
+	if (JSON.length == 0) {
+		return mapTimeObjects;
+	}
+	if ('index' in JSON[0]) {
+		indexprop = "index";
+	} else if ('id' in JSON[0]) {
+		indexprop = "id";		
+	}
+	var index;
 	for( var i in JSON ){
 		try {
-			var item = JSON[i];			
-			var index = item.index || item.id || runningIndex++;
+			//vhz index control
+			var item = JSON[i];
+			if (indexprop) {
+				index = item[indexprop] || "";
+						
+				if (index.length == 0){
+					if (typeof (console) != "undefined") {
+				        console.info ("Reading JSON with index " + i + ": no index value, record will not be read");
+				    }
+					continue;
+				}
+			} else {
+				index = runningIndex++;
+			}
+			//var index = item.index || item.id || runningIndex++;			 			
 			var name = item.name || "";
 			var description = item.description || "";
 			var place = item.place || "unknown";
-			var lon = item.lon || "";
-			var lat = item.lat || "";
+			var lon = parseFloat(item.lon); //vhz parseFloat
+			var lat = parseFloat(item.lat); //vhz parseFloat
+        	if( (isNaN(lon) || isNaN(lat)) && !STIStatic.incompleteData){
+        		throw new RuntimeException ("Error reading JSON: latitude and/or longitude values missing ");
+        	}
 			var tableContent = item.tableContent || [];
-			if( ( lon == "" || lat == "" || isNaN(lon) || isNaN(lat) ) && !STIStatic.incompleteData ){
-				throw "e";
-			}
 			var timeStart, timeEnd, granularity;
 			var time1 = STIStatic.getTimeData(item.time);
 			if( time1 == null && !STIStatic.incompleteData ){
-				throw "e";
+				throw new RuntimeException ("Error reading JSON: time value missing ");
 			}
 			if( time1 == null ){
 				timeStart = null;
@@ -19398,6 +19425,12 @@ Binning.prototype = {
 			circleAggregates.push([]);
 		   	for (var j = 0; j < this.objects[i].length; j++) {
 		   		var o = this.objects[i][j];
+		   		if (isNaN(o.longitude) || isNaN(o.latitude)) { //vhz
+		   			if(typeof console != 'undefined'){
+    			        console.log("Object with index " + o.index + " has wrong lat long information (" + o.longitude + ", " + o.latitude + ") and will not be added to clustering!");
+		   			}
+		   			continue;
+		   		}
 				if( typeof circleAggregates[i][''+o.longitude] == 'undefined' ){
 					circleAggregates[i][''+o.longitude] = [];
 				}
@@ -19456,9 +19489,15 @@ Binning.prototype = {
 		for (var i = 0; i < objects.length; i++){
 		   	for (var j = 0; j < objects[i].length; j++) {
 		   		var o = objects[i][j];
-			       	var p = new OpenLayers.Geometry.Point(o.longitude, o.latitude, null);
-			       	p.transform(this.map.displayProjection, this.map.projection);
-			       	var point = new Vertex(Math.floor(p.x), Math.floor(p.y), objects.length);
+		   		if (isNaN(o.longitude) || isNaN(o.latitude)) { //vhz
+		   			if(typeof console != 'undefined'){
+    			        console.log("Object with index " + o.index + " has wrong lat long information (" + o.longitude + ", " + o.latitude + ") and will not be added to clustering!");
+		   			}
+		   			continue;
+		   		}
+			    var p = new OpenLayers.Geometry.Point(o.longitude, o.latitude, null);
+			    p.transform(this.map.displayProjection, this.map.projection);
+			    var point = new Vertex(Math.floor(p.x), Math.floor(p.y), objects.length);
 				point.addElement(o,o.weight,i);
 				clustering.add(point);
 		   	}
@@ -19714,6 +19753,12 @@ Binning.prototype = {
 		for (var i = 0; i < this.objects.length; i++){
 			for (var j = 0; j < this.objects[i].length; j++) {
 				var o = this.objects[i][j];
+				if (isNaN(o.longitude) || isNaN(o.latitude)) { //vhz
+		   			if(typeof console != 'undefined'){
+    			        console.log("Object with index " + o.index + " has wrong lat long information (" + o.longitude + ", " + o.latitude + ") and will not be added to clustering!");
+		   			}
+		   			continue;
+		   		}
 				var p = new OpenLayers.Geometry.Point(o.longitude, o.latitude, null);
 			       	p.transform(this.map.displayProjection, this.map.projection);
 				o.x = p.x;
@@ -19767,6 +19812,12 @@ Binning.prototype = {
 		for (var i = 0; i < this.objects.length; i++){
 			for (var j = 0; j < this.objects[i].length; j++) {
 				var o = this.objects[i][j];
+				if (isNaN(o.longitude) || isNaN(o.latitude)) { //vhz
+		   			if(typeof console != 'undefined'){
+    			        console.log("Object with index " + o.index + " has wrong lat long information (" + o.longitude + ", " + o.latitude + ") and will not be added to clustering!");
+		   			}
+		   			continue;
+		   		}
 				var p = new OpenLayers.Geometry.Point(o.longitude, o.latitude, null);
 			       	p.transform(this.map.displayProjection, this.map.projection);
 				o.x = p.x;
@@ -19851,6 +19902,12 @@ Binning.prototype = {
 		for (var i = 0; i < this.objects.length; i++){
 			for (var j = 0; j < this.objects[i].length; j++) {
 				var o = this.objects[i][j];
+				if (isNaN(o.longitude) || isNaN(o.latitude)) { //vhz
+		   			if(typeof console != 'undefined'){
+    			        console.log("Object with index " + o.index + " has wrong lat long information (" + o.longitude + ", " + o.latitude + ") and will not be added to clustering!");
+		   			}
+		   			continue;
+		   		}
 				var p = new OpenLayers.Geometry.Point(o.longitude, o.latitude, null);
 			       	p.transform(this.map.displayProjection, this.map.projection);
 				o.x = p.x;
@@ -19989,9 +20046,11 @@ function MapControl(stiMap,button,label,onActivate,onDeactivate){
 	this.button = button;
 	this.enabled = true;
 	this.activated = false;
+	this.label = label;
 
 	if( this.button != null ){
 		$(this.button).addClass( label + 'Deactivated' );
+		$(this.button).attr("title", STIStatic.getString(STIStatic.language,label)); //vhz
 		$(this.button).click(function(){
 			control.checkStatus();
 		});
@@ -20018,6 +20077,7 @@ function MapControl(stiMap,button,label,onActivate,onDeactivate){
 		if( this.button != null ){
 			$(this.button).removeClass( label + removeClass );
 			$(this.button).addClass( label + addClass );
+			$(this.button).attr("title", STIStatic.getString(STIStatic.language,label));
 		}
 	};
 
@@ -20048,56 +20108,250 @@ function MapControl(stiMap,button,label,onActivate,onDeactivate){
 };
 /**
  * @class FilterBar
- * Impelentation for FilterBar Object
+ * Implementation for FilterBar Object
  * @author Stefan Jänicke (stjaenicke@informatik.uni-leipzig.de)
  * @version 0.9
  */
 
-function FilterBar(parent,parentDiv){
+function FilterBar(core, data, parentDiv){
 
 	var bar = this;
+	this.core = core;
+	this.data = data;
+	this.selectedObjects = [];
 
-	this.toolbar = document.createElement('div');
-	this.toolbar.setAttribute('class','filterBar');
-	parentDiv.appendChild(this.toolbar);
+	this.toolbar;
+	if (typeof(STIStatic.filterBarDisplayOnce) == "undefined" || (!STIStatic.filterBarDisplayOnce)) {
+		this.toolbar = document.createElement('div');
+		this.toolbar.setAttribute('class','filterBar');
+		this.toolbar.setAttribute('id','filterBar');
+		parentDiv.appendChild(this.toolbar);
+	} else {
+		this.toolbar = parentDiv;
+	}
 
 	this.filter = document.createElement('div');
 	this.filter.setAttribute('class','smallButton filter');
-	this.toolbar.appendChild(this.filter);
+	this.filter.setAttribute('id','smallButton filter');
+	$(this.filter).attr("title", STIStatic.getString(STIStatic.language,'filterSelectedItemsHelp'));
+	this.toolbar.appendChild(this.filter);	
 	this.filter.onclick = function(){
-		parent.filtering();
+		bar.filtering();
 	};
 
 	this.filterInverse = document.createElement('div');
 	this.filterInverse.setAttribute('class','smallButton filterInverse');
+	this.filterInverse.setAttribute('id','smallButton filterInverse');
+	$(this.filterInverse).attr("title", STIStatic.getString(STIStatic.language,'inverseFilterSelectedItemsHelp'));
 	this.toolbar.appendChild(this.filterInverse);
+	
+	this.filterInverse.style.display = 'none';
+	
 	this.filterInverse.onclick = function(){
-		parent.inverseFiltering();
+		bar.inverseFiltering(); //XXX RK disable filterinverse by uncommenting this line
 	};
 	if( !STIStatic.inverseFilter ){
 		this.filterInverse.style.display = 'none';
 	}
 
+	
+	
 	this.cancelSelection = document.createElement('div');
 	this.cancelSelection.setAttribute('class','smallButton cancelSelection');
+	this.cancelSelection.setAttribute('id','smallButton cancelSelection');
+	$(this.cancelSelection).attr("title", STIStatic.getString(STIStatic.language,'cancelSelection'));
 	this.toolbar.appendChild(this.cancelSelection);
+	
 	this.cancelSelection.onclick = function(){
-		parent.deselection();
+		//parent.deselection();
+		Publisher.Publish('deselect'); //vhz
+		document.getElementById("smallButton mask").style.display = "none";
+		bar.showFilterBar(false);
 	};
+	
+	this.showFilterBar =function(visible) {
+    	var displaystyle = 'block';
+    	if (typeof(STIStatic.filterDisplayStyle) != undefined) {
+    		displaystyle = STIStatic.filterDisplayStyle;
+    	}    
+    	if (!visible) {
+    		displaystyle = 'none';
+    	}
+    	if (typeof(STIStatic.filterBarDisplayOnce) != "undefined" || (!STIStatic.filterBarDisplayOnce)) {
+    		this.filter.style.display = displaystyle;
+    		if (STIStatic.inverseFilter){
+    			this.filterInverse.style.display = displaystyle;
+    		}
+    		this.cancelSelection.style.display = displaystyle;
+    	} else {
+    		this.toolbar.style.display = displaystyle;
+    		this.toolbar.style.left = parentDiv.offsetWidth+"px";
+//    		this.toolbar.style.right = "0px";
+    		this.toolbar.style.top = Math.floor(parentDiv.offsetHeight/2-this.toolbar.offsetHeight/2)+"px";
+            document.getElementById("smallButton mask").style.display = displayStyle;
+    	}
+    };
 
-	this.toolbar.style.display = "none";
+	this.showFilterBar(false);
+	//this.toolbar.style.display = "none";
+	
 
+	Publisher.Subscribe('selection',function(data,id){
+		
+		// das sind die selektierten objekte
+		
+  		logg("FBar subscribed selection -- by id == " + id);
+		
+        bar.selectedObjects = [];
+        if( typeof bar != 'undefined' ){
+        	if (data && data.length > 0) {
+                if (id === 'map') {
+                    bar.selectedObjects = data[0].objects;
+                } else if (id === 'plot') {
+                    var nbDatasets = data[0].objects.length;
+                    var selectedSets = [];
+                    for (var i=0; i<nbDatasets; i++) {
+                        selectedSets.push([]);
+                    }
+                    for (var t=0; t<data.length; t++) {
+                        var tsets = data[t].objects;
+                        for (var d=0; d<nbDatasets; d++) {
+                            var more = tsets[d];
+                            var sset = selectedSets[d];
+                            selectedSets[d] = sset.concat(more);
+                        }
+                    }
+                    bar.selectedObjects = selectedSets;
+                } else if (id === 'table') {
+                    bar.selectedObjects = data[0].objects;
+                } else {
+                    logg("error: origin of selection, unknown id: " + id);
+                }
+        	}
+           //  bar.selectedObjects = data;
+             
+//             bar.setData(data);
+
+             var nbSelected = bar.selectedObjects.map(function(el) {return el.length;}).reduce(function(a,b) { return a+b; },0);
+             
+             if (nbSelected > 0) {
+                bar.showFilterBar(true);  // XXX KHS
+                Publisher.Publish("points_selected");
+             } else {
+                bar.showFilterBar(false);  // XXX KHS
+                Publisher.Publish("deselected");
+             }
+                 
+// XXX KHS entkommentiert
+//             if(data.length > 0){
+//            	 for(var i=0; i<data.length; i++ ){
+////            		logg("FBar selection subscr data[i]: " + i);
+////            		logg("FBar selection subscr data.len: " + data[i].objects.length);
+//            		for(var j=0; j<data[i].objects.length; j++ ){
+//            			logg("FBar selected objects: " + data[i].objects[j].length);
+//            			if(data[i].objects[j].length > 0){
+//            				Publisher.Publish("points_selected");
+//            				
+//            			}
+//            		}
+//            	 }
+//             } 
+        }	
+        
+    });
+	
+	
+	Publisher.Subscribe('filterbardata',function(data){
+		
+        if( typeof bar != 'undefined' ){
+        	if (data && data.length > 0) {
+        		bar.setData(data);
+        	}
+        	
+        logg("FBar filterbardata data.objects.len: " + data[0].length);
+
+        }	
+       
+    });
+
+	
+	Publisher.Subscribe('reset',function(widget){
+        if( typeof bar != 'undefined' ){
+             bar.reset(false);
+        }	
+    });
+	
+	this.setData = function (data) {
+		this.data = data;
+	};
+	
 	this.reset = function(show){
-		if( show ){
-			this.toolbar.style.display = "block";
-		}
-		else {
-			this.toolbar.style.display = "none";
-		}
-		this.toolbar.style.left = parentDiv.offsetWidth+"px";
-//		this.toolbar.style.right = "0px";
-		this.toolbar.style.top = Math.floor(parentDiv.offsetHeight/2-this.toolbar.offsetHeight/2)+"px";
+		this.showFilterBar(show);
+//		if( show ){
+//			this.toolbar.style.display = "block";
+//		}
+//		else {
+//			this.toolbar.style.display = "none";
+//		}
+//		this.toolbar.style.left = parentDiv.offsetWidth+"px";
+////		this.toolbar.style.right = "0px";
+//		this.toolbar.style.top = Math.floor(parentDiv.offsetHeight/2-this.toolbar.offsetHeight/2)+"px";
 	};
+	
+	this.filtering = function(){
+//		logg("HOHO this filtering");
+		logg("\n\n ******* new filtering");
+		document.getElementById("smallButton mask").style.display = "none";
+		this.core.triggerRefining(this.selectedObjects);
+	};
+	
+	this.inverseFiltering = function(){
+		
+		logg("\n\n ******* new INV filter");
+		
+		if(this.data !=null){
+			if (this.selectedObjects.length == 0) {
+                this.selectedObjects = this.data;
+				this.filtering();
+				return;
+			}
+    	var new_selectedObjects = [];
+    	for( var i=0; i<this.data.length; i++ ){
+//    		logg("data i: " + i);
+    		var new_datasource_selectedObjects = [];    		
+    		if (this.selectedObjects[i].length == 0) {
+    			logg("inverseFiltering new selectedObjects length NULL");
+    			new_selectedObjects[i] = this.data[i];
+    		} else {
+    			logg("inverseFiltering this.data[i].length: " + this.data[i].length);
+    			
+    			var elg = 0;
+    			var elsor = 0;
+    			
+	    		for( var j=0; j < this.data[i].length; j++ ){
+	    			elg++;
+	    			var element = this.data[i][j];
+	    			if ($.inArray(element, this.selectedObjects[i]) <0) {
+	    				elsor++;
+	    				new_datasource_selectedObjects.push(element);
+	    			}
+	    		}
+	    		logg("elemente gesamt: " + elg + " sortiert: " + elsor);
+//	    		logg("after add: new_datasource_selectedObjects: " + new_datasource_selectedObjects.length);
+	    		new_selectedObjects[i] = new_datasource_selectedObjects;
+    		}
+    	}
+    	this.selectedObjects = new_selectedObjects;
+//    	this.core.triggerSelection(this.selectedObjects);
+		
+        this.filtering();
+        
+	} else {
+		logg("inverseFiltering this.data null??: " + this.data);
+	}
+    };
+    
+    
 
 };
 /**
@@ -20502,10 +20756,10 @@ function PlacenamePopup(parent){
 	this.setCount = function(){
 		var c = this.count;
 		if( c > 1 ){
-		        this.resultsLabel.innerHTML = c+" "+STIStatic.getString(this.language,'results');
+		        this.resultsLabel.innerHTML = c+" "+STIStatic.getString(STIStatic.language,'results');
 		}
 		else {
-		        this.resultsLabel.innerHTML = c+" "+STIStatic.getString(this.language,'result');
+		        this.resultsLabel.innerHTML = c+" "+STIStatic.getString(STIStatic.language,'result');
 		}
 	}
 	
@@ -20614,7 +20868,7 @@ function PlacenamePopup(parent){
 	}
 
 	this.updateTexts = function(){
-		this.cancel.title = STIStatic.getString(this.language,'close');
+		this.cancel.title = STIStatic.getString(STIStatic.language,'close');
 		this.setCount();
 	}
 
@@ -20652,7 +20906,7 @@ function STIMap(core,containerDiv){
     
     //vhz
     this.bboxLayer= null;
-    this.boxLayerControls = null;
+    this.boxLayerControls = null;    
     //~vhz
     this.initialize();
     
@@ -20758,7 +21012,7 @@ STIMap.prototype = {
         this.osmLink.innerHTML = '© <a href='+linkForOsm+'>OpenStreetMap contributors</a>, <a href='+linkForLicense+'>CC-BY-SA</a>';
         this.mapWindow.appendChild(this.osmLink);
 
-	this.filterBar = new FilterBar(this,this.mapWindow);
+	this.filterBar; // = new FilterBar(this,this.mapWindow);
         
         this.objectLayer = new OpenLayers.Layer.Vector("Data Objects", {
             projection: "EPSG:4326", 'displayInLayerSwitcher':false, rendererOptions: {zIndexing: true}
@@ -20821,21 +21075,22 @@ STIMap.prototype = {
         var bounds = new OpenLayers.Bounds(boundaries.minLon, boundaries.minLat, boundaries.maxLon, boundaries.maxLat);
         var projectionBounds = bounds.transform(this.openlayersMap.displayProjection, this.openlayersMap.projection);
 		this.openlayersMap.zoomToExtent(projectionBounds);
+//		alert("ObMa layers: " + this.objectLayer.name + " " + this.markerLayer.name);
 		this.openlayersMap.addLayers([this.objectLayer, this.markerLayer]);
 
 		if( STIStatic.olNavigation ){
 			this.zoomPanel = new OpenLayers.Control.ModifiedZoomPanel();
 			this.zoomPanel.zoomIn.trigger = function(){
 				map.zoom(1);
-		    	}
+		    	};
 			this.zoomPanel.zoomOut.trigger = function(){
 				map.zoom(-1);
-		    	}
+		    	};
 		    	this.zoomPanel.zoomToMaxExtent.trigger = function() {
 				if (this.map) {
 					map.zoom(this.map.zoom * -1);
-				}
-		    	}
+				};
+		    	};
 			this.openlayersMap.addControl(this.zoomPanel);
 			this.openlayersMap.addControl(new OpenLayers.Control.PanPanel());
 		}
@@ -20850,7 +21105,7 @@ STIMap.prototype = {
 				    		map.popup.shift(pixel.x,pixel.y);
 					}
 				}
-			}
+			};
 			this.openlayersMap.events.register("move",this.openlayersMap,panMap);			
 		}
 
@@ -20862,8 +21117,8 @@ STIMap.prototype = {
 		}
 		if( STIStatic.layerSwitcher ){
 		        this.openlayersMap.addControl(new OpenLayers.Control.LayerSwitcher());
-		}
-
+		}		
+		
 		// manages selection of elements if a polygon was drawn        
         this.drawnPolygonHandler = function(polygon){
         	if( map.mds.getAllObjects() == null ){
@@ -20897,7 +21152,7 @@ STIMap.prototype = {
 		}
             map.mapSelection();
 			//map.drilldownLayer.setZIndex(parseInt(map.objectLayer.getZIndex())+1);
-        }        
+        };        
         
 	this.polygonDeselection = function(){
             var circles = map.mds.getObjectsByZoom();
@@ -20909,14 +21164,14 @@ STIMap.prototype = {
 		    	}
 		    }
 		}
-	}
+	};
 
 		// resets the core
         this.snapper = function(){
 		if( map.polygons.length == 0 || !STIStatic.multiSelection ){
 			map.deselection();
 		}
-        }
+        };
 
 		if( STIStatic.polygonSelect ){
 	        this.drawPolygon = new OpenLayers.Control.DrawFeature(map.objectLayer, OpenLayers.Handler.Polygon, {
@@ -20943,7 +21198,10 @@ STIMap.prototype = {
 	        this.openlayersMap.addControl(this.drawCircle);
         }
         
-	if( STIStatic.squareSelect ){        
+	if( STIStatic.squareSelect ){
+		
+//		logg("STIStatic.squareSelect");
+		
 	        this.drawSquare = new OpenLayers.Control.DrawFeature(map.objectLayer, OpenLayers.Handler.RegularPolygon, {
 	            displayClass: "olControlDrawFeaturePolygon",
 	            handlerOptions: {
@@ -20955,9 +21213,16 @@ STIMap.prototype = {
 	            }
 	        });
 	        this.openlayersMap.addControl(this.drawSquare);
-        }
+        }else{
+//        	logg("no square");
+        };
+
+//		logg("STIMap select: poly: "+ STIStatic.polygonSelect + " circle: " + STIStatic.circleSelect + " squere: " + STIStatic.squareSelect);
 
 	if( STIStatic.polygonSelect || STIStatic.circleSelect || STIStatic.squareSelect ){
+		
+//		logg("STIMap select: poly: "+ STIStatic.polygonSelect + " circle: " + STIStatic.circleSelect + " squere: " + STIStatic.squareSelect);
+		
 	        this.dragArea = new OpenLayers.Control.DragFeature(map.objectLayer, {
 	        	onStart: function(feature){
 				feature.style.graphicZIndex = 10000;
@@ -21148,6 +21413,7 @@ STIMap.prototype = {
 			if (isNaN(parseInt(i))) { //vhz because error on IE
 				continue;
 			}
+			//alert("base layers: " + this.baseLayers[i].name + " " + this.baseLayers[i].url);
 	        this.openlayersMap.addLayers([this.baseLayers[i]]);
 	        if( this.baseLayers[i].name == STIStatic.baseLayer ){
 				this.setMap(i);
@@ -21160,13 +21426,15 @@ STIMap.prototype = {
     },
 
     setOverlays: function(layers){
+    	
 	for( var i in this.wmsOverlays ){
 		this.openlayersMap.removeLayer(this.wmsOverlays[i]);
 	}
 	this.wmsOverlays = [];
 	var featureInfoLayers = [];
 	if( layers instanceof Array ){
-		for( var i in layers ){		
+		for( var i in layers ){
+			
 			var layer = new OpenLayers.Layer.WMS(layers[i].name,
 				layers[i].url,
 			    	{
@@ -21187,12 +21455,16 @@ STIMap.prototype = {
 		}
 		this.openlayersMap.addLayers(this.wmsOverlays);
 	}
+	
 	if( this.wmsOverlays.length > 0 && STIStatic.overlayVisibility){
+		
 		var map = this;
 		if( typeof this.featureInfo != 'undefined' ){
 			this.featureInfo.deactivate();
 			this.openlayersMap.removeControl(this.featureInfo);
 		}
+		
+		
 		this.featureInfo = new OpenLayers.Control.WMSGetFeatureInfo({
 			url: '/geoserver/wms',
 			layers: featureInfoLayers,
@@ -21202,6 +21474,7 @@ STIMap.prototype = {
 						return;
 					}
 					var lonlat = map.openlayersMap.getLonLatFromPixel( new OpenLayers.Pixel(event.xy.x,event.xy.y) );
+//					alert("GFI lonlat: " + lonlat);
 					map.selectedGlyph = {
 						lon: lonlat.lon,
 						lat: lonlat.lat
@@ -21389,8 +21662,10 @@ STIMap.prototype = {
                     var style = {
                         fillColor: 'rgb(' + c.r0 + ',' + c.g0 + ',' + c.b0 + ')',
                         fillOpacity: STIStatic.circleTransparency,
-			strokeWidth: 2,
-	    		strokeColor: 'rgb(' + c.r1 + ',' + c.g1 + ',' + c.b1 + ')',
+			strokeWidth: 1,
+//	    		strokeColor: 'rgb(' + c.r1 + ',' + c.g1 + ',' + c.b1 + ')',
+	    		strokeColor: 'rgb(0,0,0)',
+	    		strokeOpacity: 0.7,
 	    		stroke: STIStatic.circleOutline,
                         pointRadius: point.radius,
                         cursor: "pointer"
@@ -21459,7 +21734,10 @@ STIMap.prototype = {
         }
     	this.selectedObjects = [];
     	this.foreignSelection = [];
-	this.filterBar.reset(false);
+	if (this.filterBar != null) { 
+		this.filterBar.reset(false); 
+	}
+		Publisher.Publish('reset',this); //vhz
         var points = this.mds.getObjectsByZoom();
     	if( points == null ){
     		return;
@@ -21568,15 +21846,19 @@ STIMap.prototype = {
             }
         }
         this.highlightChanged([]);
-	this.core.triggerSelection( [{ value: 1, objects: this.selectedObjects }], 'map' );
-	this.filterBar.reset(true);
-    },
+        this.core.triggerSelection( [{ value: 1, objects: this.selectedObjects }], 'map' );
+        if (this.filterBar != null) { 
+        	this.filterBar.reset(true);
+        }
+	},
     
     deselection: function(){
-    	this.mds.setSelection(this.selectedObjects,false);
-    	this.reset();
-    	this.highlightChanged([]);
-    	this.core.triggerSelection([],'map');
+    	if (this.selectedObjects.length > 0) {
+    		this.mds.setSelection(this.selectedObjects,false);
+    		this.reset();
+    		this.highlightChanged([]);
+    		this.core.triggerSelection([],'map');
+    	}
     },
 
     filtering: function(){
@@ -21634,7 +21916,9 @@ STIMap.prototype = {
 		this.selectedObjects[label.index] = label.elements;
 	        this.highlightChanged([]);
 		this.core.triggerSelection( [{ value: 1, objects: this.selectedObjects }], 'label' );
-	this.filterBar.reset(true);
+	if (this.filterBar != null) {
+		this.filterBar.reset(true);
+	}
     },
     
     mapLabelHighlight: function(label,undo){
@@ -21769,8 +22053,12 @@ STIMap.prototype = {
 	},
 
 	activateCountrySelector: function(layer){
+		
 		var map = this;
 		if( STIStatic.countrySelect ){
+			
+			logg("STIMap layer activate countryselector: " + layer.name + " " + layer.url);
+			
 			this.selectCountry = new OpenLayers.Control.GetFeature({
 			    	protocol: OpenLayers.Protocol.WFS.fromWMSLayer(layer),
 			    	click: true
@@ -21815,12 +22103,14 @@ STIMap.prototype = {
 		}
 	},
 
+	//vhz added title to buttons
 	initSelectorTools: function(){
 		var map = this;
 		this.mapControls = [];
+		
 		if( STIStatic.squareSelect ){
 			var button = document.createElement("div");
-			$(button).addClass('mapControl');
+			$(button).addClass('mapControl');			
 			var activate = function(){
 				map.drawSquare.activate();
 			}
@@ -21830,8 +22120,9 @@ STIMap.prototype = {
 			this.mapControls.push(new MapControl(this,button,'square',activate,deactivate));
 		}
 		if( STIStatic.circleSelect ){
+			
 			var button = document.createElement("div");
-			$(button).addClass('mapControl');
+			$(button).addClass('mapControl');			
 			var activate = function(){
 				map.drawCircle.activate();
 			}
@@ -21842,7 +22133,7 @@ STIMap.prototype = {
 		}
 		if( STIStatic.polygonSelect ){
 			var button = document.createElement("div");
-			$(button).addClass('mapControl');
+			$(button).addClass('mapControl');			
 			var activate = function(){
 				map.drawPolygon.activate();
 			}
@@ -21852,8 +22143,11 @@ STIMap.prototype = {
 			this.mapControls.push(new MapControl(this,button,'polygon',activate,deactivate));
 		}
 		if( STIStatic.countrySelect ){
+			
+			logg("init STIStatic.countrySelect true");
+			
 			var button = document.createElement("div");
-			$(button).addClass('mapControl');
+			$(button).addClass('mapControl');			
 			var activate = function(){
 				map.selectCountry.activate();
 				map.dragControl.disable();
@@ -21938,19 +22232,7 @@ STIMap.prototype = {
 		//this.zoomButton.title = STIStatic.getString(language,'zoomSelection');
 		//this.cancel.title = STIStatic.getString(language,'clearSelection');
 return;
-		if( STIStatic.squareSelect ){
-	    		this.squareSelectionControl.title = STIStatic.getString(language,'square');
-		}
-		if( STIStatic.circleSelect ){
-	    		this.circleSelectionControl.title = STIStatic.getString(language,'circle');
-		}
-
-		if( STIStatic.polygonSelect ){
-	    		this.polygonSelectionControl.title = STIStatic.getString(language,'polygon');
-		}
-		if( STIStatic.countrySelect ){
-	    		this.countrySelectionControl.title = STIStatic.getString(language,'country');
-		}
+		
 		//TODO: labels 'all' and 'others'
 	},
 	
@@ -22005,6 +22287,9 @@ return;
 	},
 	
 	createBboxLayer: function() {
+		
+		logg("STIMap create bbox layer");
+		
 		// allow testing of specific renderers via "?renderer=Canvas", etc
 	    var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
 	    renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
@@ -22132,10 +22417,28 @@ return;
 		}
 	},
 		
-	showMousePosition: function (show) {
-		if (show) {
-			this.openlayersMap.addControl(new OpenLayers.Control.MousePosition());	
+	showMousePosition: function (show) {	
+		var map = this;
+		if (show) {				
+			//register event
+			this.openlayersMap.events.register("mousemove", this.openlayersMap, map.showLatLon ); 					 
+	        //this.openlayersMap.addControl(new OpenLayers.Control.MousePosition());
+		} else {
+			//deregister event
+			this.openlayersMap.events.unregister("mousemove", this.openlayersMap, map.showLatLon);
+		//STIStatic.applySettings({STIStatic.olMousePosition = show});
 		}
+	}, 
+	
+	showLatLon: function (event) {
+		var pixelposition = this.events.getMousePosition(event);				
+        //var position = this.getLonLatFromViewPortPx(pixelposition).transform(SpaceWrapper.map.objectLayer.map.displayProjection, SpaceWrapper.map.objectLayer.map.projection);                
+        var position = this.getLonLatFromViewPortPx(pixelposition).transform(SpaceWrapper.map.objectLayer.map.projection, SpaceWrapper.map.objectLayer.map.displayProjection);
+        if ((position.lon < -180) || (position.lon > 180) || (position.lat < -90) || (position.lat > 90)) {
+          	SpaceWrapper.map.gui.mapMousePositionDiv.innerHTML = "<span></span>";
+        } else {
+          	SpaceWrapper.map.gui.mapMousePositionDiv.innerHTML = "<label>Longitude: " + position.lon.toFixed(5) + ", Latitude: " + position.lat.toFixed(5) + "</label> <span></span>";
+        }        
 	}
 	//~vhz
 	
@@ -22417,7 +22720,7 @@ STITimeplot.prototype = {
         });
         this.poles.appendChild(document.createElement("canvas"));  
 
-	this.filterBar = new FilterBar(this,this.plotWindow);
+	this.filterBar; // = new FilterBar(this,this.plotWindow);
 
         var plot = this;
         
@@ -23371,12 +23674,18 @@ STITimeplot.prototype = {
         var cv = document.createElement("canvas");
         cv.setAttribute('class','plotCanvas');
         this.plotWindow.appendChild(cv);
-        cv.width = this.plotWindow.clientWidth;
-        cv.height = this.plotWindow.clientHeight;
-        if (!cv.getContext && G_vmlCanvasManager) 
-            cv = G_vmlCanvasManager.initElement(cv);
-        var ctx = cv.getContext('2d');
-        var gradient = ctx.createLinearGradient(0, 0, 0, this.canvas.height); 
+        this.configureCanvas(cv, this.plotWindow.clientWidth, this.plotWindow.clientHeight);
+        
+    },
+    
+    configureCanvas: function(canvas, width, height ){
+        
+        canvas.width = width;
+        canvas.height = height;
+        if (!canvas.getContext && G_vmlCanvasManager) 
+            canvas = G_vmlCanvasManager.initElement(canvas);
+        var ctx = canvas.getContext('2d');
+        var gradient = ctx.createLinearGradient(0, 0, 0, height); 
         if( STIStatic.lightScheme ){
 	        gradient.addColorStop(0, '#c9c9cb');
 	        gradient.addColorStop(1, '#ededed ');
@@ -23386,7 +23695,7 @@ STITimeplot.prototype = {
 	        gradient.addColorStop(1, STIStatic.toolbarColor);
         }
         ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, this.plotWindow.clientWidth, this.plotWindow.clientHeight);
+        ctx.fillRect(0, 0, width, height);
     },
     
     resetOverlay: function(){
@@ -23435,7 +23744,10 @@ STITimeplot.prototype = {
             plots[i].opacityPlot.style.visibility = "hidden";
         }
         this.resetOverlay();
-       	this.filterBar.reset(false);
+        if (this.filterBar != null) {
+        	this.filterBar.reset(false);
+        }
+        Publisher.Publish('reset',this); //vhz
 
         var slices = this.tds.timeSlices;
         if( slices != undefined ){
@@ -23810,12 +24122,16 @@ STITimeplot.prototype = {
 			}
 		}
 	    	this.core.triggerSelection(objects);
-		this.filterBar.reset(true);
+	    	if (this.filterBar != null) {
+	    		this.filterBar.reset(true);
+	    	}
 	},
 	
 	deselection: function(){
-		this.reset();
-		this.core.triggerSelection([]);
+		if (this.selectedObjects.length > 0) {
+			this.reset();
+			this.core.triggerSelection([]);
+		}
 	},
 
 	filtering: function(){
@@ -23928,7 +24244,7 @@ STITimeplot.prototype = {
 		this.style = style;
 	}
 	
-}
+};
 /**
  * @class TableWidget
  * Implementation for TableWidget Object
@@ -23964,7 +24280,9 @@ TableWidget.prototype = {
     		this.tableElements = [];
     		this.tableHash = [];
 		this.selectedObjects = [];
-		this.filterBar.reset(false);
+		if (this.filterBar != null) {
+			this.filterBar.reset(false);
+		}
 
 		var tableWidget = this;
 		var addTab = function(name,index){
@@ -24024,7 +24342,7 @@ TableWidget.prototype = {
 		this.input.setAttribute('class','tableInput');
 		this.container.appendChild(this.input);
 
-		this.filterBar = new FilterBar(this,this.container);
+		this.filterBar; // = new FilterBar(this,this.container);
 
 	},
 
@@ -24094,12 +24412,16 @@ TableWidget.prototype = {
 			}
 		}
 		this.core.triggerSelection( [{ value: 1, objects: this.selectedObjects }] );
-		this.filterBar.reset(true);
+		if (this.filterBar != null) {
+			this.filterBar.reset(true);
+		}
 	},
 
     deselection: function(){
-	this.reset();
-    	this.core.triggerSelection([]);
+    	if (this.selectedObjects.length > 0) {
+    		this.reset();
+    		this.core.triggerSelection([]);
+    	}
     },
 
     filtering: function(){
@@ -24133,7 +24455,10 @@ TableWidget.prototype = {
 
 	reset: function(){
 		this.selectedObjects = [];
-		this.filterBar.reset(false);
+		if (this.filterBar != null) {
+			this.filterBar.reset(false);
+		}
+		Publisher.Publish('reset',this); //vhz
 		this.tables[this.activeTable].resetElements();
 		this.tables[this.activeTable].reset();
 		this.tables[this.activeTable].update();
@@ -24239,7 +24564,7 @@ Table.prototype = {
  		if( STIStatic.tableShowSelected ){
 			this.showSelected = document.createElement('div');
 			this.showSelected.setAttribute('class','paginationButton showSelected');
-			//table.showSelected.title = STIStatic.getString(language,'selectAllTableItemsHelp');
+			table.showSelected.title = STIStatic.getString(STIStatic.language,'showSelectedHelp');
 			selectors.appendChild(this.showSelected);
 			this.showSelected.onclick = function(){
 				table.showSelectedItems = !table.showSelectedItems;
@@ -24251,12 +24576,12 @@ Table.prototype = {
 						}
 					}
 					table.showSelected.setAttribute('class','paginationButton showAll');
-					//table.selectAll.title = STIStatic.getString(language,'selectAllTableItemsHelp');
+					table.showSelected.title = STIStatic.getString(language,'showAllElementsHelp');					
 				}
 				else {
 					table.showElementsLength = table.elements.length;
 					table.showSelected.setAttribute('class','paginationButton showSelected');
-					//table.selectAll.title = STIStatic.getString(language,'deselectAllTableItemsHelp');
+					table.showSelected.title = STIStatic.getString(language,'showSelectedHelp');
 				}
 				table.updateIndices(table.resultsPerPage);
 				table.update();
@@ -24277,6 +24602,8 @@ Table.prototype = {
 
 		this.firstPage = document.createElement('div');
 		this.firstPage.setAttribute('class','paginationButton');
+		this.firstPage.title = STIStatic.getString(language,'paginationFirsPageHelp');
+		
 		pagination.appendChild(this.firstPage);
 		this.firstPage.onclick = function(){
 			if( table.page != 0 ){
@@ -24287,6 +24614,7 @@ Table.prototype = {
 
 		this.previousPage = document.createElement('div');
 		this.previousPage.setAttribute('class','paginationButton');
+		this.previousPage.title = STIStatic.getString(language,'paginationPreviousPageHelp');
 		pagination.appendChild(this.previousPage);
 		this.previousPage.onclick = function(){
 			if( table.page > 0 ){
@@ -24301,6 +24629,7 @@ Table.prototype = {
 
 		this.nextPage = document.createElement('div');
 		this.nextPage.setAttribute('class','paginationButton');
+		this.nextPage.title = STIStatic.getString(language,'paginationNextPageHelp');
 		pagination.appendChild(this.nextPage);
 		this.nextPage.onclick = function(){
 			if( table.page < table.pages - 1 ){
@@ -24311,6 +24640,7 @@ Table.prototype = {
 
 		this.lastPage = document.createElement('div');
 		this.lastPage.setAttribute('class','paginationButton');
+		this.lastPage.title = STIStatic.getString(language,'paginationLastPageHelp');
 		pagination.appendChild(this.lastPage);
 		this.lastPage.onclick = function(){
 			if( table.page != table.pages - 1 ){
@@ -24320,7 +24650,7 @@ Table.prototype = {
 		}
 
 		this.resultsDropdown = document.createElement('div');
-		this.resultsDropdown.setAttribute('class','resultsDropdown');
+		this.resultsDropdown.setAttribute('class','resultsDropdown');		
 		pagination.appendChild(this.resultsDropdown);
 		var itemNumbers = [];
 		var addItemNumber = function(count,index){
@@ -24343,12 +24673,24 @@ Table.prototype = {
 				break;
 			}
 		}
-		dropdown.setLanguage('en');
+		dropdown.setLanguage(language);
+		dropdown.div.title = STIStatic.getString(language,'paginationDropdownHelp');
 
+		
+		
 		this.elementList = document.createElement("table");
 		this.elementList.setAttribute('class','resultList');
-		this.tableDiv.appendChild(this.elementList);
-
+		//this.tableDiv.appendChild(this.elementList);
+		//scrolldiv.appendChild(this.elementList);
+		//add div for scroll
+		var scrolldiv = document.createElement('div');
+		scrolldiv.setAttribute('class', 'scrollableTable');						
+		this.tableDiv.appendChild(scrolldiv);
+		//$(".scrollableTable").attr('style',"width: " + containerDiv.style.width + "px; height:" + containerDiv.style.height - 80+"px;");
+		scrolldiv.style.width = this.tableDiv.clientWidth + "px"; 
+		scrolldiv.style.height = this.parent.container.clientHeight - 130 + "px";//+20 + "px";
+		scrolldiv.appendChild(this.elementList);
+		
 		this.elementListHeader = document.createElement("tr");
 		this.elementList.appendChild(this.elementListHeader);
 
@@ -24371,19 +24713,34 @@ Table.prototype = {
 			span.setAttribute('class','headerLabel');
 			span.innerHTML = key;
 			cell.appendChild(span);
-			sort.setAttribute('class','paginationButton sortAZ');
-			var sortAZ = false;
+			sort.setAttribute('class','sortButton noSorted');
+			sort.title = STIStatic.getString(STIStatic.language,'noSortAZHelp');
+			
 			sort.onclick = function(){
-				sortAZ = !sortAZ;
-				if( sortAZ ){
-					sort.setAttribute('class','paginationButton sortZA');
-					table.sortAscending(key);
-					table.update();
+				var sortmodus;
+				//change the button for all other columns to unsorted
+				if ($(this).hasClass('sortAZ')) {
+					sortmodus = 1;
+				} else {
+					sortmodus = 0;
 				}
-				else {
-					sort.setAttribute('class','paginationButton sortAZ');
+				
+				table.resetSort();
+				//change the button for the sorted column according
+				//sortAZ = !sortAZ;
+				if( sortmodus > 0 ){
+					sort.setAttribute('class','sortButton sortZA');
+					sort.title = STIStatic.getString(STIStatic.language,'sortZAHelp');
 					table.sortDescending(key);
 					table.update();
+					
+				}
+				else {
+					sort.setAttribute('class','sortButton sortAZ');
+					sort.title = STIStatic.getString(STIStatic.language,'sortAZHelp');
+					table.sortAscending(key);
+					table.update();
+					
 				}
 			}
 		}
@@ -24543,6 +24900,8 @@ Table.prototype = {
 			//$(div).click(click);
 			$(checkbox).click(click);
 		}
+				
+		
 		this.checkboxes = [];
 		var items = 0;
 		for( var i=this.first; i<this.elements.length; i++ ){			
@@ -24554,7 +24913,7 @@ Table.prototype = {
 			if( this.showSelectedItems && !e.selected ){
 				continue;
 			}
-			var itemRow = $("<tr/>").appendTo(this.elementList);
+			var itemRow = $("<tr/>").appendTo(this.elementList);			
 			var checkColumn = $("<td/>").appendTo(itemRow);
 			var checkbox = $("<input type='checkbox'/>").appendTo(checkColumn);
 			$(checkbox).attr('checked', e.selected);
@@ -24650,7 +25009,12 @@ Table.prototype = {
 
 		this.update();
 
-	}
+	},
+	
+	resetSort: function(){
+		$(".sortButton").attr('class','sortButton noSorted');
+		$(".sortButton").attr ('title', STIStatic.getString(STIStatic.language,'noSortAZHelp'));				
+	},
 
 }
 
@@ -25789,7 +26153,7 @@ function Kruskal(G)                                                        // L
  */
 
 function Dropdown(ddParent,listParent,elements,dropperTitle){
-
+	
 	var dropdown = this;
 	this.visibility = false;
 	this.div = document.createElement("div");
@@ -25849,8 +26213,12 @@ function Dropdown(ddParent,listParent,elements,dropperTitle){
 		if (typeof(index) == "undefined") {
 		  if ((elements) && elements.length > 0) {
 			  this.changeEntries(elements[0]);
-		  }	
-		} else {
+		  }
+		 //original vhz?? diable 
+		 //else {
+		 //	this.changeEntries(elements[index]);
+		 //}
+		  	
 			this.changeEntries(elements[index]);
 		}
 	}
@@ -26338,7 +26706,7 @@ var fullscreen = new function(){
 		content.css('position','absolute');
 		//content.append("<img src='images/ajax-loader.gif'/>");
 		//vhz
-		content.append("<div id=\"FullscreenWindowHeader\" align=\"center\"><h1>Starting STIF.... </h1></div>");
+		content.append("<div id=\"FullscreenWindowHeader\" align=\"center\"><h1>Starting BioSTIF.... </h1></div>");
 		//~vhz
 		content.append("<img src='" + loader.src + "'/>");		
 		content.append("<div id=\"FullscreenWindowLog\" align=\"center\">Loading scripts</div>");
@@ -26443,10 +26811,12 @@ var gui = new function(){
 		var tools = document.createElement("tr");
 		toolbarTable.appendChild(tools);
 
-		this.mapTypeTitle = document.createElement("td");
-		titles.appendChild(this.mapTypeTitle);
-		this.mapTypeSelector = document.createElement("td");
-		tools.appendChild(this.mapTypeSelector);
+		if (typeof(STIStatic.showMapTypeSelector) == "undefined" || STIStatic.showMapTypeSelector) {
+			this.mapTypeTitle = document.createElement("td");
+			titles.appendChild(this.mapTypeTitle);
+			this.mapTypeSelector = document.createElement("td");
+			tools.appendChild(this.mapTypeSelector);
+		}
 
 		//vhz overlay selector for (the selected overlay in the combobox is the one used for the geographic selection
 		if (STIStatic.showOverlaySelector) {
@@ -26456,12 +26826,8 @@ var gui = new function(){
 			tools.appendChild(this.overlaySelector);
 		}
 		//~vhz
-
-		this.binningTitle = document.createElement("td");
-		titles.appendChild(this.binningTitle);
-		this.binningSelector = document.createElement("td");
-		tools.appendChild(this.binningSelector);
-		
+			
+		//vhz habe reihenfolge geaendert, weil das Binning weiter hinter kommt
 		this.mapSelectorTitle = document.createElement("td");
 		titles.appendChild(this.mapSelectorTitle);
 		var mapSelectorTools = document.createElement("td");
@@ -26470,17 +26836,44 @@ var gui = new function(){
 			mapSelectorTools.appendChild(selectorTools[i].button);
 		}
 		tools.appendChild(mapSelectorTools);
-				
+			
+		this.binningTitle = document.createElement("td");
+		titles.appendChild(this.binningTitle);
+		this.binningSelector = document.createElement("td");
+		tools.appendChild(this.binningSelector);
+		
 		var gui = this;
 		//vhz
 		this.showBbox(STIStatic.showBBox);
 		//~vhz
+		//vhz for lat lon if defined in StiStatic
+		var mapMousePosition = document.createElement("td");
+		this.mapMousePositionVisibilityChooser = document.createElement("div");
+		$(this.mapMousePositionVisibilityChooser).addClass('mapPositionControl');
+		this.mousePositionVisibilityOption = STIStatic.olMousePosition;
+		this.showMousePosition (this.mousePositionVisibilityOption);
+		this.mapMousePositionVisibilityChooser.onclick = function(){								
+			gui.showMousePosition(!gui.mousePositionVisibilityOption);
+		};
+		mapMousePosition.appendChild(this.mapMousePositionVisibilityChooser);
+		
+		this.mapMousePositionDiv = document.createElement("div");
+		//this.mapMousePositionDiv.setAttribute('class','mapPositionText');
+		$(this.mapMousePositionDiv).addClass('mapPositionText');
+		mapMousePosition.appendChild(this.mapMousePositionDiv);
+		
+						
+		titles.appendChild(mapMousePosition);
+		//~vhz
+		
 		var mapSum = document.createElement("td");
 		this.mapElements = document.createElement("div");
 		this.mapElements.setAttribute('class','ddbElementsCount');
 		mapSum.appendChild(this.mapElements);
 		tools.appendChild(mapSum);
 
+		
+		
 		var top;
 		if( navigator.geolocation && STIStatic.geoLocation ){
 			this.geoActive = false;
@@ -26522,7 +26915,7 @@ var gui = new function(){
 					gui.geoActive = false;
 					changeStyle();
 				}
-			}
+			};
 		}
 
 		if( !STIStatic.olNavigation ){
@@ -26538,7 +26931,7 @@ var gui = new function(){
 			this.homeButton.style.left = "20px";
 			this.homeButton.onclick = function(){
 				gui.map.drawObjectLayer(true);
-			}
+			};
 		}
 
 //		var tooltip = document.createElement("div");
@@ -26604,7 +26997,7 @@ var gui = new function(){
 		Publisher.Publish ("MapGuiInitialized", SpaceWrapper);
 		//~vhz
 
-    }
+    };
 
     this.initializePlotGUI = function(id){
 
@@ -26628,6 +27021,7 @@ var gui = new function(){
 		var tools = document.createElement("tr");
 		toolbarTable.appendChild(tools);
 
+		
 		this.timeUnitTitle = document.createElement("td");
 		titles.appendChild(this.timeUnitTitle);
 		this.timeUnitSelector = document.createElement("td");
@@ -26678,9 +27072,9 @@ var gui = new function(){
 //		toolbarTable.style.height = (toolbarTable.offsetHeight+2*this.verticalMargin)+"px";
 		this.plotContainer.style.height = (this.plot.plotWindow.offsetHeight+toolbarTable.offsetHeight)+"px";
 //		this.plot.plotWindow.style.top = (plotToolbar.offsetHeight-1)+"px";
-		Publisher.Publish ("TableGuiInitialized", TimeWrapper);
+		Publisher.Publish ("TimePlotGuiInitialized", TimeWrapper);
 
-    }
+    };
 
 
     this.initializeTableGUI = function(id){
@@ -26697,7 +27091,7 @@ var gui = new function(){
         Publisher.Publish ("TableGuiInitialized", TableWrapper);
 
 
-    }
+    };
 
 
 
@@ -26800,14 +27194,14 @@ var gui = new function(){
 		this.mapTypeDropdown = new Dropdown(this.mapTypeSelector,this.mapContainer,maps,'selectMapType');
 		this.mapTypeDropdown.setEntry(this.map.baselayerIndex);
 		this.mapTypeDropdown.setLanguage(STIStatic.language);
-    }
+    };
 
     this.setBinningDropdown = function(){
     	$(this.binningSelector).empty();
 		var binnings = [];
 		var gui = this;
 		var index = 0;
-		var entry;
+		var entry = 0;
 		var addBinning = function(name,id){
 			if( STIStatic.binning == id ){
 				entry = index;	
@@ -26819,12 +27213,12 @@ var gui = new function(){
 				STIStatic.binning = id;
 				gui.map.initMap(gui.map.mapObjects,false);
 				gui.map.riseLayer(gui.table.activeTable);
-			}
+			};
 			binnings.push({
 				name: name,
 				onclick: setBinning
 			});
-		}
+		};
 		addBinning(STIStatic.getString(STIStatic.language,'genericBinning'),'generic');
 		addBinning(STIStatic.getString(STIStatic.language,'squareBinning'),'square');
 		addBinning(STIStatic.getString(STIStatic.language,'hexagonalBinning'),'hexagonal');
@@ -26833,7 +27227,7 @@ var gui = new function(){
 		var dd = new Dropdown(this.binningSelector,this.mapContainer,binnings,'selectBinningType');
 		dd.setEntry(entry);
 		dd.setLanguage(STIStatic.language);
-    }
+    };
 
 
     //vhz
@@ -26847,7 +27241,16 @@ var gui = new function(){
 		var gui = this;
 		var visibleOverlayIndex = -1;
 		var addOverlay = function(name,index){
-			var setOverlay = function(){				
+			var setOverlay = function(){
+				
+//				logg("setO: " + name + " " + index);
+				
+				if(name == "no overlay"){
+					for(var j = 0; j < gui.map.wmsOverlays.length; j++){
+						gui.map.wmsOverlays[j].setVisibility(false);
+					}
+				}
+				
 				if (visibleOverlayIndex >= 0) {
 					gui.map.wmsOverlays[visibleOverlayIndex].setVisibility(false);
 				}
@@ -26866,18 +27269,26 @@ var gui = new function(){
 				onclick: setOverlay
 			});
 		}
-		for( var i=0; i<this.map.wmsOverlays.length; i++ ){
-			addOverlay(this.map.wmsOverlays[i].name,i);
+
+//		for( var i=0; i<this.map.wmsOverlays.length; i++ ){
+//			addOverlay(this.map.wmsOverlays[i].name,i);
+//		}
+		for( var i=0; i<gui.map.wmsOverlays.length; i++ ){
+			addOverlay(gui.map.wmsOverlays[i].name,i);
 		}
+		//XXX rk add dummy del overlay
+		addOverlay("no overlay",-1);
 		this.overlayDropdown = new Dropdown(this.overlaySelector,this.mapContainer,overlays,'selectOverlay');
 		//this.overlayDropdown.setEntry(this.map.baselayerIndex);
 		this.overlayDropdown.setLanguage(STIStatic.language);
-    }
+    };
     //~vhz
     
     this.setLanguageForMap = function(){
     	var language =  STIStatic.language;
-		this.homeButton.title = STIStatic.getString(language,'home');
+    	if (this.homeButton) {
+    		this.homeButton.title = STIStatic.getString(language,'home');
+    	}
         if( typeof this.geoLocation != "undefined" ){
         	if( this.geoActive ){
                 this.geoLocation.title = STIStatic.getString(language,'deactivateGeoLocation');
@@ -26887,8 +27298,11 @@ var gui = new function(){
         	}
         }
 		this.mapSelectorTitle.innerHTML = STIStatic.getString(language,'mapSelectorTools');
-		this.mapTypeTitle.innerHTML = STIStatic.getString(language,'mapType');
+		if (typeof(STIStatic.showMapTypeSelector) == "undefined" || STIStatic.showMapTypeSelector) {
+			this.mapTypeTitle.innerHTML = STIStatic.getString(language,'mapType');
+		}
 		this.binningTitle.innerHTML = STIStatic.getString(language,'binningType');
+		this.binningTitle.title = STIStatic.getString(language,'binningTooltip');
 		
     	if( this.mapCount ){
         	if( this.mapCount != 1 ){
@@ -26903,7 +27317,9 @@ var gui = new function(){
 			this.setOverlayDropdown();
     	}
 //    	this.setSpaceFacetDropdown();
-    	this.setMapsDropdown();
+    	if (typeof(STIStatic.showMapTypeSelector) == "undefined" || STIStatic.showMapTypeSelector) {
+    		this.setMapsDropdown();
+    	}
     	this.setBinningDropdown();
 
 
@@ -26921,12 +27337,12 @@ var gui = new function(){
    			l++;
    		}
     	return c;
-    }
+    };
 
     this.setLanguageForPlot = function(){
     	var language = STIStatic.language;
 //		this.timeAnimation.innerHTML = STIStatic.getString(language,'timeAnimation');
-		this.timeUnitTitle.innerHTML = STIStatic.getString(language,'timeUnit');
+//		this.timeUnitTitle.innerHTML = STIStatic.getString(language,'timeUnit');
 		if( this.plotCount ){
 	    	if( this.plotCount != 1 ){
 	    		this.timeElements.innerHTML = this.beautifyCount(this.plotCount)+" "+STIStatic.getString(language,'results')+" "+STIStatic.getString(language,'resultsTime');
@@ -27012,6 +27428,22 @@ var gui = new function(){
 			}
 		}
 	};
+	
+	this.showMousePosition = function (show) {
+		this.mousePositionVisibilityOption = show;
+		
+		if (show) {			
+			//setup button for hiding
+			this.mapMousePositionVisibilityChooser.innerHTML = STIStatic.getString(STIStatic.language,'deactivateMousePosition');
+			this.mapMousePositionVisibilityChooser.title = STIStatic.getString(STIStatic.language,'deactivateMousePositionHelp');			
+		} else {
+			//setup Button for showing
+			this.mapMousePositionVisibilityChooser.innerHTML = STIStatic.getString(STIStatic.language,'activateMousePosition');
+			this.mapMousePositionVisibilityChooser.title = STIStatic.getString(STIStatic.language,'activateMousePositionHelp');
+			this.mapMousePositionDiv.innerHTML = "<span></span>";           
+		}
+		this.map.showMousePosition(show);
+	};
 	//~vhz
 };
 /**
@@ -27038,6 +27470,7 @@ var SpaceWrapper = new function() {
     });
 
     Publisher.Subscribe('filter',function(data){
+//    	logg("SW subscribe filter");
 	if( typeof wrapper.map != 'undefined' ){
 		wrapper.filter(data);
 	}
@@ -27048,17 +27481,30 @@ var SpaceWrapper = new function() {
              wrapper.rise(id);
         }
     });
+    
+    Publisher.Subscribe('deselect',function(){
+        if( typeof wrapper.map != 'undefined'){
+             wrapper.map.deselection();
+        }
+    });
 
     this.display = function(data,zoom) {
-
+    	
     	if ( data instanceof Array ) {
+    		
+    		logg("SW display: " + data[0].length);
+    		
 	    	this.map.initMap(data,zoom);
+//	    	this.filterBar.setData(data);
+	    	Publisher.Publish('filterbardata',data);
+//	    	logg("this.map.count: " + this.map.count);
 	    	gui.updateSpaceQuantity(this.map.count);
     	}
 
     };
 
     this.triggerRefining = function(mapObjects) {
+//    	logg("SW space");
         if (mapObjects && mapObjects.length > 0) {
 	    Publisher.Publish('filter',mapObjects);
         }
@@ -27085,6 +27531,7 @@ var SpaceWrapper = new function() {
     };
 
     this.select = function(data){
+//    	logg("select data in mapp");
         if (data == undefined) {
             return;
         }
@@ -27097,6 +27544,7 @@ var SpaceWrapper = new function() {
     };
 
     this.filter = function(data){
+//    	logg("SW function filter data");
         this.display(data);
     };
 
@@ -27167,6 +27615,12 @@ var TimeWrapper = new function() {
 	if( typeof wrapper.plot != 'undefined' ){
 		wrapper.filter(data);
 	}
+    });
+    
+    Publisher.Subscribe('deselect',function(){
+    	if( typeof wrapper.plot != 'undefined' ){
+    		wrapper.plot.deselection();
+    	}
     });
 
     this.display = function(data) {
@@ -27295,7 +27749,13 @@ var TableWrapper = new function() {
 		wrapper.filter(data);
 	}
     });
-
+    
+    Publisher.Subscribe('deselect',function(){
+        if( typeof wrapper.table != 'undefined'){
+             wrapper.table.deselection();
+        }
+    });
+    
     this.display = function(data,names) {
 
 	if( typeof names != 'undefined' ){

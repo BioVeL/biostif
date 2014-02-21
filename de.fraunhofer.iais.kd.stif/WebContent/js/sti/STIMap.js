@@ -130,11 +130,14 @@ STIMap.prototype = {
   	  	}
         this.pointClickDiv.appendChild(pointClickDivBackground);
         
+		var linkForGeoTemCo = 'http://www.informatik.uni-leipzig.de:8080/geotemco/';
+		var geotemcoAnchor = '<a href=' + linkForGeoTemCo + '>GeoTemCo</a>';
+
         var linkForOsm = 'http://www.openstreetmap.org/';
         var linkForLicense = 'http://creativecommons.org/licenses/by-sa/2.0/';
         this.osmLink = document.createElement("div");
         this.osmLink.setAttribute('class','osmLink');
-        this.osmLink.innerHTML = '© <a href='+linkForOsm+'>OpenStreetMap contributors</a>, <a href='+linkForLicense+'>CC-BY-SA</a>';
+        this.osmLink.innerHTML = geotemcoAnchor + ' / &copy;<a href='+linkForOsm+'>OpenStreetMap contributors</a>, <a href='+linkForLicense+'>CC-BY-SA</a>';
         this.mapWindow.appendChild(this.osmLink);
 
 	this.filterBar; // = new FilterBar(this,this.mapWindow);

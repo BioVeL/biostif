@@ -31,6 +31,8 @@ import javax.ws.rs.core.UriInfo;
 
 //import org.apache.commons.io.IOUtils;
 
+
+
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -207,52 +209,46 @@ public class StifDataResource {
         LOG.info("stored source into URI: " + location.getPath());
         return Response.created(location).entity(location.toString()).build();
     }
+    
+    private boolean isNonEmptyStringValue(String value) {
+        return value != null && value.length() > 0;
+    }
 
-    public static String[] makeLayerNameAndSuffix(final String sourceUrl, final String userSuffix, final String userLayerName) {
-        LOG.info("layer sourceUrl: " + sourceUrl + " userSuffix: '" + userSuffix + "' userLayerName: '" + userLayerName + "'");
-
-        String resultBaseName = (userLayerName == null)?"":userLayerName;
-        String resultSuffix = "";
-        String userSuffixRequest = (userSuffix == null)?"":(userSuffix.isEmpty())?"":((userSuffix.startsWith(".")?"":".")+userSuffix);
-
-        final int urlDirPathEnd = sourceUrl.lastIndexOf('/');
-        final String urlFilename = sourceUrl.substring((urlDirPathEnd < 0)?0:urlDirPathEnd+1);
+    public String[] makeLayerNameAndSuffix(final String sourceUrl, final String userSuffix, final String userLayerName) {
+        LOG.info("layer sourceUrl: " + sourceUrl + " userSuffix: '" + userSuffix + "' userLayerName: '" + userLayerName
+            + "'");
         
-        // if userLayerName is not specified use filename of sourceUrl
-        final String filename = (userLayerName == null || userLayerName.isEmpty())?urlFilename:userLayerName;
+        String filename = "";
         
-        final int dotSeparatorX = filename.lastIndexOf('.');
-        final String basename = (dotSeparatorX <= 0)?filename:filename.substring(0,dotSeparatorX);
-        final String suffix = (dotSeparatorX < 0)?"":filename.substring((dotSeparatorX <= 0)?0:dotSeparatorX);
-        
-        resultBaseName = basename;
-        resultSuffix = suffix;
-        
-        if (suffix.isEmpty()) {
-            if (userSuffix != null) { // a suffix is requested by user
-                if (!suffix.equals(userSuffixRequest)) {
-                    resultBaseName = filename;
-                    resultSuffix = userSuffixRequest;
-                }
-            }
+        if (isNonEmptyStringValue(userLayerName)) {
+            if (userLayerName.lastIndexOf('/') >= 0) {
+                throw new RuntimeException("invalid layer format: name has / inside");
+            };
+            filename = userLayerName;
         } else {
-            if (userSuffix != null) { // a suffix is requested by user
-                if (suffix.equals(userSuffixRequest)) {
-                    resultSuffix = suffix;
-                } else {
-                    resultBaseName = filename;
-                    resultSuffix = userSuffixRequest;
-                }
+            if (isNonEmptyStringValue(sourceUrl)) {
+                final int urlDirPathEnd = sourceUrl.lastIndexOf('/');
+                filename = sourceUrl.substring((urlDirPathEnd < 0) ? 0 : urlDirPathEnd + 1);
+            } else {
+                filename = "streaminput";
             }
         }
 
-        String[] resourceName = new String[2];
-        resourceName[X_LAYER] = (resultBaseName.replace(" ","_") + "_");
-        resourceName[X_SUFFIX] = resultSuffix.replace(" ","_");
-        LOG.info("layer: '" + resourceName[X_LAYER] + "' suffix: '" + resourceName[X_SUFFIX] + "'");
-        return resourceName;
+        final int dotSeparatorX = filename.lastIndexOf('.');
+        final String basename = (dotSeparatorX <= 0) ? filename : filename.substring(0, dotSeparatorX);
+        final String suffix = ((dotSeparatorX < 0) ? "" : filename.substring((dotSeparatorX <= 0) ? 0 : dotSeparatorX+1));
+        
+        final String resultSuffix = ((isNonEmptyStringValue(userSuffix))
+                                    ?((userSuffix.startsWith("."))?userSuffix.substring(1): userSuffix)
+                                    :suffix);
+        final String fullBasename = (suffix.equals(resultSuffix)?basename:filename);    
+        
+        String[] result = new String[2]; // { fullBasename + "_", resultSuffix.isEmpty()?"":"." + resultSuffix };
+        result[X_LAYER] = ((fullBasename + "_").replace(" ", "_"));
+        result[X_SUFFIX] = (resultSuffix.isEmpty()?"":"." + resultSuffix).replace(" ", "_");
+        return result;
     }
-
+    
     @PUT
     @Path("/data/{dataresource : .+}")
     //    @Consumes(MediaType.APPLICATION_OCTET_STREAM)

@@ -452,7 +452,7 @@ public class Csv2Json extends HttpServlet {
 			placeValue = popuplabel;
 		}
 		
-		for (int i = 0; i < csvHeader.size() - 1; i++) {
+		for (int i = 0; i < csvHeader.size(); i++) {
 			
 			int ix = csvHeader.indexOf(csvHeader.get(i));
 			

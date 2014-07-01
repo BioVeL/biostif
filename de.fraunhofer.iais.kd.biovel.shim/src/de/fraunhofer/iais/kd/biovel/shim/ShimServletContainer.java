@@ -61,7 +61,7 @@ public class ShimServletContainer extends ServletContainer {
             confFile = new File(config.getServletContext().getRealPath("/"), confFileName);
         }
         if (!confFile.canRead()) {
-            throw new ServletException("--- ShimServletContainer cannot read file: \"" + confFileName + "\"");
+            throw new ServletException("--- ShimServletContainer cannot read file: \"" + confFileName + "\" path: " + confFile.getAbsolutePath());
         }
 
         Properties props = new Properties();

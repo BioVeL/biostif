@@ -72,6 +72,7 @@ public class ShimRasterResource {
     @GET
     @Path("ping")
     public Response dataPing() {
+        LOG.info("../raster/ping");
         return Response.ok().build();
     }
     
@@ -1429,11 +1430,12 @@ public class ShimRasterResource {
         //TODO: zum layernamen username und workflowid hinzu??
         String layerName = "";
         if(userLayerName == null || userLayerName.length() == 0){
-            if(sourceUrlString != null){
-            String sourceFile = sourceUrlString.substring( sourceUrlString.lastIndexOf('/')+1, sourceUrlString.length() );
-            String fileNameWithoutExtn = sourceFile.substring(0, sourceFile.lastIndexOf('.'));
-            layerName = fileNameWithoutExtn+"_"+sourceLocationNameWithoutExtn;
-            } else{
+            if (sourceUrlString != null) {
+                String sourceFile =
+                    sourceUrlString.substring(sourceUrlString.lastIndexOf('/') + 1, sourceUrlString.length());
+                String fileNameWithoutExtn = sourceFile.substring(0, sourceFile.lastIndexOf('.'));
+                layerName = fileNameWithoutExtn + "_" + sourceLocationNameWithoutExtn;
+            } else {
                 layerName = "streaminput";
             }
         } else{

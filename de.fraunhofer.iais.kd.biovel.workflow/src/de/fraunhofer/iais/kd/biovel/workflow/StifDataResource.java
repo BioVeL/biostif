@@ -3,17 +3,13 @@ package de.fraunhofer.iais.kd.biovel.workflow;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
 import java.net.URI;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.print.DocFlavor.STRING;
 import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
@@ -29,15 +25,13 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
+import com.sun.jersey.core.util.Base64;
+import com.sun.jersey.multipart.FormDataParam;
 //import org.apache.commons.io.IOUtils;
-
-
-
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
-import com.sun.jersey.core.util.Base64;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
 
 import de.fraunhofer.iais.kd.biovel.common.contract.Check;
 import de.fraunhofer.iais.kd.biovel.stifdata.StifDataManager;
@@ -96,6 +90,18 @@ public class StifDataResource {
     }
 
     @POST
+    @Path("/dataupload")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    public Response postUpload(@Context ServletConfig config,
+                               @Context UriInfo uriInfo, //
+                                @Context HttpServletRequest httpServletRequest,
+                               @FormDataParam("filename") String fileName,
+                                @FormDataParam("file") InputStream fileContent
+                              ) {
+        return postDataUpload(config,uriInfo,null,null,fileName,null,null,null,0,httpServletRequest,null,null,fileContent);
+    }
+    
+    @POST
     @Path("/data")
     public Response postDataUpload(@Context ServletConfig config,
                                    @Context UriInfo uriInfo, //
@@ -109,7 +115,7 @@ public class StifDataResource {
                                    @Context HttpServletRequest httpServletRequest,
                                    @HeaderParam("X-Auth-Service-Provider") String authServiceProvider,
                                    @HeaderParam("X-Verify-Credentials-Authorization") String credentialsAuthorizationToken,
-                                   String entity
+                                   InputStream entity
                                    ) {
         
         // compensate a call (in main.jsp?), that provides "null" for null
@@ -185,26 +191,12 @@ public class StifDataResource {
             } catch (Exception ex) {
                return Response.status(500).entity(ex.getMessage()).build(); 
             }
-//        } else if (entity != null) {
-//            // store the entity of the request
+        } else if (entity != null) {
+            manager.putResource(resource, entity);
         } else {
-            
-            try (InputStream is = httpServletRequest.getInputStream()) {
-                
-                manager.putResource(resource, is);
-                
-            } catch (IOException e) {
-                String msg = "Error while get the entityInputStream from Datastorerequest : " + e.getMessage();
-                LOG.info(msg);
-                return Response.status(500).entity(msg).build();
-            }
-            
-            
-//            manager.putResource(resource, entity);
+            LOG.severe("no source url and no entity available");
+            return Response.status(500).entity("no source url and no entity available").build();
         }
-//        else { // sourceUrl == null && entity == null
-//            // content of the resource must be PUT explicitly
-//        }
 
         LOG.info("stored source into URI: " + location.getPath());
         return Response.created(location).entity(location.toString()).build();

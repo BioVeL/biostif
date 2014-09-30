@@ -1,0 +1,219 @@
+Content-Type: multipart/mixed; boundary="===============4393449873403893838=="
+MIME-Version: 1.0
+
+--===============4393449873403893838==
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="userdata.txt"
+
+#cloud-config
+users:
+ - name: biostifadm
+   sudo: ALL=(ALL) NOPASSWD:ALL
+   lock-passwd: true
+   ssh-import-id: biostifadm
+   ssh-authorized-keys:
+    - <your SSH key>
+
+--===============4393449873403893838==
+Content-Type: text/x-shellscript; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="deploy.sh"
+
+#!/bin/bash
+#Installation and configuration script for BioSTIF service
+#This script has been tested on RedHat 6 OS
+#BioSTIF tomcat services are installed in /opt/tomcat1 and /opt/tomcat2
+
+#Setup RPM repositories
+rpm -ivH
+http://ftp.nluug.nl/pub/os/Linux/distr/fedora-epel/6/i386/epel-release-6-8.noarch.rpm
+
+#Install pre-requisites
+yum install -y gdal httpd mod_ssl wget unzip
+
+#Install JAVA JDK
+wget --no-cookies --no-check-certificate --header "Cookie:
+gpw_e24=http%3A%2F%2Fwww.oracle.com%2F" -O /root/jdk-7u25-linux-x64.rpm
+"http://download.oracle.com/otn-pub/java/jdk/7u25-b15/jdk-7u25-linux-x64.rpm"
+yum localinstall -y /root/jdk-7u25-linux-x64.rpm
+
+#Install tomcat servers (from sources):
+cd /opt
+wget
+http://apache.fastbull.org/tomcat/tomcat-7/v7.0.50/bin/apache-tomcat-7.0.50.tar.gz
+tar xvzf apache-tomcat-7.0.50.tar.gz
+mv apache-tomcat-7.0.50 tomcat1
+tar xvzf apache-tomcat-7.0.50.tar.gz
+mv apache-tomcat-7.0.50 tomcat2
+rm -f apache-tomcat-7.0.50.tar.gz
+
+#Remove un-needed web applications
+cd /opt/tomcat1/webapps
+rm -rf docs examples manager host-manager
+cd /opt/tomcat2/webapps
+rm -rf docs examples manager host-manager
+
+#Configure Tomcat servers startup
+###JAVA_OPTS="$JAVA_OPTS
+-Dbiostif.server.conf=/opt/tomcat1/conf/biostif.server.conf
+-Dbiostif.client.conf=/opt/tomcat1/conf/biostif.client.conf -Xms1024m
+-Xmx2048m -XX:PermSize=64m -XX:MaxPermSize=256m"
+###export JAVA_HOME=/usr/lib/jvm/jre-1.7.0-openjdk.x86_64/
+wget -O /etc/init.d/tomcat1
+https://gist.github.com/valotas/1000094/raw/9c0380bc16ffcae8483914d79e40af06b819a635/tomcat.sh
+wget -O /etc/init.d/tomcat2
+https://gist.github.com/valotas/1000094/raw/9c0380bc16ffcae8483914d79e40af06b819a635/tomcat.sh
+sed -i -e 's|^TOMCAT_HOME=.*$|TOMCAT_HOME=/opt/tomcat1|' -e '/^export
+JAVA_OPTS="/,/"/{s|^export JAVA_OPTS=".*|export JAVA_OPTS="$JAVA_OPTS
+-Djava.library.path=/opt/tomcat1/shared/lib/
+-Dbiostif.server.conf=/opt/tomcat1/conf/biostif.server.conf
+-Dbiostif.client.conf=/opt/tomcat1/conf/biostif.client.conf -Xms1024m
+-Xmx2048m -XX:PermSize=64m -XX:MaxPermSize=256m
+-DGWC_METASTORE_JDBC_URL=jdbc:h2:file:/opt/tomcat1/webapps/geoserver/data/gwc/meta_jdbc_h2
+-DGDAL_DATA=/opt/tomcat1/libdata"|p;d}' -e 's|grep -v grep|grep tomcat1|' -e
+'s|^export JAVA_HOME=.*|export JAVA_HOME="/usr/java/default/"|'
+/etc/init.d/tomcat1
+sed -i -e 's|^TOMCAT_HOME=.*$|TOMCAT_HOME=/opt/tomcat2|' -e '/^export
+JAVA_OPTS="/,/"/{s|^export JAVA_OPTS=".*|export JAVA_OPTS="$JAVA_OPTS
+-Djava.library.path=/opt/tomcat2/shared/lib/
+-Dbiostif.server.conf=/opt/tomcat2/conf/biostif.server.conf
+-Dbiostif.client.conf=/opt/tomcat2/conf/biostif.client.conf -Xms1024m
+-Xmx2048m -XX:PermSize=64m -XX:MaxPermSize=256m
+-DGDAL_DATA=/opt/tomcat2/libdata"|p;d}' -e 's|grep -v grep|grep tomcat2|' -e
+'s|^export JAVA_HOME=.*|export JAVA_HOME="/usr/java/default/"|'
+/etc/init.d/tomcat2
+chmod +x /etc/init.d/tomcat1 /etc/init.d/tomcat2
+
+#Install GDAL native libraries:
+yum install -y gdal
+mkdir -p /opt/tomcat1/shared/lib
+###copy gdal1.7.3-linux64-base-gcc43.tar
+cd /opt/tomcat1/shared/lib
+wget
+https://java.net/projects/imageio-ext/downloads/download/Releases/Dependencies/GDAL/NativeLibraries/1.7.3/Linux64/gdal1.7.3-linux64-base-gcc43.tar.gz
+tar xvzf gdal1.7.3-linux64-base-gcc43.tar.gz
+rm -f gdal1.7.3-linux64-base-gcc43.tar.gz
+mkdir -p /opt/tomcat2/shared/lib
+cp -r /opt/tomcat1/shared/lib/* /opt/tomcat2/shared/lib/
+mkdir -p /opt/tomcat1/libdata/ /opt/tomcat2/libdata/
+cd /opt/tomcat1/libdata/
+wget
+https://java.net/downloads/imageio-ext/Releases/Dependencies/GDAL/Data/1.7.3/gdal_data173.zip
+unzip gdal_data173.zip
+rm -f gdal_data173.zip
+cp -r /opt/tomcat1/libdata/* /opt/tomcat2/libdata/
+
+#Setup tomcat server 1
+
+##Configure Tomcat
+###copy biostif.server.conf and biostif.client.conf files into
+/opt/tomcat1/conf/
+mkdir -p /opt/tomcat1/conf/ /opt/tomcat2/conf/
+wget -O /opt/tomcat1/conf/biostif.server.conf
+http://biovel.iais.fraunhofer.de/workflow/rest/data/servlets/biostif.server.conf
+wget -O /opt/tomcat1/conf/biostif.client.conf
+http://biovel.iais.fraunhofer.de/workflow/rest/data/servlets/biostif.client.conf
+ln -fs /opt/tomcat1/conf/biostif.server.conf
+/opt/tomcat2/conf/biostif.server.conf
+ln -fs /opt/tomcat1/conf/biostif.client.conf
+/opt/tomcat2/conf/biostif.client.conf
+###copy geonetwork.war and geoserver.war into /opt/tomcat1/webapps
+wget -O /opt/tomcat1/webapps/geonetwork.war
+http://biovel.iais.fraunhofer.de/workflow/rest/data/servlets/geonetwork.war
+wget -O /opt/tomcat1/webapps/geoserver.war
+http://biovel.iais.fraunhofer.de/workflow/rest/data/servlets/geoserver.war
+
+##PATCH1 - replace icu4j with a newer version
+cd /opt/tomcat1/webapps
+mkdir geonetwork
+cd geonetwork
+unzip ../geonetwork.war
+cd ..
+rm -f geonetwork.war
+mkdir geoserver
+cd geoserver
+unzip ../geoserver.war
+cd ..
+rm -f geoserver.war
+rm -f geonetwork/WEB-INF/lib/icu4j-2.6.1.jar
+wget
+ftp://ftp.software.ibm.com/software/globalization/icu/icu4j/3.2/icu4j_3_2.jar
+-O ./geonetwork/WEB-INF/lib/icu4j-3.2.0.jar
+
+##PATCH2: Edit catalina.sh and add
+###
+-DGWC_METASTORE_JDBC_URL=jdbc:h2:file:/opt/tomcat1/webapps/geoserver/data/gwc/meta_jdbc_h2
+### to the JAVA_OPTS (this is already done in the startup script)
+### and execute
+mkdir -p /opt/tomcat1/webapps/geoserver/data/gwc/meta_jdbc_h2
+
+##PATCH3: Add saxon DOM library
+wget -O /opt/tomcat1/webapps/geonetwork/WEB-INF/lib/saxon-dom-9.1.0.8b.jar
+http://dev.mapfish.org/maven/repository/net/sf/saxon/saxon-dom/9.1.0.8b/saxon-dom-9.1.0.8b.jar
+
+#Configure Tomcat server 2
+### edit server.xml and setup the following ports: connector port: 8082,
+shoutdown post: 8007, redirect port: 8445, ajp connector port: 8011
+sed -i -e 's|\"8080\"|"8082"|g' -e 's|\"8009\"|"8011"|g' -e
+'s|\"8443\"|"8445"|g' -e 's|\"8005\"|"8007"|g' /opt/tomcat2/conf/server.xml
+### copy tomcat2 release war into /opt/tomcat2/webapps
+cd /opt/tomcat2/webapps/
+wget http://biovel.iais.fraunhofer.de/workflow/rest/data/servlets/biostif.war
+wget http://biovel.iais.fraunhofer.de/workflow/rest/data/servlets/stif.war
+wget http://biovel.iais.fraunhofer.de/workflow/rest/data/servlets/workflow.war
+wget http://biovel.iais.fraunhofer.de/workflow/rest/data/servlets/shim.war
+wget http://biovel.iais.fraunhofer.de/workflow/rest/data/servlets/prj2epsg.war
+
+#Add tomcat user
+useradd tomcat -s /sbin/nologin
+chown tomcat:tomcat -R /opt/tomcat1 /opt/tomcat2
+
+#Add biostif user data dir
+###This should be replaced with the mount of the external data directory
+mkdir -p /data1/stifdata
+chown tomcat:tomcat -R /data1/stifdata
+
+#TMPConfigure /etc/hosts
+#This is a temporary command. For the test, DNS is overridden.
+echo '127.0.0.1 biovel.iais.fraunhofer.de' >> /etc/hosts
+
+#Start tomcat servers
+/etc/init.d/tomcat1 start
+/etc/init.d/tomcat2 start
+
+#Configure and start apache server
+##Create apache configuration file:
+cat << EOF > /etc/httpd/conf.d/biostif.conf
+<Proxy *>
+     AddDefaultCharset Off
+     Order deny,allow
+     Allow from all
+</Proxy>
+
+ProxyPass /geoserver ajp://localhost:8009/geoserver
+ProxyPassReverse /geoserver ajp://localhost:8009/geoserver
+ProxyPass /geonetwork ajp://localhost:8009/geonetwork
+ProxyPassReverse /geonetwork ajp://localhost:8009/geonetwork
+ProxyPass /biostif ajp://localhost:8011/biostif
+ProxyPassReverse /biostif ajp://localhost:8011/biostif
+ProxyPass /stif ajp://localhost:8011/stif
+ProxyPassReverse /stif ajp://localhost:8011/stif
+ProxyPass /workflow ajp://localhost:8011/workflow
+ProxyPassReverse /workflow ajp://localhost:8011/workflow
+ProxyPass /shim ajp://localhost:8011/shim
+ProxyPassReverse /shim ajp://localhost:8011/shim
+ProxyPass /prj2epsg ajp://localhost:8011/prj2epsg
+ProxyPassReverse /prj2epsg ajp://localhost:8011/prj2epsg
+EOF
+##Start apache
+service httpd start
+
+#Configure firewall to accept 80 and 443 connections
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+iptables-save > /etc/sysconfig/iptables
+
+--===============4393449873403893838==--

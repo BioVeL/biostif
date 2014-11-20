@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Spatio-Temporal Interface</title>
+	<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+ 	<script src="js/core/Publisher.js"></script>
+ 	<script src="js/build/loader/DynaJsLoader.js"></script>
+	<script src="js/build/loader/STILoader.js"></script>
+  </head>
+
+  <body>
+
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled in order for this application to display correctly.
+      </div>
+    </noscript>
+
+    <div align=center>
+        <div id="mapContainerDiv" style="position:relative;"></div>
+        <div id="plotContainerDiv" style="position:relative;width:0px;height:0px;"></div>
+        <div id="tableContainerDiv" style="position:relative;width:0px;height:0px;"></div>
+    </div>
+
+    <script>
+	Publisher.Subscribe( 'StifReady', function(){
+		var data2 = STIStatic.loadSpatioTemporalKMLData('data/kafka-timeline.kml');
+		gui.initializeMapGUI("mapContainerDiv");
+		gui.initializePlotGUI("plotContainerDiv");
+		gui.initializeTableGUI("tableContainerDiv");
+		SpaceWrapper.display([data2]);
+		TimeWrapper.display([data2]);
+		TableWrapper.display([data2],['Kafka']);
+	});
+    </script>
+
+  </body>
+
+</html>

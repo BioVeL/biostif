@@ -192,38 +192,6 @@ public class Imageupload extends HttpServlet {
 					
 				}
 				
-//				System.out.println(" innerhalbname: " +name); 
-////				
-//				String filename = name.substring(0, name.lastIndexOf("."));
-//				System.out.println("filename" + filename);
-//				
-//				// endung abschneiden und checken
-//				
-//		        // http://biovel.iais.fraunhofer.de/shim/rest/raster/{workspaceid}?source={sourceURL}&stylename={styleName}&inputformat={inputformat}&layername={layername}
-//
-//				String stylename = "";
-//				String inputformat = "";
-//				String layername = "";
-//				
-//				String shimurl = "http://localhost:8080/shim/rest/raster/biovel_temp";	
-////				String params = "?stylename={"+stylename+"}&inputformat={"+inputformat+"}&layername={"+layername+"}";	
-////				String target = shimurl + params;
-//
-//				
-//		        this.client = Client.create();
-//		        ClientResponse crPost = this.client.resource(shimurl).queryParam("stylename", stylename).queryParam("inputformat", inputformat).queryParam("layername", layername).post(ClientResponse.class,iscopy);
-//                
-//	            if (crPost.getStatus() != 201) {
-////	                throw new WebApplicationException(crPost.getStatus());
-////	                return Response.status(crPost.getStatus()).entity(crPost.getEntity(String.class)).build();
-//	            	jsonResult = "Error while uploading the file: " + crPost.getEntity(String.class);
-//	            }        
-//	            else {
-//					jsonResult = "file is sucessful transferred";
-//	            }
-				
-
-				
 			}
 			
 			System.out.println("name: " +name); 
@@ -268,7 +236,7 @@ public class Imageupload extends HttpServlet {
 		     
 		     if(!nosuffix){
 				
-				String shimurl = "http://localhost:8080/shim/rest/raster/biovel_temp";	
+				String shimurl = "http://localhost/shim/rest/raster/biovel_temp";	
 				
 		        this.client = Client.create();
 		        ClientResponse crPost = this.client.resource(shimurl).queryParam("stylename", stylename).queryParam("inputformat", inputformat).queryParam("layername", layername).post(ClientResponse.class,iscopy);

@@ -24,8 +24,14 @@ public class ShimServletContainer extends ServletContainer {
     private static final long serialVersionUID = 1L;
     private static final Logger LOG = Logger.getLogger(ShimServletContainer.class.getName());
 
-//    private static final String RESOURCE_DIR_NAME = "WEB-INF/res";
     public static final String BIOSTIF_SERVER_CONF = "biostif.server.conf";
+    public static final String GEOSERVER_URL = "GEOSERVER_URL";
+    public static final String GEOSERVER_USER = "GEOSERVER_USER";
+    public static final String GEOSERVER_PASSWD = "GEOSERVER_USER";
+    public static final String GEOSERVER_RELOAD = "GEOSERVER_RELOAD";
+    public static final String PUBLIC_WORKSPACE = "PUBLIC_WORKSPACE";
+    public static final String DATA_URL = "DATA_URL";
+    
 
     @Override
     public void init() throws ServletException {
@@ -45,14 +51,15 @@ public class ShimServletContainer extends ServletContainer {
 
     private void initBase(ServletConfig config) throws ServletException {
         String root = new File(new File("mmp.temp").getAbsolutePath()).getParentFile().getAbsolutePath();
-        LOG.info("--- ShimServletContainer.initBase(..) called in: " + root);
+        final String logClassInfo = "--- " + ShimServletContainer.class.getName();
+        LOG.info(logClassInfo +".initBase(..) called in: " + root);
 
         String confFileName = null;
         if ((confFileName = System.getProperty(BIOSTIF_SERVER_CONF)) == null) {
             confFileName = config.getInitParameter(BIOSTIF_SERVER_CONF);
         }
         if (confFileName == null) {
-            throw new ServletException("--- ShimServletContainer system-property and init-param \""
+            throw new ServletException(logClassInfo + " system-property and init-param \""
                     + BIOSTIF_SERVER_CONF + "\" not specified");
         }
 
@@ -61,7 +68,7 @@ public class ShimServletContainer extends ServletContainer {
             confFile = new File(config.getServletContext().getRealPath("/"), confFileName);
         }
         if (!confFile.canRead()) {
-            throw new ServletException("--- ShimServletContainer cannot read file: \"" + confFileName + "\" path: " + confFile.getAbsolutePath());
+            throw new ServletException(logClassInfo + " cannot read file: \"" + confFileName + "\" path: " + confFile.getAbsolutePath());
         }
 
         Properties props = new Properties();
@@ -73,6 +80,6 @@ public class ShimServletContainer extends ServletContainer {
         }
 
         config.getServletContext().setAttribute(BIOSTIF_SERVER_CONF, props);
-        LOG.info("--- ShimsServletContainer.initBase(..) successful");
+        LOG.info(logClassInfo +".initBase(..) successful");
     }
 }

@@ -96,6 +96,8 @@ public class RestGeoServerAdapter implements IGeoServerAdapter {
     private String dataDir;
     
     private String dataURL;
+    
+    private boolean doReloadGS = false;
 
     /**
      * Creates a new instance of a {@link RestGeoServerAdapter}.
@@ -129,11 +131,13 @@ public class RestGeoServerAdapter implements IGeoServerAdapter {
     }
     
     
-    public RestGeoServerAdapter(String user, String passwd, URI baseUri, String dataDir, String dataURL) {
+    public RestGeoServerAdapter(boolean reloadGS, String user, String passwd, URI baseUri, String dataDir, String dataURL) {
         Check.notNull(baseUri);
         Check.notNull(passwd);
         Check.notNull(user);
         Check.notNull(dataDir);
+        
+        this.doReloadGS = reloadGS;
         
         this.baseUri = baseUri;
         if (LOG.isLoggable(Level.FINE)) {
@@ -1007,12 +1011,6 @@ public class RestGeoServerAdapter implements IGeoServerAdapter {
                  "\"resolution\":\""+ resolution+"\",\n"+
                  "\"supportedFormats\":\""+ supportedFormats+"\"}";
         
-//        http://biovel.iais.fraunhofer.de:80/geoserver/ows?service=wcs&request=GetCoverage&version=1.0.0&sourcecoverage=admin:diff_fileA_fileB_20120627_155115_339&FORMAT=application/arcgrid&bbox=-180.0,-90.0,180.0,90&crs=EPSG:4326&width=720&height=360
-            
-//        {"diffresult tiff":"http://biovel.iais.fraunhofer.de:80/geoserver/ows?service=WMS&version=1.1.0&request=GetMap&layers=admin:diff_fileA_fileB_20120627_155115_339&FORMAT=image/tiff&bbox=-180.0,-90.0,180.0,90&crs=EPSG:4326&width=720&height=360"
-//            "diffresult arcgrid":"http://biovel.iais.fraunhofer.de:80/geoserver/ows?service=wcs&request=GetCoverage&version=1.0.0&sourcecoverage=admin:diff_fileA_fileB_20120627_155115_339&FORMAT=application/arcgrid&bbox=-180.0,-90.0,180.0,90&crs=EPSG:4326&width=720&height=360"
-                        
-        
             return coverageInfo;
     }
     
@@ -1187,18 +1185,25 @@ public class RestGeoServerAdapter implements IGeoServerAdapter {
   }
     
     
-    public void reloadGS(){
-    	
-        ClientResponse cr =
-                this.client.resource(this.baseUri + "/rest/reload").type("application/xml").header("Authorization",
-                    createAuthentication()).post(ClientResponse.class);
-        
-        if(cr.getStatus() != 200){
-        	LOG.info("something wrong with reload GeoServer - status: " + cr.getStatus() + " // " + cr.getClientResponseStatus());
+    public void reloadGS() {
+        if (doReloadGS) {
+            LOG.info("geoserver reload start");
+            long startTime = System.currentTimeMillis();
+
+            ClientResponse cr =
+                this.client.resource(this.baseUri + "/rest/reload").type("application/xml")
+                    .header("Authorization", createAuthentication()).post(ClientResponse.class);
+
+            if (cr.getStatus() != 200) {
+                LOG.info("something wrong with reload GeoServer - status: " + cr.getStatus() + " // "
+                        + cr.getClientResponseStatus());
+            }
+
+            LOG.info("geoserver reload end. ms: " + (System.currentTimeMillis() - startTime));
+        } else {
+            LOG.info("geoserver: NO reload");
         }
-    	
     }
-    
 
     public URI addLayer(String layerName) {
 

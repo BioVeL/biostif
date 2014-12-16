@@ -75,15 +75,6 @@ public class ShimComputationRessource {
                                @QueryParam("mask") Boolean addNoValueMask) {
         createAdapter(config);
         
-//        http://localhost:8080/shim/rest/computation/raster/diff?source1=http://localhost:8080/biostif/data/fileA.img&source2=http://localhost:8080/biostif/data/fileB.img
-        
-//        if(sourceUrlString1 == null || sourceUrlString2 == null){
-//            return Response.status(406).build();
-//        } else {
-        
-//        Response resp = computeDiff(config, sourceUrlString1, sourceUrlString2, userLayerName1, userLayerName2, workspaceid,
-//                inputFormatString, styleNameString, httpServletRequest);
-        
         if (addNoValueMask == null){
             addNoValueMask = true;
         }
@@ -173,9 +164,6 @@ public class ShimComputationRessource {
     private Response computeDiff(ServletConfig config, String userLayerName1, String userLayerName2, String styleNameString,String workspaceid,
                                  Boolean addNoValueMask,  HttpServletRequest httpServletRequest, String workflowRunId){
         
-        // getcov get request
-        // http://biovel.iais.fraunhofer.de:8080/geoserver/ows?request=getcoverage&service=wcs&version=1.0.0&bbox=-180.0,-90.0,180.0,90.0&CRS=EPSG:4326&coverage=biovel:Gu09z3&width=256&height=256&format=ArcGrid
-
         String geoserverUrlExtern = geoserverUrl+"/wps";
 //        System.out.println("geoserverUrlExtern: " + geoserverUrlExtern);
         
@@ -291,7 +279,7 @@ public class ShimComputationRessource {
 
         if (workspaceid == null || workspaceid.length() == 0) {
             workspaceid = "biovel_temp";
-//            workspaceid = gsAdapter.getWorkspacenameFromUsername();
+//            workspaceid = gsAdapter.getWorkspacenameFromUsername(); // XXX
             if (!gsAdapter.existsWS(workspaceid)) {
                 String msg =
                     "Error while store the diffresult to geoserver: -> the workspace '" + workspaceid
@@ -359,13 +347,8 @@ public class ShimComputationRessource {
     private Response storeCoverage(ServletConfig config, String sourceUrlString, InputStream sourceInputStream, String workspaceid, String formatString,
                                  String userLayerName, String styleNameString, String workflowRunId){
         
-//        String storedCoverageName = "";
-        
         this.client = Client.create();
-        Properties props = (Properties) config.getServletContext().getAttribute(ShimServletContainer.BIOSTIF_SERVER_CONF);
-        String dataUrl = props.getProperty("DATA_URL");
-        
-//        String dataManagerService = "http://localhost:8080/workflow/rest/data";
+        String dataUrl = getShimProperty(config,ShimServletContainer.DATA_URL);
         
         if(formatString == null || formatString.length() == 0){
             formatString = "ERDASImg";
@@ -489,6 +472,12 @@ public class ShimComputationRessource {
         return Response.status(201).entity(layerName).build();
         
     }
+
+    private String getShimProperty(ServletConfig config, String propertyName) {
+        Properties props = (Properties) config.getServletContext().getAttribute(ShimServletContainer.BIOSTIF_SERVER_CONF);
+        String dataUrl = props.getProperty(propertyName);
+        return dataUrl;
+    }
     
     
     private void createAdapter(ServletConfig config){
@@ -510,8 +499,8 @@ public class ShimComputationRessource {
             throw new RuntimeException(e);
         }
         
-//        gsAdapter = new RestGeoServerAdapter(geoserverUser, geoserverPasswd, gsUri);
-        gsAdapter = new RestGeoServerAdapter(geoserverUser, geoserverPasswd, gsUri, dataDir, dataURL);
+        boolean reloadGS = Boolean.parseBoolean(props.getProperty("GEOSERVER_RELOAD"));
+        gsAdapter = new RestGeoServerAdapter(reloadGS, geoserverUser, geoserverPasswd, gsUri, dataDir, dataURL);
         
         if(!gsAdapter.resourceAvailable(geoserverUrl)){
             throw new WebApplicationException(500);

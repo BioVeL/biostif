@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
@@ -76,6 +77,15 @@ public class ShimRasterResource {
         return Response.ok().build();
     }
     
+    @GET
+    @Path("pingtest")
+    public Response dataPingTest(@Context ServletConfig config) {
+        LOG.info("../raster/pingtest");
+        createAdapter(config);
+        gsAdapter.reloadGS();
+        return Response.ok().build();
+    }
+
     @HEAD
     public Response dataHead() {
         return Response.status(204).build();
@@ -551,7 +561,7 @@ public class ShimRasterResource {
         setPublicWorkspaces(config);
         
         //request from Raster upload service e.g. in ENM:
-        // http://biovel.iais.fraunhofer.de/shim/rest/raster/{workspaceid}?source={sourceURL}&stylename={styleName}&inputformat={inputformat}&layername={layername}
+        // {BIOSTIF_SERVER_URL}/shim/rest/raster/{workspaceid}?source={sourceURL}&stylename={styleName}&inputformat={inputformat}&layername={layername}
         
         if (formatString != null && inputFormatString != null){
             if(formatString.equals(inputFormatString)){
@@ -585,7 +595,8 @@ public class ShimRasterResource {
         // userWorkspace als liste?? bestimmt
         
         System.out.println("workspaceid: " + workspaceid);
-        List<String> authWorkspacesList = Arrays.asList(publicWorkspace.split(","));
+        List<String> authWorkspacesList = new ArrayList<String>(Arrays.asList(publicWorkspace.split(",")));
+        authWorkspacesList.add("biovel_projections"); // a non public workspace only for intermediate projections
 
         //biovel_tmp vereinigen mit auth-response? dann checken in Liste? sollte generell richtig sein.un wenn erlaubt dann nehmen sonst verwerfen oder tmp?
         if(workspaceid == null || workspaceid.length() == 0){
@@ -706,7 +717,7 @@ public class ShimRasterResource {
         System.out.println("hier bei ->> shim/raster/workspaceAuth");
         
         //request from Raster upload service e.g. in ENM:
-        // http://biovel.iais.fraunhofer.de/shim/rest/raster/{workspaceid}?source={sourceURL}&stylename={styleName}&inputformat={inputformat}&layername={layername}
+        // {BIOSTIF_SERVER_URL}/shim/rest/raster/{workspaceid}?source={sourceURL}&stylename={styleName}&inputformat={inputformat}&layername={layername}
         
         setPublicWorkspaces(config);
         
@@ -1096,23 +1107,11 @@ public class ShimRasterResource {
         
         createAdapter(config);
         
-//        String geoserverUrlExtern = httpServletRequest.getScheme()+"://"+httpServletRequest.getServerName();
-//        int port = httpServletRequest.getServerPort();
-//        if(port != 80 && port != 443){
-//            geoserverUrlExtern += ":"+port;
-//        }
-        
         String acceptHeader = httpServletRequest.getHeader("Accept");
         
-//        String geoserverUrlExtern = httpServletRequest.getScheme()+"://"+httpServletRequest.getServerName();
-//        int port = httpServletRequest.getServerPort();
-//        if(port != 80 && port != 443){
-//            geoserverUrlExtern += ":"+port;
-//        }
+        String geoserverUrlExtern = getShimProperty(config, ShimServletContainer.GEOSERVER_URL);
         
-        String geoserverUrlExtern = "http://biovel.iais.fraunhofer.de/geoserver";
-        
-        String publicWorkspace = "biovel_temp";
+        String publicWorkspace = getShimProperty(config, ShimServletContainer.PUBLIC_WORKSPACE);
         
         //welches Rückgabeformat??
         gsAdapter.reloadGS();
@@ -1123,27 +1122,17 @@ public class ShimRasterResource {
         
         if(gsAdapter.existsWS(publicWorkspace)){ 
             
-            System.out.println("exists !!");
+            System.out.println(publicWorkspace + " exists !!");
             
             coverageList = gsAdapter.listCS(publicWorkspace, geoserverUrlExtern, "application/xml");
         
-//            if(coverageList.length() > 0){
-//                return Response.ok(coverageList).build();
-//            } else {
-//                String msg = "No coverages available in workspace ("+workspaceid+") ";
-//                return Response.status(404).entity(msg).build();            
-//            }
+            System.out.println(" #coverages: " + coverageList.length());
             
             String repairLayers = gsAdapter.repairLayers(geoserverUrlExtern, coverageList);
             
-            
         } else{
-            System.out.println("no exist");
+            System.out.println(publicWorkspace + " exists NOT");
         }
-        
-//        System.out.println("coverage List: " + coverageList);
-        
-        
         
         return Response.status(200).build();
     }
@@ -1510,16 +1499,16 @@ public class ShimRasterResource {
         return Response.ok(result).build();
     }
     
-    private void createAdapter(ServletConfig config){
-        
-        Properties props = (Properties) config.getServletContext().getAttribute(ShimServletContainer.BIOSTIF_SERVER_CONF);
-        //geoserverUrl = props.getProperty("GEOSERVER_URL");
-        String geoserverUrl = "http://biovel.iais.fraunhofer.de/geoserver";
+    private void createAdapter(ServletConfig config) {
+
+        Properties props =
+            (Properties) config.getServletContext().getAttribute(ShimServletContainer.BIOSTIF_SERVER_CONF);
+        String geoserverUrl = props.getProperty("GEOSERVER_URL");
         String geoserverUser = props.getProperty("GEOSERVER_USER");
         String geoserverPasswd = props.getProperty("GEOSERVER_PASSWD");
         String dataDir = props.getProperty("DATA_DIR");
         String dataURL = props.getProperty("DATA_URL");
-        
+
         URI gsUri;
         try {
             gsUri = new URI(geoserverUrl);
@@ -1527,13 +1516,14 @@ public class ShimRasterResource {
             LOG.log(Level.SEVERE, e.getMessage(), e);
             throw new RuntimeException(e);
         }
-        
-        gsAdapter = new RestGeoServerAdapter(geoserverUser, geoserverPasswd, gsUri, dataDir, dataURL);
-        
-        if(!gsAdapter.resourceAvailable(geoserverUrl)){
+
+        boolean reloadGS = Boolean.parseBoolean(props.getProperty("GEOSERVER_RELOAD"));
+        gsAdapter = new RestGeoServerAdapter(reloadGS, geoserverUser, geoserverPasswd, gsUri, dataDir, dataURL);
+
+        if (!gsAdapter.resourceAvailable(geoserverUrl)) {
             throw new WebApplicationException(500);
         }
-        
+
     };
     
     private String checkCS(String layerName, int ix){
@@ -1562,5 +1552,14 @@ public class ShimRasterResource {
         
         return layerName;
     }
+    
+    private String getShimProperty(ServletConfig config, String propertyName) {
+        Properties props =
+            (Properties) config.getServletContext().getAttribute(ShimServletContainer.BIOSTIF_SERVER_CONF);
+        String dataUrl = props.getProperty(propertyName);
+        return dataUrl;
+    }    
+    
+
 
 }

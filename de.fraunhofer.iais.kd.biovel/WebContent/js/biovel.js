@@ -225,13 +225,9 @@ function initialize_application(pars, stifGui, mapContainerDiv, plotContainerDiv
 	    	//try IE method
 	    	applicationUrl = window.location.href;
 	    }
+	    logg("applicationUrl: " + applicationUrl);
+
 	    applicationUrl = applicationUrl.substring(0, applicationUrl.indexOf("main.jsp"));
-	    //XXX RK appUrl to biovel if ""
-//	    logg("biovel.js applicationUrl: " + applicationUrl);
-//	    logg("is blank? " + applicationUrl.length);
-	    if(applicationUrl.length == 0){
-	    	applicationUrl = "http://biovel.iais.fraunhofer.de/biostif/";
-	    }
 	    
 	    startBioSTIF(params, applicationUrl, stifGui, mapContainerDiv, plotContainerDiv, tableContainerDiv, layerContainerDiv, mapWidth, mapHeight);
 		
@@ -251,8 +247,13 @@ function startBioSTIF (params, applicationUrl, stifGui, mapContainerDiv, plotCon
 	try {
 		writeToFullscreen($.i18n.prop('msg_fullscreen_read_config'));
 		var config = getClientConfigData();
+		logg("config.SHIM_SERVER: " + config.SHIM_SERVER);
+
+// XXX
+	    if(applicationUrl.length == 0){
+	    	applicationUrl = config.SHIM_SERVER
+	    }
 		
-		logg("config: " + config.SHIM_SERVER);
 		
 //		logg("auth: "+ params.auth_header.length + " - " + params.auth_header);
 //		logg("auth: "+ params.oauth_provider_url.length + " - " + params.oauth_provider_url);
@@ -299,6 +300,7 @@ function startBioSTIF (params, applicationUrl, stifGui, mapContainerDiv, plotCon
 		
 		var workspaces = [];
 		workspaces.push("biovel_temp");
+		workspaces.push("biovel_projections");
 		if(username.length > 0){
 			workspaces.push(username);
 		}

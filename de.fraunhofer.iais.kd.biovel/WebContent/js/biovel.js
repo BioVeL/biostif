@@ -249,10 +249,10 @@ function startBioSTIF (params, applicationUrl, stifGui, mapContainerDiv, plotCon
 		var config = getClientConfigData();
 		logg("config.SHIM_SERVER: " + config.SHIM_SERVER);
 
-// XXX
 	    if(applicationUrl.length == 0){
-	    	applicationUrl = config.SHIM_SERVER
+	    	applicationUrl = config.SHIM_SERVER + "biostif/";
 	    }
+	    logg("applicationUrl: " + applicationUrl);
 		
 		
 //		logg("auth: "+ params.auth_header.length + " - " + params.auth_header);
